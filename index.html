@@ -1,1 +1,117 @@
-<h1>Hello</h1>
+---
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+
+layout: default
+---
+<div class="container pt-4">
+    <div class="row">
+        <div class="col text-center">
+            <h1>It All Starts here</h1>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <!-- Carousel wrapper -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-config='{"interval": 3000, "pause": false}'>
+        <!-- Slides -->
+        <div class="carousel-inner mb-5">
+        <div class="carousel-item active">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(88).webp" class="d-block w-100" alt="..." />
+        </div>
+        <div class="carousel-item">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(121).webp" class="d-block w-100"
+            alt="..." />
+        </div>
+        <div class="carousel-item">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(31).webp" class="d-block w-100" alt="..." />
+        </div>
+        </div>
+        <!-- Slides -->
+    
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+        </button>
+        <!-- Controls -->
+    
+        <!-- Thumbnails -->
+        <div class="carousel-indicators" style="margin-bottom: -20px;">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1" style="width: 100px;">
+            <img class="d-block w-100"
+            src="https://mdbcdn.b-cdn.net/img/Photos/Others/Carousel-thumbs/img%20(88).webp" class="img-fluid" />
+        </button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+            aria-label="Slide 2" style="width: 100px;">
+            <img class="d-block w-100"
+            src="https://mdbcdn.b-cdn.net/img/Photos/Others/Carousel-thumbs/img%20(121).webp" class="img-fluid" />
+        </button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+            aria-label="Slide 3" style="width: 100px;">
+            <img class="d-block w-100"
+            src="https://mdbcdn.b-cdn.net/img/Photos/Others/Carousel-thumbs/img%20(31).webp" class="img-fluid" />
+        </button>
+        </div>
+        <!-- Thumbnails -->
+    </div>
+    <!-- Carousel wrapper -->
+</div>
+<div class="container py-5">
+    <div class="row row-cols-md-2">
+        <div class="col">
+            <p>Hocking Hills is a picturesque destination that is perfect for nature lovers and those who want to escape the hustle and bustle of city life. Your lodges offer a peaceful retreat in the heart of the woods, surrounded by breathtaking scenery and natural wonders. From hiking trails and waterfalls to horseback riding and zip-lining, there is no shortage of outdoor activities for visitors to enjoy. In addition, the area is home to some of Ohio's most stunning rock formations, including Old Man's Cave, Ash Cave, and Cedar Falls. Staying at one of your lodges in Hocking Hills would provide guests with easy access to all of these attractions and more.</p>
+        </div>
+        <div class="col">
+            <p>Our lodges offer comfortable and well-appointed accommodations that cater to a wide range of travelers. Whether visitors are looking for a romantic getaway or a family-friendly vacation, your lodges have something for everyone. Guests can choose from a variety of lodging options, including cabins, cottages, and lodges, each with their own unique features and amenities. From hot tubs and fireplaces to fully-equipped kitchens and spacious living areas, your lodges provide everything needed for a comfortable and enjoyable stay. Furthermore, your lodges are conveniently located near local restaurants and shops, making it easy for guests to explore the area and experience all that Hocking Hills has to offer.</p>
+        </div>
+    </div>
+</div>
+<div class="container pb-5">
+    <div class="row">
+        <h3>LODGES</h3>
+    </div>
+</div>
+<div class="container">
+    <div class="row row-cols-2">
+        {% for post in site.posts %}
+            <div class="col">
+                <!-- <a href="{{ post.url }}">{{ post.title }}</a>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button type="button" class="btn btn-primary me-md-2">Learn More</button>
+                        <button type="button" class="btn btn-primary">Book Now</button>                   
+                </div> -->
+                <div class="card" >
+                    <img class="card-img-top" src="/assets/images/{{ post.cardImage }}" alt={{post.title}}> 
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="{{ post.url }}" role="button" class="btn btn-primary me-md-2 mb-5">Learn More</a>
+                        <!-- <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                            <a href="{{ post.url }}" role="button" class="btn btn-primary me-md-2">Learn More</a>
+                            <a href="{{ post.url }}" role="button" class="btn btn-primary">Book Now</a>                   
+                        </div> -->
+                        <div class="tr-widget" data-tr-widget-type="unit-calendar" data-tr-short-name="lodgesatcedarfalls" data-tr-unit-id="fa8b4ed3-766f-43db-a918-c49e5f6afda8"></div>
+                        <div class="tr-widget" data-tr-widget-type="check-availability" data-tr-short-name="lodgesatcedarfalls" data-tr-number-of-adults="3" data-tr-number-of-children="2" data-tr-unit-id="cc600566-7180-4972-b78b-fffc27285245"> </div>
+                        <!-- Info on using widgets https://support.thinkreservations.com/support/solutions/articles/48000511643-check-availability-widget -->
+                        <!-- Get json of all available dates https://api.thinkreservations.com/hotels/2461/rooms/{{post.unitId}}/daily_availabilities?start_date=2023-02-01&end_date=2025-01-31-->
+                    </div>
+                  </div>
+            </div>
+        {% endfor %}
+        <!-- <ul>
+            {% for post in site.posts %}
+              <li>
+                <a href="{{ post.url }}">{{ post.title }}</a>
+              </li>
+            {% endfor %}
+        </ul> -->
+    </div>
+</div>
