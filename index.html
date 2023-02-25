@@ -13,63 +13,66 @@ layout: default
 </div>
 <div class="container">
     <!-- Carousel wrapper -->
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-config='{"interval": 3000, "pause": false}'>
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-config='{"interval": 4000, "pause": false}'>
         <!-- Slides -->
         <div class="carousel-inner mb-5">
-        <div class="carousel-item active">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(88).webp" class="d-block w-100" alt="..." />
-        </div>
-        <div class="carousel-item">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(121).webp" class="d-block w-100"
-            alt="..." />
-        </div>
-        <div class="carousel-item">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(31).webp" class="d-block w-100" alt="..." />
-        </div>
+            <div class="carousel-inner mb-1">
+                {% assign image_found = false %}
+                    {% for image in site.static_files %}
+                        {% if image.path contains 'luxehauslodge' %}
+                            {% if image_found == false %}
+                            <div class="carousel-item active">
+                            {% else %}
+                            <div class="carousel-item">
+                            {% endif %}               
+                            <img src="{{ site.baseurl }}{{ image.path }}" class="d-block w-100" alt="image" style="height:35vw" />
+                        </div>
+                        {% assign image_found = true %}
+                        {% endif %}
+                {% endfor %}             
+            </div>
         </div>
         <!-- Slides -->
     
         <!-- Controls -->
-        <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
+        <button class="carousel-control-prev position-absolute top-50 start-0 translate-middle-y" style="height: 50px; width: 50px;"
+        type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-        </button> -->
+        <button class="carousel-control-next top-50 position-absolute end-0 translate-middle-y" 
+            style="height: 50px; width: 50px;" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
         <!-- Controls -->
     
         <!-- Thumbnails -->
         <div class="carousel-indicators" style="margin-bottom: -20px;">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="Slide 1" style="width: 100px;">
-            <img class="d-block w-100"
-            src="https://mdbcdn.b-cdn.net/img/Photos/Others/Carousel-thumbs/img%20(88).webp" class="img-fluid" />
-        </button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-            aria-label="Slide 2" style="width: 100px;">
-            <img class="d-block w-100"
-            src="https://mdbcdn.b-cdn.net/img/Photos/Others/Carousel-thumbs/img%20(121).webp" class="img-fluid" />
-        </button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-            aria-label="Slide 3" style="width: 100px;">
-            <img class="d-block w-100"
-            src="https://mdbcdn.b-cdn.net/img/Photos/Others/Carousel-thumbs/img%20(31).webp" class="img-fluid" />
-        </button>
+            {% assign image_found_count = 0 %}
+            {% for image in site.static_files %}
+                {% if image.path contains 'luxehauslodge' %}                                   
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ image_found_count }}" 
+                    class="{% if image_found_count == 0 %}active{% else %}img-responsive{% endif %}"
+                    aria-current="true" aria-label="Slide 1" style="width: 100px;">
+                    <img class="d-block w-100"
+                    src="{{ site.baseurl }}{{ image.path }}" class="img-responsive" />
+                    </button>
+                    {% assign image_found_count = image_found_count | plus: 1 %}
+                {% endif %}
+            {% endfor %}       
         </div>
         <!-- Thumbnails -->
     </div>
     <!-- Carousel wrapper -->
 </div>
 <div class="container py-5">
-    <div class="row row-cols-md-2">
-        <div class="col">
+    <div class="row">
+        <div class="col-md-6">
             <p>Hocking Hills is a picturesque destination that is perfect for nature lovers and those who want to escape the hustle and bustle of city life. Your lodges offer a peaceful retreat in the heart of the woods, surrounded by breathtaking scenery and natural wonders. From hiking trails and waterfalls to horseback riding and zip-lining, there is no shortage of outdoor activities for visitors to enjoy. In addition, the area is home to some of Ohio's most stunning rock formations, including Old Man's Cave, Ash Cave, and Cedar Falls. Staying at one of your lodges in Hocking Hills would provide guests with easy access to all of these attractions and more.</p>
         </div>
-        <div class="col">
+        <div class="col-md-6">
             <p>Our lodges offer comfortable and well-appointed accommodations that cater to a wide range of travelers. Whether visitors are looking for a romantic getaway or a family-friendly vacation, your lodges have something for everyone. Guests can choose from a variety of lodging options, including cabins, cottages, and lodges, each with their own unique features and amenities. From hot tubs and fireplaces to fully-equipped kitchens and spacious living areas, your lodges provide everything needed for a comfortable and enjoyable stay. Furthermore, your lodges are conveniently located near local restaurants and shops, making it easy for guests to explore the area and experience all that Hocking Hills has to offer.</p>
         </div>
     </div>
@@ -80,9 +83,9 @@ layout: default
     </div>
 </div>
 <div class="container">
-    <div class="row row-cols-2">
+    <div class="row">
         {% for post in site.posts %}
-            <div class="col">
+            <div class="col-md-6">
                 <!-- <a href="{{ post.url }}">{{ post.title }}</a>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <button type="button" class="btn btn-primary me-md-2">Learn More</button>

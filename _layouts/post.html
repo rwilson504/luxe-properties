@@ -2,8 +2,65 @@
 layout: default
 ---
 <div class="container">
-{{ content }}
+{{ content}}
 </div>
 <div class="container">
     <div class="tr-widget" data-tr-widget-type="unit-calendar-with-availability-form" data-tr-widget-type="check-availability" data-tr-short-name="lodgesatcedarfalls" data-tr-number-of-adults="3" data-tr-number-of-children="2" data-tr-unit-id="{{page.unitId}}"> </div>
+</div>
+<div class="container">
+    <div class="row">
+        <h3>{{ page.title }} Gallery</h3>
+    </div>
+    <!-- Carousel wrapper -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-config='{"interval": 4000, "pause": false}'>
+        <!-- Slides -->
+        <div class="carousel-inner mb-5">
+            {% assign image_found = false %}
+                {% for image in site.static_files %}
+                    {% if image.path contains 'luxehauslodge' %}
+                        {% if image_found == false %}
+                        <div class="carousel-item active">
+                        {% else %}
+                        <div class="carousel-item">
+                        {% endif %}               
+                        <img src="{{ site.baseurl }}{{ image.path }}" class="d-block w-100" alt="image" />
+                    </div>
+                    {% assign image_found = true %}
+                    {% endif %}
+            {% endfor %}             
+        </div>
+        <!-- Slides -->
+    
+        <!-- Controls -->
+        <button class="carousel-control-prev position-absolute top-50 start-0 translate-middle-y" style="height: 50px; width: 50px;"
+        type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next top-50 position-absolute end-0 translate-middle-y" 
+            style="height: 50px; width: 50px;" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+        <!-- Controls -->
+    
+        <!-- Thumbnails -->
+        <div class="carousel-indicators" style="margin-bottom: -20px;">
+            {% assign image_found_count = 0 %}
+            {% for image in site.static_files %}
+                {% if image.path contains 'luxehauslodge' %}                                   
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ image_found_count }}" 
+                    class="{% if image_found_count == 0 %}active{% else %}img-fluid{% endif %}"
+                    aria-current="true" aria-label="Slide 1" style="width: 100px;">
+                    <img class="d-block w-100"
+                    src="{{ site.baseurl }}{{ image.path }}" class="img-fluid" />
+                    </button>
+                    {% assign image_found_count = image_found_count | plus: 1 %}
+                {% endif %}
+            {% endfor %}        
+        </div>
+        <!-- Thumbnails -->
+    </div>
+    <!-- Carousel wrapper -->
 </div>
