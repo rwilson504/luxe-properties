@@ -5,8 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Home - Brand</title>
-    <link rel="stylesheet" href="{{ site.baseurl }}/assets/main.css">
-    <link rel="stylesheet" href="{{ site.baseurl }}/assets/bootstrap/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="{{ site.baseurl }}/assets/main.css"> -->
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/stylesheets/custom.css">
+    <!-- <link rel="stylesheet" href="{{ site.baseurl }}/assets/bootstrap/css/bootstrap.min.css"> -->
     <link href="{{ site.baseurl }}/assets/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="{{ site.baseurl }}/assets/fontawesome/css/brands.css" rel="stylesheet">
     <link href="{{ site.baseurl }}/assets/fontawesome/css/solid.css" rel="stylesheet">
@@ -14,16 +15,16 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"> -->
 </head>
 
-<body>    
+<body style="background-color: #fbf9f0;">    
     <header class="masthead bg-primary mb-5">
         <div class="container py-2">
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-between align-items-center text-white">
                     <h3>Hocking Luxury Lodges</h3>
-                    <a href="/{{ site.baseurl }}"><i class="fa-solid fa-house text-white"></i></a>
+                    <a href="{{ site.baseurl }}"><i class="fa-solid fa-house text-white"></i></a>
                 </div>
         </div>
     </header>
-
+    
     {{ content }}
     
     <footer class="bg-primary mt-5">

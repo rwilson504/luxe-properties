@@ -1,6 +1,6 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+# Info on using widgets https://support.thinkreservations.com/support/solutions/articles/48000511643-check-availability-widget
+# Get json of all available dates https://api.thinkreservations.com/hotels/2461/rooms/{{post.unitId}}/daily_availabilities?start_date=2023-02-01&end_date=2025-01-31
 
 layout: default
 ---
@@ -49,7 +49,7 @@ layout: default
         <!-- Controls -->
     
         <!-- Thumbnails -->
-        <div class="carousel-indicators" style="margin-bottom: -20px;">
+        <!-- <div class="carousel-indicators" style="margin-bottom: -20px;">
             {% assign image_found_count = 0 %}
             {% for image in site.static_files %}
                 {% if image.path contains 'luxehauslodge' %}                                   
@@ -62,12 +62,12 @@ layout: default
                     {% assign image_found_count = image_found_count | plus: 1 %}
                 {% endif %}
             {% endfor %}       
-        </div>
+        </div> -->
         <!-- Thumbnails -->
     </div>
     <!-- Carousel wrapper -->
 </div>
-<div class="container py-5">
+<!-- <div class="container py-5">
     <div class="row">
         <div class="col-md-6">
             <p>Hocking Hills is a picturesque destination that is perfect for nature lovers and those who want to escape the hustle and bustle of city life. Your lodges offer a peaceful retreat in the heart of the woods, surrounded by breathtaking scenery and natural wonders. From hiking trails and waterfalls to horseback riding and zip-lining, there is no shortage of outdoor activities for visitors to enjoy. In addition, the area is home to some of Ohio's most stunning rock formations, including Old Man's Cave, Ash Cave, and Cedar Falls. Staying at one of your lodges in Hocking Hills would provide guests with easy access to all of these attractions and more.</p>
@@ -76,45 +76,109 @@ layout: default
             <p>Our lodges offer comfortable and well-appointed accommodations that cater to a wide range of travelers. Whether visitors are looking for a romantic getaway or a family-friendly vacation, your lodges have something for everyone. Guests can choose from a variety of lodging options, including cabins, cottages, and lodges, each with their own unique features and amenities. From hot tubs and fireplaces to fully-equipped kitchens and spacious living areas, your lodges provide everything needed for a comfortable and enjoyable stay. Furthermore, your lodges are conveniently located near local restaurants and shops, making it easy for guests to explore the area and experience all that Hocking Hills has to offer.</p>
         </div>
     </div>
-</div>
+</div> -->
 <div class="container pb-5">
+    <div class="row row-cols-1 row-cols-md-3 g-5">
+        <div class="col">
+            <div class="card h-100" style="">
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>              
+                <div class="card-body">
+                  <!-- <h5 class="card-title">Card title</h5> -->
+                  <p class="card-text">Luxurious modern lodges...</p>
+                </div>
+              </div>
+        </div>
+        <div class="col">
+            <div class="card h-100" style="">
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>              
+                <div class="card-body">
+                  <!-- <h5 class="card-title">Card title</h5> -->
+                  <p class="card-text">Perfect for families or large groups...</p>
+                </div>
+              </div>        
+        </div>
+        <div class="col">
+            <div class="card h-100" style="">
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>              
+                <div class="card-body">
+                  <!-- <h5 class="card-title">Card title</h5> -->
+                  <p class="card-text">Close to area attractions...</p>
+                </div>
+              </div>        
+        </div>
+    </div>
+</div>
+<div class="container pb-3">
     <div class="row">
         <h3>LODGES</h3>
     </div>
 </div>
-<div class="container">
+<!-- <div class="container">
     <div class="row">
         {% for post in site.posts %}
             <div class="col-md-6">
-                <!-- <a href="{{ post.url }}">{{ post.title }}</a>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <button type="button" class="btn btn-primary me-md-2">Learn More</button>
-                        <button type="button" class="btn btn-primary">Book Now</button>                   
-                </div> -->
                 <div class="card" >
                     <img class="card-img-top" src="{{ site.baseurl }}/assets/images/{{ post.cardImage }}" alt={{post.title}}> 
                     <div class="card-body">
                         <h5 class="card-title">{{ post.title }}</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         <a href="{{ post.url }}" role="button" class="btn btn-primary me-md-2 mb-5">Learn More</a>
-                        <!-- <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                            <a href="{{ post.url }}" role="button" class="btn btn-primary me-md-2">Learn More</a>
-                            <a href="{{ post.url }}" role="button" class="btn btn-primary">Book Now</a>                   
-                        </div> -->
                         <div class="tr-widget" data-tr-widget-type="unit-calendar" data-tr-short-name="lodgesatcedarfalls" data-tr-unit-id="fa8b4ed3-766f-43db-a918-c49e5f6afda8"></div>
-                        <div class="tr-widget" data-tr-widget-type="check-availability" data-tr-short-name="lodgesatcedarfalls" data-tr-number-of-adults="3" data-tr-number-of-children="2" data-tr-unit-id="cc600566-7180-4972-b78b-fffc27285245"> </div>
-                        <!-- Info on using widgets https://support.thinkreservations.com/support/solutions/articles/48000511643-check-availability-widget -->
-                        <!-- Get json of all available dates https://api.thinkreservations.com/hotels/2461/rooms/{{post.unitId}}/daily_availabilities?start_date=2023-02-01&end_date=2025-01-31-->
+                        <div class="tr-widget" data-tr-widget-type="check-availability" data-tr-short-name="lodgesatcedarfalls" data-tr-number-of-adults="3" data-tr-number-of-children="2" data-tr-unit-id="cc600566-7180-4972-b78b-fffc27285245"></div>
                     </div>
                   </div>
             </div>
         {% endfor %}
-        <!-- <ul>
-            {% for post in site.posts %}
-              <li>
-                <a href="{{ post.url }}">{{ post.title }}</a>
-              </li>
-            {% endfor %}
-        </ul> -->
+    </div>
+</div> -->
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-1">
+        {% for post in site.posts %}
+        <div class="card mb-3 g-0">
+            <div class="card-header">
+                {{ post.title }}
+            </div>            
+            <div class="row g-0 align-items-center">
+              <div class="col-md-4">
+                <img class="img-fluid w-100" src="{{ site.baseurl }}/assets/images/{{ post.cardImage }}" alt={{post.title}}> 
+              </div>
+              <div class="col-md-8">
+                <div class="card-body border-0">
+                    <div class="row mb-3">
+                        <div class="col">
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <a href="{{ site.baseurl }}{{ post.url }}" role="button" class="btn btn-primary me-md-2 mb-5">Learn More</a>
+                        </div>
+                    </div>          
+                    <div class="row g-5">
+                        <!-- <div class="col">
+                            <style>.tr-component.tr-unit-calendar-with-availability-form { border: none !important; }</style>
+                            <div class="tr-widget" data-tr-widget-type="unit-calendar-with-availability-form" data-tr-widget-type="check-availability" data-tr-short-name="lodgesatcedarfalls" data-tr-number-of-adults="3" data-tr-number-of-children="2" data-tr-unit-id="fa8b4ed3-766f-43db-a918-c49e5f6afda8"> </div>
+                        </div> -->
+                        <div class="col-lg-6">
+                            <div class="tr-widget" data-tr-widget-type="unit-calendar" data-tr-short-name="lodgesatcedarfalls" data-tr-unit-id="fa8b4ed3-766f-43db-a918-c49e5f6afda8"></div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="tr-widget" data-tr-widget-type="check-availability" data-tr-short-name="lodgesatcedarfalls" data-tr-number-of-adults="3" data-tr-number-of-children="2" data-tr-unit-id="fa8b4ed3-766f-43db-a918-c49e5f6afda8"></div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+            <!-- <div class="col">
+                <div class="card" >
+                    <img class="card-img-top" src="{{ site.baseurl }}/assets/images/{{ post.cardImage }}" alt={{post.title}}> 
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="{{ post.url }}" role="button" class="btn btn-primary me-md-2 mb-5">Learn More</a>
+                        <div class="tr-widget" data-tr-widget-type="unit-calendar" data-tr-short-name="lodgesatcedarfalls" data-tr-unit-id="fa8b4ed3-766f-43db-a918-c49e5f6afda8"></div>
+                        <div class="tr-widget" data-tr-widget-type="check-availability" data-tr-short-name="lodgesatcedarfalls" data-tr-number-of-adults="3" data-tr-number-of-children="2" data-tr-unit-id="cc600566-7180-4972-b78b-fffc27285245"></div>
+                    </div>
+                  </div>
+            </div> -->
+        {% endfor %}
     </div>
 </div>
