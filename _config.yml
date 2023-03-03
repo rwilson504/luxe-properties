@@ -34,6 +34,7 @@ google_analytics: "G-04Q5RY1JHY"
 #theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
 
 sass:
     sass_dir: _sass
