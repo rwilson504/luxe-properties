@@ -18,6 +18,7 @@ bathrooms: "3 full"
 sleeping:
   - "2 bedrooms upstairs — 1 room with a queen and a full, and 1 king room"
   - "2 bedrooms lower level, each with a king bed"
+  - "Pullout couch on main floor (sleeps 2)"
   - "1 full bath main floor"
   - "1 full bath lower level"
   - "1 full bath upper level"
