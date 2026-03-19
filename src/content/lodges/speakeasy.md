@@ -36,7 +36,7 @@ amenities:
     items: ["Air conditioning", "Indoor fireplace", "Ceiling fan", "Central heating"]
   - icon: "fa-solid fa-shield-halved"
     title: "Home Safety"
-    items: ["Ring doorbell + exterior camera", "Smoke alarm", "Carbon monoxide alarm", "Fire extinguisher", "First aid kit"]
+    items: ["Ring doorbell", "Smoke alarm", "Carbon monoxide alarm", "Fire extinguisher", "First aid kit"]
   - icon: "fa-solid fa-wifi"
     title: "Internet"
     items: ["Starlink Wifi"]
