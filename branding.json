@@ -1,0 +1,159 @@
+{
+  "colorScheme": "light",
+  "fonts": [
+    {
+      "family": "Segoe UI",
+      "role": "body"
+    },
+    {
+      "family": "Roboto",
+      "role": "body"
+    },
+    {
+      "family": "Helvetica Neue",
+      "role": "body"
+    },
+    {
+      "family": "Noto Sans",
+      "role": "body"
+    },
+    {
+      "family": "Arial",
+      "role": "body"
+    }
+  ],
+  "colors": {
+    "primary": "#4B7D67",
+    "accent": "#4B7D67",
+    "background": "#FFFFFF",
+    "textPrimary": "#212529",
+    "link": "#D1E5DB"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Segoe UI",
+      "heading": "Segoe UI"
+    },
+    "fontStacks": {
+      "heading": [
+        "system-ui",
+        "-apple-system",
+        "Segoe UI",
+        "Roboto",
+        "Helvetica Neue",
+        "Noto Sans",
+        "Liberation Sans",
+        "Arial",
+        "sans-serif",
+        "Apple Color Emoji",
+        "Noto Color Emoji"
+      ],
+      "body": [
+        "system-ui",
+        "-apple-system",
+        "Segoe UI",
+        "Roboto",
+        "Helvetica Neue",
+        "Noto Sans",
+        "Liberation Sans",
+        "Arial",
+        "sans-serif",
+        "Apple Color Emoji",
+        "Noto Color Emoji"
+      ],
+      "paragraph": [
+        "system-ui",
+        "-apple-system",
+        "Segoe UI",
+        "Roboto",
+        "Helvetica Neue",
+        "Noto Sans",
+        "Liberation Sans",
+        "Arial",
+        "sans-serif",
+        "Apple Color Emoji",
+        "Noto Color Emoji"
+      ]
+    },
+    "fontSizes": {
+      "h1": "16px",
+      "h2": "16px",
+      "body": "20px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "borderRadius": "16px"
+  },
+  "components": {
+    "buttonPrimary": {
+      "background": "#4B7D67",
+      "textColor": "#E8EFEC",
+      "borderColor": "#E8EFEC",
+      "borderRadius": "26px",
+      "borderRadiusCorners": {
+        "topLeft": "26px",
+        "topRight": "26px",
+        "bottomRight": "26px",
+        "bottomLeft": "26px"
+      },
+      "shadow": "none"
+    }
+  },
+  "images": {
+    "logo": "https://www.hockinghills.com/public/group-11.svg",
+    "favicon": "https://hockinghills.com/favicon.ico",
+    "ogImage": "https://www.hockinghills.com/images/misc/HH180x180.png",
+    "logoHref": "https://www.hockinghills.com",
+    "logoAlt": "Go to homepage."
+  },
+  "__llm_logo_reasoning": {
+    "selectedIndex": 5,
+    "reasoning": "Selected #5 because it is a medium-sized, visible logo in the header that links to the homepage, matching the brand 'Hocking Hills'.",
+    "confidence": 0.95,
+    "source": "llm"
+  },
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": 0,
+      "text": "See All Events",
+      "reasoning": "The button 'See All Events' uses the vibrant brand color #4B7D67, making it the primary call-to-action on the page."
+    },
+    "secondary": {
+      "index": -1,
+      "text": "N/A",
+      "reasoning": "There is only one button detected, so no secondary button is available with a different color."
+    },
+    "confidence": 0.9
+  },
+  "personality": {
+    "tone": "professional",
+    "energy": "medium",
+    "targetAudience": "tourists and visitors to Hocking Hills, Ohio"
+  },
+  "designSystem": {
+    "framework": "bootstrap",
+    "componentLibrary": ""
+  },
+  "confidence": {
+    "buttons": 0.9,
+    "colors": 0.9,
+    "overall": 0.9
+  },
+  "__llm_metadata": {
+    "logoSelection": {
+      "llmCalled": true,
+      "llmSucceeded": true,
+      "finalSource": "llm",
+      "rawLogoSelection": {
+        "selectedLogoIndex": 5,
+        "selectedLogoReasoning": "Selected #5 because it is a medium-sized, visible logo in the header that links to the homepage, matching the brand 'Hocking Hills'.",
+        "confidence": 0.95
+      }
+    },
+    "buttonClassification": {
+      "llmCalled": true,
+      "llmSucceeded": true
+    }
+  }
+}
