@@ -1,0 +1,92 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string[];
+}
+
+const {
+  title = 'Hocking Luxury Lodges',
+  description = 'Luxury lodges in Hocking Hills, Ohio. Contemporary lodging with hot tubs, arcades, and stunning scenery.',
+  keywords = [],
+} = Astro.props;
+
+import '../styles/custom.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+  <meta name="description" content={description} />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta property="og:image" content="/assets/images/HockingLuxuryLodgesLogoWithText.png" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <title>{title}</title>
+  <link rel="stylesheet" href="/assets/fontawesome/css/fontawesome.css" />
+  <link rel="stylesheet" href="/assets/fontawesome/css/brands.css" />
+  <link rel="stylesheet" href="/assets/fontawesome/css/solid.css" />
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){window.dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-04Q5RY1JHY');
+  </script>
+  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-04Q5RY1JHY"></script>
+</head>
+<body>
+  <header class="site-header mb-5">
+    <div class="container py-2">
+      <div class="d-flex justify-content-between align-items-center">
+        <a href="/" aria-label="Hocking Luxury Lodges - Go to homepage.">
+          <img src="/assets/images/HockingLuxuryLodgesLogoWithText.svg" alt="Hocking Luxury Lodges" class="logo-img" />
+        </a>
+        <nav class="d-flex gap-3 align-items-center">
+          <a href="/articles">Articles</a>
+          <a href="/" aria-label="Home"><i class="fa-solid fa-house"></i></a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <slot />
+  <footer class="site-footer mt-5">
+    <div class="container pt-3 pb-3">
+      <div class="row align-items-center">
+        <div class="col-md-4">
+          <img src="/assets/images/HockingLuxuryLodgesLogoOnly.svg" alt="Hocking Luxury Lodges" style="height: 40px; opacity: 0.8;" />
+        </div>
+        <div class="col-md-4 text-center">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa-brands fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </li>
+            <li class="list-inline-item">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa-brands fa-facebook fa-stack-1x fa-inverse"></i>
+              </span>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4 text-end">
+          <a href="mailto:" class="text-white">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script is:inline src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script is:inline src="https://d1eneklj7lmhjs.cloudfront.net/20160304085750/thinkreservations-widgets.js"></script>
+  <script is:inline src="https://assets.pinterest.com/js/pinit.js"></script>
+</body>
+</html>

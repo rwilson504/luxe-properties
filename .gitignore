@@ -1,6 +1,18 @@
-_site
-.sass-cache
-.jekyll-cache
-.jekyll-metadata
-#vendor
-node_modules
+# dependencies
+node_modules/
+
+# build output
+dist/
+
+# environment variables
+.env
+.env.production
+
+# generated types
+.astro/
+
+# old project subfolder (can delete after closing VS Code)
+astro-site/
+
+# old Jekyll backup (preserved in git history)
+_jekyll_backup/

@@ -101,11 +101,14 @@
     }
   },
   "images": {
-    "logo": "https://www.hockinghills.com/public/group-11.svg",
-    "favicon": "https://hockinghills.com/favicon.ico",
-    "ogImage": "https://www.hockinghills.com/images/misc/HH180x180.png",
-    "logoHref": "https://www.hockinghills.com",
-    "logoAlt": "Go to homepage."
+    "logo": "src/assets/images/HockingLuxuryLodgesLogoWithText.svg",
+    "logoOnly": "src/assets/images/HockingLuxuryLodgesLogoOnly.svg",
+    "logoTextOnly": "src/assets/images/HockingLuxuryLodgesTextOnly.svg",
+    "logoPng": "src/assets/images/HockingLuxuryLodgesLogoWithText.png",
+    "favicon": "/favicon.ico",
+    "ogImage": "src/assets/images/HockingLuxuryLodgesLogoWithText.png",
+    "logoHref": "https://www.hockingluxurylodges.com",
+    "logoAlt": "Hocking Luxury Lodges - Go to homepage."
   },
   "__llm_logo_reasoning": {
     "selectedIndex": 5,

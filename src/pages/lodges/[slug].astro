@@ -1,0 +1,36 @@
+---
+import LodgeLayout from '../../layouts/LodgeLayout.astro';
+
+export async function getStaticPaths() {
+  const lodgeFiles = import.meta.glob<{ frontmatter: Record<string, any>; default: any }>('../../content/lodges/*.md', { eager: true });
+  const lodges = Object.values(lodgeFiles);
+  return lodges.map((lodge) => {
+    const slug = lodge.frontmatter.slug.replace('/lodges/', '');
+    return {
+      params: { slug },
+      props: { lodge },
+    };
+  });
+}
+
+const { lodge } = Astro.props;
+const { Content } = lodge;
+const fm = lodge.frontmatter;
+---
+
+<LodgeLayout
+  title={fm.title}
+  unitId={fm.unitId}
+  imageFolder={fm.imageFolder}
+  airbnbUrl={fm.airbnbUrl}
+  vrboUrl={fm.vrboUrl}
+  youtubeId={fm.youtubeId}
+  guests={fm.guests}
+  bedrooms={fm.bedrooms}
+  bathrooms={fm.bathrooms}
+  sleeping={fm.sleeping}
+  amenities={fm.amenities}
+  goodToKnow={fm.goodToKnow}
+>
+  <Content />
+</LodgeLayout>

@@ -1,0 +1,628 @@
+/* Custom styles for Hocking Luxury Lodges */
+/* Branding: branding.json */
+
+/* ========== CSS Variables ========== */
+:root {
+  --brand-primary: #4B7D67;
+  --brand-primary-hover: #3d6654;
+  --brand-accent: #4B7D67;
+  --brand-background: #FFFFFF;
+  --brand-text: #212529;
+  --brand-link: #D1E5DB;
+  --brand-btn-text: #E8EFEC;
+  --brand-btn-border: #E8EFEC;
+  --brand-radius: 16px;
+  --brand-btn-radius: 26px;
+  --font-stack: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Noto Color Emoji";
+}
+
+/* ========== Base typography ========== */
+body {
+  font-family: var(--font-stack);
+  font-size: 1rem;
+  color: var(--brand-text);
+  background-color: var(--brand-background);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-stack);
+}
+
+a {
+  color: var(--brand-primary);
+}
+
+a:hover {
+  color: var(--brand-primary-hover);
+}
+
+/* ========== ThinkReservations widget ========== */
+div.tr-component.tr-unit-calendar > iframe {
+  max-width: 300px;
+  max-height: 325px;
+}
+
+div.tr-component.tr-unit-calendar {
+  text-align: center;
+}
+
+/* ========== Primary color overrides ========== */
+.bg-primary {
+  background-color: var(--brand-primary) !important;
+}
+
+.btn-primary {
+  background-color: var(--brand-primary) !important;
+  border-color: var(--brand-btn-border) !important;
+  color: var(--brand-btn-text) !important;
+  border-radius: var(--brand-btn-radius) !important;
+  box-shadow: none !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--brand-primary-hover) !important;
+  border-color: var(--brand-btn-border) !important;
+}
+
+.btn-outline-primary {
+  color: var(--brand-primary) !important;
+  border-color: var(--brand-primary) !important;
+  border-radius: var(--brand-btn-radius) !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--brand-primary) !important;
+  color: var(--brand-btn-text) !important;
+}
+
+/* ========== Card styling ========== */
+.card {
+  border-radius: var(--brand-radius);
+  overflow: hidden;
+}
+
+.card-img-top {
+  border-radius: var(--brand-radius) var(--brand-radius) 0 0;
+}
+
+/* ========== Badge styling ========== */
+.badge.bg-secondary {
+  background-color: var(--brand-primary) !important;
+  border-radius: var(--brand-radius);
+}
+
+/* ========== Header ========== */
+.site-header {
+  background-color: var(--brand-primary);
+}
+
+.site-header .logo-img {
+  height: 48px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+/* ========== Footer ========== */
+.site-footer {
+  background-color: var(--brand-primary);
+}
+
+.site-footer .logo-img,
+.site-footer img[alt="Hocking Luxury Lodges"] {
+  filter: brightness(0) invert(1);
+}
+
+/* ========== Links in header/footer ========== */
+.site-header a,
+.site-footer a {
+  color: var(--brand-link);
+  text-decoration: none;
+}
+
+.site-header a:hover,
+.site-footer a:hover {
+  color: #FFFFFF;
+}
+
+/* ========== Article content ========== */
+.article-content h2 {
+  color: var(--brand-primary);
+  margin-top: 1.5rem;
+}
+
+.article-content hr {
+  border-color: var(--brand-primary);
+  opacity: 0.3;
+}
+
+/* ========== Lodge Hero ========== */
+.lodge-hero {
+  background-size: cover;
+  background-position: center;
+  min-height: 380px;
+  position: relative;
+  margin-top: -2rem;
+}
+
+.lodge-hero-overlay {
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+  min-height: 380px;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 2rem;
+}
+
+.lodge-hero-title {
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.lodge-hero-stats {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  color: rgba(255,255,255,0.9);
+  font-size: 1.05rem;
+}
+
+.lodge-hero-stats i {
+  margin-right: 0.3rem;
+}
+
+/* ========== Lodge Cards ========== */
+.lodge-card {
+  background: #fff;
+  border-radius: var(--brand-radius);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+  overflow: hidden;
+}
+
+.lodge-card-header {
+  background: var(--brand-primary);
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.lodge-card-header i {
+  margin-right: 0.4rem;
+}
+
+.lodge-card-body {
+  padding: 1.25rem;
+}
+
+.lodge-card-body p:last-child {
+  margin-bottom: 0;
+}
+
+.lodge-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lodge-list li {
+  padding: 0.35rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.lodge-list li:last-child {
+  border-bottom: none;
+}
+
+/* ========== Amenity Cards Grid ========== */
+.lodge-amenities-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 575.98px) {
+  .lodge-amenities-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.amenity-group {
+  padding: 0;
+}
+
+.amenity-group-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--brand-primary);
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.amenity-group-title i {
+  margin-right: 0.3rem;
+  width: 18px;
+  text-align: center;
+}
+
+.amenity-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.amenity-items li {
+  padding: 0.15rem 0;
+  color: #555;
+}
+
+.amenity-items li::before {
+  content: "✓";
+  color: var(--brand-primary);
+  margin-right: 0.4rem;
+  font-weight: 700;
+}
+
+/* ========== Photo Grid Gallery ========== */
+.gallery-section-title {
+  color: var(--brand-primary);
+  border-bottom: 2px solid var(--brand-primary);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.photo-grid-item {
+  display: block;
+  border-radius: var(--brand-radius);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+
+.photo-grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.photo-grid-item:hover img {
+  transform: scale(1.05);
+}
+
+/* ========== Lightbox ========== */
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.9);
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-overlay.active {
+  display: flex;
+}
+
+.lightbox-overlay img {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 2.5rem;
+  line-height: 1;
+  padding: 8px 14px;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  opacity: 1;
+}
+
+.lightbox-close {
+  top: 16px;
+  right: 20px;
+  font-size: 3rem;
+}
+
+.lightbox-prev {
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-next {
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* ========== Home Hero ========== */
+.home-hero {
+  position: relative;
+  background: linear-gradient(135deg, #2d5a47 0%, #4B7D67 40%, #3d6654 100%);
+  margin-top: -2rem;
+  overflow: hidden;
+}
+
+.home-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(255,255,255,0.04) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.06) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.home-hero-overlay {
+  position: relative;
+  z-index: 1;
+  padding: 6rem 0 5rem;
+  text-align: center;
+}
+
+.home-hero-heading {
+  color: #fff;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+
+.home-hero-sub {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  max-width: 640px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.home-hero-cta {
+  border-radius: var(--brand-btn-radius);
+  padding: 0.65rem 2rem;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.home-hero-cta:hover {
+  background: #fff;
+  color: var(--brand-primary);
+  border-color: #fff;
+}
+
+/* ========== Home Lodges Section ========== */
+.home-lodges {
+  padding: 4rem 0 2rem;
+}
+
+.home-section-title {
+  text-align: center;
+  color: var(--brand-primary);
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.home-section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--brand-primary);
+  margin: 0.6rem auto 0;
+  border-radius: 2px;
+}
+
+/* ========== Lodge Showcase Card ========== */
+.lodge-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #fff;
+  border-radius: var(--brand-radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06), 0 8px 32px rgba(0,0,0,0.06);
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.lodge-showcase:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 16px 48px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+.lodge-showcase:nth-child(even) {
+  direction: rtl;
+}
+
+.lodge-showcase:nth-child(even) > * {
+  direction: ltr;
+}
+
+.lodge-showcase-img {
+  overflow: hidden;
+}
+
+.lodge-showcase-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.lodge-showcase:hover .lodge-showcase-img img {
+  transform: scale(1.03);
+}
+
+.lodge-showcase-content {
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.lodge-showcase-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--brand-text);
+  margin-bottom: 0.5rem;
+}
+
+.lodge-showcase-stats {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  color: #777;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.lodge-showcase-stats i {
+  color: var(--brand-primary);
+  margin-right: 0.3rem;
+}
+
+.lodge-showcase-desc {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+
+.lodge-showcase-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.btn-outline-booking {
+  border-radius: var(--brand-btn-radius) !important;
+  padding: 0.4rem 1.1rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-airbnb {
+  color: #FF5A5F !important;
+  border-color: #FF5A5F !important;
+}
+
+.btn-airbnb:hover {
+  background: #FF5A5F !important;
+  color: #fff !important;
+}
+
+.btn-vrbo {
+  color: #3b5fc0 !important;
+  border-color: #3b5fc0 !important;
+}
+
+.btn-vrbo:hover {
+  background: #3b5fc0 !important;
+  color: #fff !important;
+}
+
+@media (max-width: 767.98px) {
+  .lodge-showcase {
+    grid-template-columns: 1fr;
+  }
+
+  .lodge-showcase:nth-child(even) {
+    direction: ltr;
+  }
+
+  .lodge-showcase-img {
+    aspect-ratio: 16 / 9;
+  }
+
+  .lodge-showcase-content {
+    padding: 1.5rem;
+  }
+}
+
+/* ========== Home Features Section ========== */
+.home-features {
+  padding: 3rem 0 4rem;
+  background: #f9fafb;
+}
+
+.home-features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.home-feature {
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.home-feature-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--brand-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin: 0 auto 1rem;
+}
+
+.home-feature h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--brand-text);
+}
+
+.home-feature p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+@media (max-width: 767.98px) {
+  .home-features-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .home-hero-overlay {
+    padding: 4rem 0 3rem;
+  }
+}
+
+@media (max-width: 479.98px) {
+  .home-features-grid {
+    grid-template-columns: 1fr;
+  }
+}

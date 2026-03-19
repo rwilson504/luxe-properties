@@ -1,0 +1,114 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+// Import cover images
+import speakeasyCover from '../assets/images/speakeasy/cover.jpg';
+import luxehausCover from '../assets/images/luxehauslodge/cover.jpg';
+
+// Get all lodge content
+const lodgeFiles = import.meta.glob<{ frontmatter: Record<string, any>; default: any }>('../content/lodges/*.md', { eager: true });
+const lodges = Object.values(lodgeFiles).sort((a, b) =>
+  a.frontmatter.title.localeCompare(b.frontmatter.title)
+);
+
+// Map imageFolder to cover images
+const coverImages: Record<string, ImageMetadata> = {
+  speakeasy: speakeasyCover,
+  luxehauslodge: luxehausCover,
+};
+---
+
+<Layout title="Hocking Luxury Lodges">
+
+  <!-- Hero Section -->
+  <section class="home-hero">
+    <div class="home-hero-overlay">
+      <div class="container">
+        <h1 class="home-hero-heading">Luxury Lodging in<br/>Hocking Hills</h1>
+        <p class="home-hero-sub">
+          Contemporary retreats nestled on private wooded acres &mdash; hot tubs, arcades, stunning views, and everything you need for an unforgettable getaway.
+        </p>
+        <a href="#lodges" class="btn btn-outline-light btn-lg home-hero-cta">
+          Explore Our Lodges <i class="fa-solid fa-arrow-down ms-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lodge Cards -->
+  <section id="lodges" class="home-lodges">
+    <div class="container">
+      <h2 class="home-section-title">Our Lodges</h2>
+
+      {lodges.map((lodge) => {
+        const fm = lodge.frontmatter;
+        const folder = fm.imageFolder || 'luxehauslodge';
+        const cover = coverImages[folder];
+        return (
+          <div class="lodge-showcase">
+            <div class="lodge-showcase-img">
+              {cover && (
+                <Image src={cover} alt={fm.title} width={800} height={500} loading="lazy" />
+              )}
+            </div>
+            <div class="lodge-showcase-content">
+              <h3 class="lodge-showcase-name">{fm.title}</h3>
+              <div class="lodge-showcase-stats">
+                <span><i class="fa-solid fa-users"></i> {fm.guests} guests</span>
+                <span><i class="fa-solid fa-bed"></i> {fm.bedrooms} bedrooms</span>
+                <span><i class="fa-solid fa-bath"></i> {fm.bathrooms} baths</span>
+              </div>
+              <p class="lodge-showcase-desc">{fm.excerpt}</p>
+              <div class="lodge-showcase-actions">
+                <a href={fm.slug} class="btn btn-primary">
+                  View Details <i class="fa-solid fa-arrow-right ms-1"></i>
+                </a>
+                {fm.airbnbUrl && (
+                  <a href={fm.airbnbUrl} target="_blank" rel="noopener noreferrer" class="btn btn-outline-booking btn-airbnb">
+                    <i class="fa-brands fa-airbnb me-1"></i> Airbnb
+                  </a>
+                )}
+                {fm.vrboUrl && (
+                  <a href={fm.vrboUrl} target="_blank" rel="noopener noreferrer" class="btn btn-outline-booking btn-vrbo">
+                    <i class="fa-solid fa-house-chimney me-1"></i> Vrbo
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- Why Stay Section -->
+  <section class="home-features">
+    <div class="container">
+      <h2 class="home-section-title">Why Hocking Luxury Lodges?</h2>
+      <div class="home-features-grid">
+        <div class="home-feature">
+          <div class="home-feature-icon"><i class="fa-solid fa-tree"></i></div>
+          <h4>Private & Secluded</h4>
+          <p>Nestled on wooded acres with no neighbors in sight &mdash; your own private retreat.</p>
+        </div>
+        <div class="home-feature">
+          <div class="home-feature-icon"><i class="fa-solid fa-hot-tub-person"></i></div>
+          <h4>Premium Amenities</h4>
+          <p>Hot tubs, fire pits, arcade games, and fully equipped kitchens at every lodge.</p>
+        </div>
+        <div class="home-feature">
+          <div class="home-feature-icon"><i class="fa-solid fa-mountain-sun"></i></div>
+          <h4>Hocking Hills Location</h4>
+          <p>Minutes from Old Man's Cave, Ash Cave, and the best trails in Ohio.</p>
+        </div>
+        <div class="home-feature">
+          <div class="home-feature-icon"><i class="fa-solid fa-people-group"></i></div>
+          <h4>Perfect for Groups</h4>
+          <p>Each lodge sleeps up to 10 guests &mdash; ideal for families, friends, and celebrations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>

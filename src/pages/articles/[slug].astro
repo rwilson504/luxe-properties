@@ -1,0 +1,58 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('articles');
+  return articles.map((article) => ({
+    params: { slug: article.id },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+
+const dateStr = article.data.date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<Layout title={`${article.data.title} - Hocking Luxury Lodges`} description={article.data.excerpt}>
+  <div class="container py-4">
+    <nav aria-label="breadcrumb" class="mb-3">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/articles">Articles</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{article.data.title}</li>
+      </ol>
+    </nav>
+
+    {article.data.coverImage && (
+      <img src={article.data.coverImage} class="img-fluid mb-4 w-100" alt={article.data.title} style="max-height: 400px; object-fit: cover;" />
+    )}
+
+    <h1>{article.data.title}</h1>
+    <p class="text-muted">
+      {dateStr}
+      {article.data.author && <span> &bull; {article.data.author}</span>}
+    </p>
+
+    {article.data.tags && (
+      <div class="mb-4">
+        {article.data.tags.map((tag) => (
+          <span class="badge bg-secondary me-1">{tag}</span>
+        ))}
+      </div>
+    )}
+
+    <article class="article-content">
+      <Content />
+    </article>
+
+    <hr class="my-5" />
+    <a href="/articles" class="btn btn-outline-primary">&larr; Back to Articles</a>
+  </div>
+</Layout>

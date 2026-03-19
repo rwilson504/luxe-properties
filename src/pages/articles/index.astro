@@ -1,0 +1,50 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const articles = await getCollection('articles');
+const sortedArticles = articles.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<Layout title="News & Articles - Hocking Luxury Lodges">
+  <div class="container py-4">
+    <h1 class="mb-4">News & Articles</h1>
+    <div class="row">
+      {sortedArticles.map((article) => {
+        const dateStr = article.data.date.toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        });
+        return (
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100">
+              {article.data.coverImage && (
+                <img src={article.data.coverImage} class="card-img-top" alt={article.data.title} />
+              )}
+              <div class="card-body d-flex flex-column">
+                <small class="text-muted mb-1">{dateStr}</small>
+                <h5 class="card-title">{article.data.title}</h5>
+                <p class="card-text">{article.data.excerpt}</p>
+                <a href={`/articles/${article.id}`} class="btn btn-primary mt-auto">Read More</a>
+              </div>
+              {article.data.tags && (
+                <div class="card-footer">
+                  {article.data.tags.map((tag) => (
+                    <span class="badge bg-secondary me-1">{tag}</span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    {sortedArticles.length === 0 && (
+      <div class="text-center py-5">
+        <p class="text-muted">No articles yet. Check back soon!</p>
+      </div>
+    )}
+  </div>
+</Layout>
