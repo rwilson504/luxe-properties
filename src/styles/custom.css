@@ -542,22 +542,26 @@ div.tr-component.tr-unit-calendar {
 }
 
 .btn-airbnb {
-  color: #FF5A5F !important;
+  color: #fff !important;
   border-color: #FF5A5F !important;
+  background: #FF5A5F !important;
 }
 
 .btn-airbnb:hover {
-  background: #FF5A5F !important;
+  background: #e04850 !important;
+  border-color: #e04850 !important;
   color: #fff !important;
 }
 
 .btn-vrbo {
-  color: #3b5fc0 !important;
+  color: #fff !important;
   border-color: #3b5fc0 !important;
+  background: #3b5fc0 !important;
 }
 
 .btn-vrbo:hover {
-  background: #3b5fc0 !important;
+  background: #2f4fa6 !important;
+  border-color: #2f4fa6 !important;
   color: #fff !important;
 }
 
