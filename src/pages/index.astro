@@ -80,6 +80,7 @@ const coverImages: Record<string, ImageMetadata> = {
                 <span><i class="fa-solid fa-bed"></i> {fm.bedrooms} bedrooms</span>
                 {fm.beds && <span><i class="fa-solid fa-bed"></i> {fm.beds} beds</span>}
                 <span><i class="fa-solid fa-bath"></i> {fm.bathrooms} baths</span>
+                {fm.petFriendly && <span class="pet-friendly-badge"><i class="fa-solid fa-paw"></i> Pet Friendly</span>}
               </div>
               <p class="lodge-showcase-desc">{fm.excerpt}</p>
               <div class="lodge-showcase-actions">
@@ -128,6 +129,16 @@ const coverImages: Record<string, ImageMetadata> = {
           <div class="home-feature-icon"><i class="fa-solid fa-people-group"></i></div>
           <h4>Perfect for Groups</h4>
           <p>Each lodge sleeps up to 10 guests &mdash; ideal for families, friends, and celebrations.</p>
+        </div>
+        <div class="home-feature">
+          <div class="home-feature-icon"><i class="fa-solid fa-paw"></i></div>
+          <h4>Pet Friendly</h4>
+          <p>Why pay for boarding? Bring your furry family members along &mdash; all lodges welcome pets.</p>
+        </div>
+        <div class="home-feature">
+          <div class="home-feature-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+          <h4>Large Parties</h4>
+          <p>Planning a big gathering? Our lodges are close enough to rent both &mdash; host up to 20 guests across two properties.</p>
         </div>
       </div>
     </div>

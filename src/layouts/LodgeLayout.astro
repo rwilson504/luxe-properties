@@ -7,6 +7,7 @@ export interface Props {
   imageFolder?: string;
   airbnbUrl?: string;
   vrboUrl?: string;
+  petFriendly?: boolean;
   youtubeId?: string;
   guests?: number;
   bedrooms?: number;
@@ -19,7 +20,7 @@ export interface Props {
 
 const {
   title, unitId, imageFolder = 'luxehauslodge',
-  airbnbUrl, vrboUrl, youtubeId,
+  airbnbUrl, vrboUrl, petFriendly, youtubeId,
   guests, bedrooms, beds, bathrooms,
   sleeping = [], amenities = [], goodToKnow = [],
 } = Astro.props;
@@ -93,6 +94,7 @@ const heroImg = sectionKeys.length > 0 ? sections[sectionKeys[0]][0] : null;
               {bedrooms && <span><i class="fa-solid fa-bed"></i> {bedrooms} bedrooms</span>}
               {beds && <span><i class="fa-solid fa-bed"></i> {beds} beds</span>}
               {bathrooms && <span><i class="fa-solid fa-bath"></i> {bathrooms} baths</span>}
+              {petFriendly && <span class="pet-friendly-badge"><i class="fa-solid fa-paw"></i> Pet Friendly</span>}
             </div>
           )}
           {(airbnbUrl || vrboUrl) && (

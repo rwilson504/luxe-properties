@@ -13,6 +13,7 @@ youtubeId: "UbwZaG4r5GU"
 guests: 10
 bedrooms: 4
 beds: 6
+petFriendly: true
 bathrooms: "3 full"
 sleeping:
   - "2 bedrooms upstairs — 1 room with a queen and a full, and 1 king room"
