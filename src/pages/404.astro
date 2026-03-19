@@ -2,10 +2,81 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="404 - Page Not Found">
-  <div class="container" style="margin: 10px auto; max-width: 600px; text-align: center;">
-    <h1 style="margin: 30px 0; font-size: 4em; line-height: 1; letter-spacing: -1px;">404</h1>
-    <p><strong>Page not found :(</strong></p>
-    <p>The requested page could not be found.</p>
+<Layout title="Page Not Found - Hocking Luxury Lodges" description="The page you're looking for doesn't exist. Browse our luxury Hocking Hills lodges instead.">
+  <div class="error-404">
+    <div class="container text-center">
+      <div class="error-404-icon">
+        <i class="fa-solid fa-tree"></i>
+      </div>
+      <h1 class="error-404-code">404</h1>
+      <p class="error-404-title">Looks like you wandered off the trail</p>
+      <p class="error-404-text">The page you're looking for doesn't exist or has been moved. Let's get you back to the lodge.</p>
+      <div class="d-flex gap-3 justify-content-center flex-wrap mt-4">
+        <a href="/" class="btn btn-primary-brand btn-lg">
+          <i class="fa-solid fa-house me-2"></i>Back to Home
+        </a>
+        <a href="/articles" class="btn btn-outline-brand btn-lg">
+          <i class="fa-solid fa-compass me-2"></i>Explore Articles
+        </a>
+      </div>
+    </div>
   </div>
 </Layout>
+
+<style>
+  .error-404 {
+    padding: 80px 0;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+  }
+  .error-404-icon {
+    font-size: 4rem;
+    color: var(--brand-primary);
+    margin-bottom: 1rem;
+    opacity: 0.6;
+  }
+  .error-404-code {
+    font-size: 8rem;
+    font-weight: 800;
+    color: var(--brand-primary);
+    line-height: 1;
+    margin: 0;
+    letter-spacing: -4px;
+  }
+  .error-404-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin: 1rem 0 0.5rem;
+  }
+  .error-404-text {
+    color: #666;
+    max-width: 480px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+  }
+  .btn-primary-brand {
+    background-color: var(--brand-primary);
+    border-color: var(--brand-primary);
+    color: #fff;
+    border-radius: var(--brand-btn-radius);
+    padding: 0.6rem 1.5rem;
+  }
+  .btn-primary-brand:hover {
+    background-color: #3d6654;
+    border-color: #3d6654;
+    color: #fff;
+  }
+  .btn-outline-brand {
+    border: 2px solid var(--brand-primary);
+    color: var(--brand-primary);
+    border-radius: var(--brand-btn-radius);
+    padding: 0.6rem 1.5rem;
+    background: transparent;
+  }
+  .btn-outline-brand:hover {
+    background-color: var(--brand-primary);
+    color: #fff;
+  }
+</style>
