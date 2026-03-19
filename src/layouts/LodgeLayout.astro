@@ -200,7 +200,7 @@ const heroImg = sectionKeys.length > 0 ? sections[sectionKeys[0]][0] : null;
           <h5 class="gallery-section-title">{formatSectionTitle(key)}</h5>
           <div class="photo-grid">
             {sections[key].map((img, i) => (
-              <a href={img.src} class="photo-grid-item" data-lightbox>
+              <a href={img.src} class="photo-grid-item" data-lightbox data-section={formatSectionTitle(key)}>
                 <img src={img.src} alt={`${title} - ${formatSectionTitle(key)} ${i + 1}`} loading="lazy" />
               </a>
             ))}
@@ -216,19 +216,27 @@ const heroImg = sectionKeys.length > 0 ? sections[sectionKeys[0]][0] : null;
     <button class="lightbox-prev" aria-label="Previous">&lsaquo;</button>
     <button class="lightbox-next" aria-label="Next">&rsaquo;</button>
     <img id="lightbox-img" src="" alt="" />
+    <div id="lightbox-caption" class="lightbox-caption"></div>
   </div>
 
   <script is:inline>
   (function() {
     const overlay = document.getElementById('lightbox');
     const lbImg = document.getElementById('lightbox-img');
+    const lbCaption = document.getElementById('lightbox-caption');
     const links = Array.from(document.querySelectorAll('[data-lightbox]'));
     let currentIndex = -1;
+
+    function updateCaption(index) {
+      var section = links[index].getAttribute('data-section') || '';
+      lbCaption.textContent = section;
+    }
 
     function openLightbox(index) {
       currentIndex = index;
       lbImg.src = links[index].href;
       lbImg.alt = links[index].querySelector('img').alt;
+      updateCaption(index);
       overlay.classList.add('active');
       overlay.setAttribute('aria-hidden', 'false');
     }
@@ -237,12 +245,14 @@ const heroImg = sectionKeys.length > 0 ? sections[sectionKeys[0]][0] : null;
       overlay.classList.remove('active');
       overlay.setAttribute('aria-hidden', 'true');
       lbImg.src = '';
+      lbCaption.textContent = '';
     }
 
     function navigate(dir) {
       currentIndex = (currentIndex + dir + links.length) % links.length;
       lbImg.src = links[currentIndex].href;
       lbImg.alt = links[currentIndex].querySelector('img').alt;
+      updateCaption(currentIndex);
     }
 
     links.forEach(function(link, i) {

@@ -312,6 +312,7 @@ div.tr-component.tr-unit-calendar {
 
 .lightbox-overlay.active {
   display: flex;
+  flex-direction: column;
 }
 
 .lightbox-overlay img {
@@ -358,6 +359,17 @@ div.tr-component.tr-unit-calendar {
   right: 16px;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.lightbox-caption {
+  color: #fff;
+  font-size: 1.05rem;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 6px 20px;
+  border-radius: 20px;
+  margin-top: 12px;
+  letter-spacing: 0.02em;
+  pointer-events: none;
 }
 
 /* ========== Home Hero ========== */
