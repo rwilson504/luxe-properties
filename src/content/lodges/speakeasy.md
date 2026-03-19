@@ -11,6 +11,7 @@ vrboUrl: "https://www.vrbo.com/3447060?dateless=true"
 youtubeId: "4IOVVJ8cJ8E"
 guests: 10
 bedrooms: 4
+beds: 5
 bathrooms: "4 full + 2 half"
 sleeping:
   - "4 bedrooms, each with a king bed and private patio"

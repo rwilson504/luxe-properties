@@ -10,7 +10,8 @@ export interface Props {
   youtubeId?: string;
   guests?: number;
   bedrooms?: number;
-  bathrooms?: string;
+  beds?: number;
+  bathrooms?: number | string;
   sleeping?: string[];
   amenities?: { icon: string; title: string; items: string[] }[];
   goodToKnow?: string[];
@@ -19,7 +20,7 @@ export interface Props {
 const {
   title, unitId, imageFolder = 'luxehauslodge',
   airbnbUrl, vrboUrl, youtubeId,
-  guests, bedrooms, bathrooms,
+  guests, bedrooms, beds, bathrooms,
   sleeping = [], amenities = [], goodToKnow = [],
 } = Astro.props;
 
@@ -29,13 +30,14 @@ const filteredEntries = Object.entries(allImages).filter(([path]) =>
   path.includes(`/images/${imageFolder}/`)
 );
 
-// Group images by subfolder
+// Group images by subfolder (skip top-level files like cover.jpg)
 const sections: Record<string, ImageMetadata[]> = {};
 for (const [path, resolver] of filteredEntries) {
   const mod = await resolver();
   const afterLodge = path.split(`/images/${imageFolder}/`)[1];
   const parts = afterLodge.split('/');
-  const section = parts.length > 1 ? parts[0] : '_overview';
+  if (parts.length <= 1) continue; // skip top-level files
+  const section = parts[0];
   if (!sections[section]) sections[section] = [];
   sections[section].push(mod.default);
 }
@@ -57,7 +59,28 @@ const sectionKeys = Object.keys(sections).sort((a, b) => {
 const heroImg = sectionKeys.length > 0 ? sections[sectionKeys[0]][0] : null;
 ---
 
-<Layout title={`${title} - Hocking Luxury Lodges`}>
+<Layout title={`${title} - Hocking Luxury Lodges`} description={`${title} — sleeps up to ${guests || 10} guests with ${bedrooms || 4} bedrooms, ${bathrooms || 3} baths. Book your Hocking Hills luxury getaway.`} ogType="website">
+  <!-- Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "VacationRental",
+    "name": title,
+    "description": `${title} — luxury vacation rental in Hocking Hills, Ohio.`,
+    "url": `https://hockingluxurylodges.com${Astro.url.pathname}`,
+    "image": heroImg ? `https://hockingluxurylodges.com${heroImg.src}` : undefined,
+    "occupancy": {
+      "@type": "QuantitativeValue",
+      "maxValue": guests || 10
+    },
+    "numberOfBedrooms": bedrooms,
+    "numberOfBathroomsTotal": typeof bathrooms === 'number' ? bathrooms : undefined,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Logan",
+      "addressRegion": "OH",
+      "addressCountry": "US"
+    }
+  })} />
   <!-- Hero section -->
   {heroImg && (
     <div class="lodge-hero" style={`background-image: url('${heroImg.src}')`}>
@@ -68,7 +91,8 @@ const heroImg = sectionKeys.length > 0 ? sections[sectionKeys[0]][0] : null;
             <div class="lodge-hero-stats">
               {guests && <span><i class="fa-solid fa-users"></i> Up to {guests} guests</span>}
               {bedrooms && <span><i class="fa-solid fa-bed"></i> {bedrooms} bedrooms</span>}
-              {bathrooms && <span><i class="fa-solid fa-bath"></i> {bathrooms} bath</span>}
+              {beds && <span><i class="fa-solid fa-bed"></i> {beds} beds</span>}
+              {bathrooms && <span><i class="fa-solid fa-bath"></i> {bathrooms} baths</span>}
             </div>
           )}
           {(airbnbUrl || vrboUrl) && (

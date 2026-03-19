@@ -6,7 +6,7 @@ const articles = await getCollection('articles');
 const sortedArticles = articles.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 
-<Layout title="News & Articles - Hocking Luxury Lodges">
+<Layout title="News & Articles - Hocking Luxury Lodges" description="Explore guides, tips, and local insights for your Hocking Hills getaway — hiking trails, boating, fishing, and more.">
   <div class="container py-4">
     <h1 class="mb-4">News & Articles</h1>
     <div class="row">

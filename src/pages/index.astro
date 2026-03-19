@@ -19,7 +19,28 @@ const coverImages: Record<string, ImageMetadata> = {
 };
 ---
 
-<Layout title="Hocking Luxury Lodges">
+<Layout title="Hocking Luxury Lodges" description="Luxury vacation rental lodges in Hocking Hills, Ohio. Contemporary retreats with hot tubs, arcades, and stunning scenery — perfect for families and groups.">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "name": "Hocking Luxury Lodges",
+    "description": "Luxury vacation rental lodges in Hocking Hills, Ohio. Contemporary retreats with hot tubs, arcades, and stunning scenery.",
+    "url": "https://hockingluxurylodges.com",
+    "image": "https://hockingluxurylodges.com/assets/images/HockingLuxuryLodgesLogoWithText.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Logan",
+      "addressRegion": "OH",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.54,
+      "longitude": -82.41
+    }
+  })} />
 
   <!-- Hero Section -->
   <section class="home-hero">
@@ -57,6 +78,7 @@ const coverImages: Record<string, ImageMetadata> = {
               <div class="lodge-showcase-stats">
                 <span><i class="fa-solid fa-users"></i> {fm.guests} guests</span>
                 <span><i class="fa-solid fa-bed"></i> {fm.bedrooms} bedrooms</span>
+                {fm.beds && <span><i class="fa-solid fa-bed"></i> {fm.beds} beds</span>}
                 <span><i class="fa-solid fa-bath"></i> {fm.bathrooms} baths</span>
               </div>
               <p class="lodge-showcase-desc">{fm.excerpt}</p>

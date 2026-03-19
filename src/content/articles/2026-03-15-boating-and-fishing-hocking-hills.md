@@ -16,15 +16,18 @@ Whether you want to cast a line at sunrise or spend an afternoon floating with f
 
 Located just a few minutes from Old Man's Cave, **Lake Logan State Park** is the primary destination for boating and fishing in the Hocking Hills region. The lake covers more than 300 acres and is surrounded by wooded hills, making it scenic without feeling remote.
 
-[View on Ohio DNR →](https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/lake-logan-fishing-area)
+[View on Ohio DNR →](https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/lake-logan-state-park)
 
 ### Boating at Lake Logan
 
-Lake Logan allows boating with a **10-horsepower limit**, which keeps traffic calm and manageable. Visitors can launch their own boats or rent watercraft at the on-site marina during the warmer months. Popular options include:
+Lake Logan allows boating with a **10-horsepower limit**, which keeps traffic calm and manageable. Visitors can launch their own boats or rent watercraft through the on-site marina during the warmer months.
 
-- Pontoon boats
+**Boat Rentals:** [Lake Logan Marina](https://www.lakeloganmarina.com/) is the exclusive boat rental operator on the lake, offering:
+
+- Pontoon boats (multiple sizes)
 - Kayaks and canoes
-- Pedal boats and paddleboards
+- Paddleboards
+- Pedal boats
 
 The lake's size makes it well-suited for casual cruising rather than high-speed boating, which is ideal for families and first-time visitors.
 
@@ -47,11 +50,18 @@ Shoreline access is available at multiple points, and the lake is actively manag
 
 About 30 minutes southeast of Hocking Hills, **Lake Hope State Park** offers a more secluded boating and fishing experience. The park sits entirely within Zaleski State Forest, giving it a quieter, more remote feel.
 
-[View on Ohio DNR →](https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/lake-hope-fishing-area)
+[View on Ohio DNR →](https://ohiodnr.gov/wps/portal/gov/odnr/go-and-do/plan-a-visit/find-a-property/lake-hope-state-park)
 
 ### Boating at Lake Hope
 
-Boating on Lake Hope is limited to **electric motors only**, which creates an especially peaceful environment. Canoes, kayaks, and rowboats are available for rent seasonally, and a single launch ramp serves private watercraft.
+Boating on Lake Hope is limited to **electric motors only**, which creates an especially peaceful environment. A single launch ramp serves private watercraft.
+
+**Boat Rentals:** [Lake Hope Boat House](https://www.lakehopeboathouse.com/), located inside the state park near the swimming beach, offers seasonal rentals including:
+
+- Pontoon boats
+- Kayaks and canoes
+- Paddleboards
+- Pedal boats
 
 This is an excellent option for visitors who want a low-noise, low-traffic experience on the water.
 
@@ -80,7 +90,7 @@ With an average depth of just a few feet in many sections, the Hocking River is 
 - Kayaking
 - Tubing during summer months
 
-Several local outfitters offer shuttle services and rentals, making it easy to plan a half-day or full-day float.
+**Canoe & Kayak Rentals:** [Hocking Hills Canoe Livery](https://hockingriver.com/) is the primary outfitter for guided and self-guided river trips in the area, offering canoe, kayak, and raft rentals with shuttle service and multiple trip lengths.
 
 ### Fishing the Hocking River
 
@@ -105,6 +115,16 @@ Before heading out on the water, keep these general guidelines in mind:
 - **Seasonality:** Boat rentals are typically available from spring through fall, depending on weather conditions.
 
 For the most current regulations and conditions, visitors should always check [official Ohio DNR fishing resources](https://ohiodnr.gov/wps/portal/gov/odnr/buy-and-apply/hunting-fishing-boating/fishing-resources/fishing-regulations) before their trip.
+
+---
+
+## Boating and Fishing Quick Reference
+
+| Location | Motor Rules | Boat Rentals |
+|----------|------------|-------------|
+| Lake Logan | Up to 10 HP | [Lake Logan Marina](https://www.lakeloganmarina.com/) |
+| Lake Hope | Electric only | [Lake Hope Boat House](https://www.lakehopeboathouse.com/) |
+| Hocking River | Paddlecraft only | [Hocking Hills Canoe Livery](https://hockingriver.com/) |
 
 ---
 

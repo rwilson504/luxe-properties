@@ -3,13 +3,17 @@ interface Props {
   title?: string;
   description?: string;
   keywords?: string[];
+  ogType?: string;
 }
 
 const {
   title = 'Hocking Luxury Lodges',
   description = 'Luxury lodges in Hocking Hills, Ohio. Contemporary lodging with hot tubs, arcades, and stunning scenery.',
   keywords = [],
+  ogType = 'website',
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 import '../styles/custom.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -21,14 +25,21 @@ import 'bootstrap/dist/css/bootstrap.min.css';
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
   <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL.href} />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="icon" href="/favicon.ico" />
   <link rel="manifest" href="/site.webmanifest" />
-  <meta property="og:image" content="/assets/images/HockingLuxuryLodgesLogoWithText.png" />
+  <meta property="og:type" content={ogType} />
+  <meta property="og:url" content={canonicalURL.href} />
+  <meta property="og:image" content={new URL('/assets/images/HockingLuxuryLodgesLogoWithText.png', Astro.site).href} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={new URL('/assets/images/HockingLuxuryLodgesLogoWithText.png', Astro.site).href} />
   <title>{title}</title>
   <link rel="stylesheet" href="/assets/fontawesome/css/fontawesome.css" />
   <link rel="stylesheet" href="/assets/fontawesome/css/brands.css" />
@@ -63,23 +74,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
           <img src="/assets/images/HockingLuxuryLodgesLogoOnly.svg" alt="Hocking Luxury Lodges" style="height: 40px; opacity: 0.8;" />
         </div>
         <div class="col-md-4 text-center">
-          <ul class="list-inline mb-0">
-            <li class="list-inline-item">
-              <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa-brands fa-twitter fa-stack-1x fa-inverse"></i>
-              </span>
-            </li>
-            <li class="list-inline-item">
-              <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa-brands fa-facebook fa-stack-1x fa-inverse"></i>
-              </span>
-            </li>
-          </ul>
         </div>
         <div class="col-md-4 text-end">
-          <a href="mailto:" class="text-white">Contact Us</a>
         </div>
       </div>
     </div>
