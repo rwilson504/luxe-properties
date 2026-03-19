@@ -54,6 +54,7 @@ amenities:
     title: "Services"
     items: ["Pets allowed (up to 3 dogs)", "Self check-in via keypad"]
 goodToKnow:
+  - "The driveway is steep, but the view is worth it! A 4WD or SUV is recommended."
   - "If you have a larger party, we own the property next door — [LuxeHaus Lodge](/lodges/luxe-haus) — within walking distance."
 ---
 
