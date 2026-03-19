@@ -1,5 +1,6 @@
 ---
 import Layout from './Layout.astro';
+import { getImage } from 'astro:assets';
 
 export interface Props {
   title: string;
@@ -32,7 +33,14 @@ const filteredEntries = Object.entries(allImages).filter(([path]) =>
 );
 
 // Group images by subfolder (skip top-level files like cover.jpg)
-const sections: Record<string, ImageMetadata[]> = {};
+interface OptimizedImage {
+  thumb: string;
+  full: string;
+  width: number;
+  height: number;
+}
+
+const sections: Record<string, OptimizedImage[]> = {};
 for (const [path, resolver] of filteredEntries) {
   const mod = await resolver();
   const afterLodge = path.split(`/images/${imageFolder}/`)[1];
@@ -40,7 +48,19 @@ for (const [path, resolver] of filteredEntries) {
   if (parts.length <= 1) continue; // skip top-level files
   const section = parts[0];
   if (!sections[section]) sections[section] = [];
-  sections[section].push(mod.default);
+
+  // Generate optimized thumbnail (400px wide, WebP) and full-size (1400px, WebP)
+  const [thumb, full] = await Promise.all([
+    getImage({ src: mod.default, width: 400, format: 'webp', quality: 75 }),
+    getImage({ src: mod.default, width: 1400, format: 'webp', quality: 80 }),
+  ]);
+
+  sections[section].push({
+    thumb: thumb.src,
+    full: full.src,
+    width: thumb.attributes.width as number,
+    height: thumb.attributes.height as number,
+  });
 }
 
 function formatSectionTitle(key: string): string {
@@ -56,8 +76,21 @@ const sectionKeys = Object.keys(sections).sort((a, b) => {
   return a.localeCompare(b);
 });
 
-// Get first image for hero
-const heroImg = sectionKeys.length > 0 ? sections[sectionKeys[0]][0] : null;
+// Get first image for hero (optimized for large display)
+const heroRaw = sectionKeys.length > 0 ? sections[sectionKeys[0]][0] : null;
+const heroSrc = heroRaw ? heroRaw.full : null;
+
+// Also generate a specific hero-sized image from the original source
+const heroSourceEntries = filteredEntries.filter(([path]) => {
+  const afterLodge = path.split(`/images/${imageFolder}/`)[1];
+  return afterLodge.split('/').length > 1;
+});
+let heroOptimizedSrc: string | null = null;
+if (heroSourceEntries.length > 0) {
+  const heroMod = await heroSourceEntries[0][1]();
+  const heroOpt = await getImage({ src: heroMod.default, width: 1600, format: 'webp', quality: 80 });
+  heroOptimizedSrc = heroOpt.src;
+}
 ---
 
 <Layout title={`${title} - Hocking Luxury Lodges`} description={`${title} — sleeps up to ${guests || 10} guests with ${bedrooms || 4} bedrooms, ${bathrooms || 3} baths. Book your Hocking Hills luxury getaway.`} ogType="website">
@@ -68,7 +101,7 @@ const heroImg = sectionKeys.length > 0 ? sections[sectionKeys[0]][0] : null;
     "name": title,
     "description": `${title} — luxury vacation rental in Hocking Hills, Ohio.`,
     "url": `https://hockingluxurylodges.com${Astro.url.pathname}`,
-    "image": heroImg ? `https://hockingluxurylodges.com${heroImg.src}` : undefined,
+    "image": heroOptimizedSrc ? `https://hockingluxurylodges.com${heroOptimizedSrc}` : undefined,
     "occupancy": {
       "@type": "QuantitativeValue",
       "maxValue": guests || 10
@@ -83,8 +116,8 @@ const heroImg = sectionKeys.length > 0 ? sections[sectionKeys[0]][0] : null;
     }
   })} />
   <!-- Hero section -->
-  {heroImg && (
-    <div class="lodge-hero" style={`background-image: url('${heroImg.src}')`}>
+  {heroOptimizedSrc && (
+    <div class="lodge-hero" style={`background-image: url('${heroOptimizedSrc}')`}>
       <div class="lodge-hero-overlay">
         <div class="container">
           <h1 class="lodge-hero-title">{title}</h1>
@@ -202,8 +235,8 @@ const heroImg = sectionKeys.length > 0 ? sections[sectionKeys[0]][0] : null;
           <h5 class="gallery-section-title">{formatSectionTitle(key)}</h5>
           <div class="photo-grid">
             {sections[key].map((img, i) => (
-              <a href={img.src} class="photo-grid-item" data-lightbox data-section={formatSectionTitle(key)}>
-                <img src={img.src} alt={`${title} - ${formatSectionTitle(key)} ${i + 1}`} loading="lazy" />
+              <a href={img.full} class="photo-grid-item" data-lightbox data-section={formatSectionTitle(key)}>
+                <img src={img.thumb} width={img.width} height={img.height} alt={`${title} - ${formatSectionTitle(key)} ${i + 1}`} loading="lazy" decoding="async" />
               </a>
             ))}
           </div>
