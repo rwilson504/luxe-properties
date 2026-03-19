@@ -598,6 +598,35 @@ div.tr-component.tr-unit-calendar {
   }
 }
 
+/* ========== Weather Badge ========== */
+.weather-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  padding: 0.4rem 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.88rem;
+}
+
+.weather-badge i {
+  font-size: 1.1rem;
+}
+
+.weather-desc {
+  opacity: 0.8;
+  font-size: 0.82rem;
+}
+
+.weather-location {
+  opacity: 0.6;
+  font-size: 0.78rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+  padding-left: 0.5rem;
+}
+
 /* ========== Home Features Section ========== */
 .home-features {
   padding: 3rem 0 4rem;

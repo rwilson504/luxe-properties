@@ -74,12 +74,62 @@ import 'bootstrap/dist/css/bootstrap.min.css';
           <img src="/assets/images/HockingLuxuryLodgesLogoOnly.svg" alt="Hocking Luxury Lodges" style="height: 40px; opacity: 0.8;" />
         </div>
         <div class="col-md-4 text-center">
+          <div id="weather-badge" class="weather-badge" style="display:none;">
+            <i id="weather-icon" class="fa-solid fa-cloud-sun"></i>
+            <span id="weather-temp"></span>
+            <span id="weather-desc" class="weather-desc"></span>
+            <span class="weather-location">Hocking Hills, OH</span>
+          </div>
         </div>
         <div class="col-md-4 text-end">
         </div>
       </div>
     </div>
   </footer>
+
+  <script is:inline>
+  (function() {
+    var badge = document.getElementById('weather-badge');
+    if (!badge) return;
+    var WMO = {
+      0: ['Clear sky', 'fa-solid fa-sun'],
+      1: ['Mostly clear', 'fa-solid fa-sun'],
+      2: ['Partly cloudy', 'fa-solid fa-cloud-sun'],
+      3: ['Overcast', 'fa-solid fa-cloud'],
+      45: ['Foggy', 'fa-solid fa-smog'], 48: ['Foggy', 'fa-solid fa-smog'],
+      51: ['Light drizzle', 'fa-solid fa-cloud-rain'],
+      53: ['Drizzle', 'fa-solid fa-cloud-rain'],
+      55: ['Heavy drizzle', 'fa-solid fa-cloud-rain'],
+      61: ['Light rain', 'fa-solid fa-cloud-showers-heavy'],
+      63: ['Rain', 'fa-solid fa-cloud-showers-heavy'],
+      65: ['Heavy rain', 'fa-solid fa-cloud-showers-heavy'],
+      71: ['Light snow', 'fa-solid fa-snowflake'],
+      73: ['Snow', 'fa-solid fa-snowflake'],
+      75: ['Heavy snow', 'fa-solid fa-snowflake'],
+      77: ['Snow grains', 'fa-solid fa-snowflake'],
+      80: ['Rain showers', 'fa-solid fa-cloud-showers-heavy'],
+      81: ['Rain showers', 'fa-solid fa-cloud-showers-heavy'],
+      82: ['Heavy showers', 'fa-solid fa-cloud-showers-heavy'],
+      85: ['Snow showers', 'fa-solid fa-snowflake'],
+      86: ['Heavy snow showers', 'fa-solid fa-snowflake'],
+      95: ['Thunderstorm', 'fa-solid fa-cloud-bolt'],
+      96: ['Thunderstorm w/ hail', 'fa-solid fa-cloud-bolt'],
+      99: ['Thunderstorm w/ hail', 'fa-solid fa-cloud-bolt']
+    };
+    fetch('https://api.open-meteo.com/v1/forecast?latitude=39.44&longitude=-82.54&current=temperature_2m,weather_code&temperature_unit=fahrenheit&timezone=America%2FNew_York')
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        var temp = Math.round(data.current.temperature_2m);
+        var code = data.current.weather_code;
+        var info = WMO[code] || ['--', 'fa-solid fa-cloud'];
+        document.getElementById('weather-temp').textContent = temp + '\u00B0F';
+        document.getElementById('weather-desc').textContent = info[0];
+        document.getElementById('weather-icon').className = info[1];
+        badge.style.display = 'inline-flex';
+      })
+      .catch(function() {});
+  })();
+  </script>
 
   <script is:inline src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script is:inline src="https://d1eneklj7lmhjs.cloudfront.net/20160304085750/thinkreservations-widgets.js"></script>
