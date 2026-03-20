@@ -627,6 +627,12 @@ div.tr-component.tr-unit-calendar {
   padding-left: 0.5rem;
 }
 
+@media (max-width: 767.98px) {
+  .weather-badge {
+    display: none !important;
+  }
+}
+
 /* ========== Home Features Section ========== */
 .home-features {
   padding: 3rem 0 4rem;
