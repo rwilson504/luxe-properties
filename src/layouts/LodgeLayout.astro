@@ -339,4 +339,36 @@ if (coverEntry) {
     });
   })();
   </script>
+
+  {(airbnbUrl || vrboUrl) && (
+    <div class="floating-book-bar" id="floatingBookBar">
+      <span class="floating-book-label">Book Now</span>
+      <div class="floating-book-buttons">
+        {airbnbUrl && (
+          <a href={airbnbUrl} target="_blank" rel="noopener noreferrer" class="btn btn-outline-booking btn-airbnb">
+            <i class="fa-brands fa-airbnb me-1"></i> Airbnb
+          </a>
+        )}
+        {vrboUrl && (
+          <a href={vrboUrl} target="_blank" rel="noopener noreferrer" class="btn btn-outline-booking btn-vrbo">
+            <i class="fa-solid fa-house-chimney me-1"></i> Vrbo
+          </a>
+        )}
+      </div>
+    </div>
+  )}
+
+  <script>
+    (function() {
+      const hero = document.querySelector('.lodge-hero');
+      const bar = document.getElementById('floatingBookBar');
+      if (!hero || !bar) return;
+      function toggle() {
+        const heroBottom = hero.getBoundingClientRect().bottom;
+        bar.classList.toggle('visible', heroBottom < 0);
+      }
+      window.addEventListener('scroll', toggle, { passive: true });
+      toggle();
+    })();
+  </script>
 </Layout>
