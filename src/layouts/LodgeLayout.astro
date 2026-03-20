@@ -260,18 +260,50 @@ if (coverEntry) {
   {sectionKeys.length > 0 && (
     <div class="container mt-5">
       <h3 class="mb-4">{title} Photos</h3>
-      {sectionKeys.map((key) => (
-        <div class="gallery-section mb-5">
-          <h5 class="gallery-section-title">{formatSectionTitle(key)}</h5>
-          <div class="photo-grid">
-            {sections[key].map((img, i) => (
-              <a href={img.full} class="photo-grid-item" data-lightbox data-section={formatSectionTitle(key)}>
-                <img src={img.thumb} width={img.width} height={img.height} alt={`${title} - ${formatSectionTitle(key)} ${i + 1}`} loading="lazy" decoding="async" />
-              </a>
-            ))}
-          </div>
+      <div class="gallery-tabs">
+        <button class="gallery-tab active" data-tab="by-room">By Room</button>
+        <button class="gallery-tab" data-tab="all-photos">All Photos</button>
+      </div>
+
+      <!-- By Room view -->
+      <div class="gallery-tab-content active" id="tab-by-room">
+        <div class="room-grid">
+          {(() => {
+            let runningIndex = 0;
+            return sectionKeys.map((key) => {
+              const images = sections[key];
+              const firstImg = images[0];
+              const startIndex = runningIndex;
+              runningIndex += images.length;
+              return (
+                <a href={firstImg.full} class="room-card" data-lightbox data-section={formatSectionTitle(key)} data-room-start={startIndex}>
+                  <div class="room-card-img">
+                    <img src={firstImg.thumb} width={firstImg.width} height={firstImg.height} alt={formatSectionTitle(key)} loading="lazy" decoding="async" />
+                    <span class="room-card-count"><i class="fa-solid fa-images"></i> {images.length}</span>
+                  </div>
+                  <div class="room-card-name">{formatSectionTitle(key)}</div>
+                </a>
+              );
+            });
+          })()}
         </div>
-      ))}
+      </div>
+
+      <!-- All Photos view -->
+      <div class="gallery-tab-content" id="tab-all-photos">
+        {sectionKeys.map((key) => (
+          <div class="gallery-section mb-5">
+            <h5 class="gallery-section-title">{formatSectionTitle(key)}</h5>
+            <div class="photo-grid">
+              {sections[key].map((img, i) => (
+                <a href={img.full} class="photo-grid-item" data-lightbox data-section={formatSectionTitle(key)}>
+                  <img src={img.thumb} width={img.width} height={img.height} alt={`${title} - ${formatSectionTitle(key)} ${i + 1}`} loading="lazy" decoding="async" />
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   )}
 
@@ -286,11 +318,17 @@ if (coverEntry) {
 
   <script is:inline>
   (function() {
-    const overlay = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lightbox-img');
-    const lbCaption = document.getElementById('lightbox-caption');
-    const links = Array.from(document.querySelectorAll('[data-lightbox]'));
-    let currentIndex = -1;
+    var overlay = document.getElementById('lightbox');
+    var lbImg = document.getElementById('lightbox-img');
+    var lbCaption = document.getElementById('lightbox-caption');
+    var currentIndex = -1;
+
+    function getActiveLinks() {
+      var active = document.querySelector('.gallery-tab-content.active');
+      return active ? Array.from(active.querySelectorAll('[data-lightbox]')) : [];
+    }
+
+    var links = getActiveLinks();
 
     function updateCaption(index) {
       var section = links[index].getAttribute('data-section') || '';
@@ -300,7 +338,8 @@ if (coverEntry) {
     function openLightbox(index) {
       currentIndex = index;
       lbImg.src = links[index].href;
-      lbImg.alt = links[index].querySelector('img').alt;
+      var img = links[index].querySelector('img');
+      lbImg.alt = img ? img.alt : '';
       updateCaption(index);
       overlay.classList.add('active');
       overlay.setAttribute('aria-hidden', 'false');
@@ -316,14 +355,43 @@ if (coverEntry) {
     function navigate(dir) {
       currentIndex = (currentIndex + dir + links.length) % links.length;
       lbImg.src = links[currentIndex].href;
-      lbImg.alt = links[currentIndex].querySelector('img').alt;
+      var img = links[currentIndex].querySelector('img');
+      lbImg.alt = img ? img.alt : '';
       updateCaption(currentIndex);
     }
 
-    links.forEach(function(link, i) {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        openLightbox(i);
+    function bindLinks() {
+      links = getActiveLinks();
+      links.forEach(function(link, i) {
+        link.onclick = function(e) {
+          e.preventDefault();
+          // For room cards, get the all-photos links and open at the room start index
+          var roomStart = link.getAttribute('data-room-start');
+          if (roomStart !== null) {
+            var allTab = document.getElementById('tab-all-photos');
+            var allLinks = Array.from(allTab.querySelectorAll('[data-lightbox]'));
+            links = allLinks;
+            openLightbox(parseInt(roomStart, 10));
+          } else {
+            openLightbox(i);
+          }
+        };
+      });
+    }
+
+    bindLinks();
+
+    // Tab switching
+    var tabs = document.querySelectorAll('.gallery-tab');
+    tabs.forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        tabs.forEach(function(t) { t.classList.remove('active'); });
+        tab.classList.add('active');
+        var target = tab.getAttribute('data-tab');
+        document.querySelectorAll('.gallery-tab-content').forEach(function(c) {
+          c.classList.toggle('active', c.id === 'tab-' + target);
+        });
+        bindLinks();
       });
     });
 
