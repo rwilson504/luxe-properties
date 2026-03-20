@@ -70,7 +70,7 @@ const coverImages: Record<string, ImageMetadata> = {
           <div class="lodge-showcase">
             <div class="lodge-showcase-img">
               {cover && (
-                <Image src={cover} alt={fm.title} width={800} height={500} loading="lazy" />
+                <Image src={cover} alt={fm.title} width={800} height={500} format="webp" quality={80} loading="eager" fetchpriority="high" decoding="async" />
               )}
             </div>
             <div class="lodge-showcase-content">
