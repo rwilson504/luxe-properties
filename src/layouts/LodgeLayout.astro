@@ -17,6 +17,7 @@ export interface Props {
   sleeping?: string[];
   amenities?: { icon: string; title: string; items: string[] }[];
   goodToKnow?: string[];
+  reviews?: { quote: string; author: string; location?: string }[];
 }
 
 const {
@@ -24,6 +25,7 @@ const {
   airbnbUrl, vrboUrl, petFriendly, youtubeId,
   guests, bedrooms, beds, bathrooms,
   sleeping = [], amenities = [], goodToKnow = [],
+  reviews = [],
 } = Astro.props;
 
 // Import all lodge images, filter to current lodge
@@ -126,6 +128,7 @@ if (coverEntry) {
   {heroOptimizedSrc && (
     <div class="lodge-hero">
       <img src={heroOptimizedSrc} alt={title} class="lodge-hero-bg" width="1600" height="1067" fetchpriority="high" decoding="async" />
+      <a href="/#lodges" class="lodge-back-link"><i class="fa-solid fa-arrow-left"></i> All Lodges</a>
       <div class="lodge-hero-overlay">
         <div class="container">
           <h1 class="lodge-hero-title">{title}</h1>
@@ -195,6 +198,25 @@ if (coverEntry) {
                   <li set:html={note.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')} />
                 ))}
               </ul>
+            </div>
+          </div>
+        )}
+
+        {reviews.length > 0 && (
+          <div class="lodge-card mt-4">
+            <h5 class="lodge-card-header"><i class="fa-solid fa-star"></i> What Guests Are Saying</h5>
+            <div class="lodge-card-body">
+              <div class="reviews-grid">
+                {reviews.map((review) => (
+                  <blockquote class="review-card">
+                    <p class="review-quote">&ldquo;{review.quote}&rdquo;</p>
+                    <footer class="review-author">
+                      <strong>{review.author}</strong>
+                      {review.location && <span class="review-location">{review.location}</span>}
+                    </footer>
+                  </blockquote>
+                ))}
+              </div>
             </div>
           </div>
         )}

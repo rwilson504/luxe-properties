@@ -56,6 +56,23 @@ amenities:
 goodToKnow:
   - "The driveway is steep, but the view is worth it! A 4WD or SUV is recommended."
   - "If you have a larger party, we own the property next door — [LuxeHaus Lodge](/lodges/luxe-haus) — within walking distance."
+reviews:
+  - quote: "Doug stepped in and accommodated us last minute and we're so glad he did. The home was incredible: each bedroom having its own bathroom was such a luxury, the kitchen was perfect for socializing, and the speakeasy was a blast for game night."
+    author: "Joel"
+    location: "Columbus, Ohio"
+  - quote: "The Speakeasy is clean and swankily decorated, with a well-equipped kitchen and beautiful sunset views. Each bedroom has a super-comfy king-sized bed and en suite bathroom. Fantastic 5/5 stay and only ~20min from Old Man's Cave!"
+    author: "Chelsea"
+  - quote: "There are a thousand little touches that make this house feel like a home. The screening on the porch, the elegant finishes, the size of the hot tub. There is attention paid to every inch of this place and you can feel it from the moment you walk in."
+    author: "Kandice"
+    location: "North Ridgeville, Ohio"
+  - quote: "All king beds with en suite bathrooms, gorgeous stocked kitchen, beautiful outdoor spaces, the covered hot tub, the swings!! and the SECRET room where we hid all the birthday decorations for a super exciting surprise. It was absolutely perfect."
+    author: "Marnie"
+    location: "Milford, Ohio"
+  - quote: "LOVED that each bedroom had a king sized bed and a bathroom attached. The hot tub was amazing for those crisp mornings & nights. Brandon, property manager, was swift to respond and allowed us early check in and late check out. The communication exceeded my expectations."
+    author: "Dakota"
+    location: "Dryden, Michigan"
+  - quote: "We were blown away by the peaceful surroundings. The place was spotless, beautifully decorated, and had all the amenities we could ask for—including a hot tub with a breathtaking view of the woods! After a long day of adventuring, it was pure bliss to relax by the firepit under the stars."
+    author: "Elaine"
 ---
 
 Speakeasy Lodge, a luxurious escape in Hocking Hills inspired by the Roaring 20's! 4 stylish bedrooms with king beds, master bathrooms, pullout couch in basement and private patios, plus two additional half baths on each level, Starlink Wifi, hot tub, fire pit, retro arcade, and multiple indoor/outdoor hang out areas. Discover the hidden speakeasy room with a poker table and bar. Perfect for groups of friends and families. Explore Hocking Hills attractions nearby. Your unforgettable getaway awaits!

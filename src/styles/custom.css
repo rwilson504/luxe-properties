@@ -152,6 +152,26 @@ div.tr-component.tr-unit-calendar {
   z-index: 0;
 }
 
+.lodge-back-link {
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  z-index: 2;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: rgba(0,0,0,0.35);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--brand-btn-radius);
+  transition: background 0.2s;
+}
+
+.lodge-back-link:hover {
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+}
+
 .lodge-hero-overlay {
   background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
   min-height: 380px;
@@ -227,6 +247,53 @@ div.tr-component.tr-unit-calendar {
 }
 
 /* ========== Amenity Cards Grid ========== */
+
+/* ========== Guest Reviews ========== */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.review-card {
+  background: #f9fafb;
+  border-left: 3px solid var(--brand-primary);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 0;
+}
+
+.review-quote {
+  font-style: italic;
+  color: #333;
+  margin-bottom: 0.6rem;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.review-author {
+  font-size: 0.85rem;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.review-author strong {
+  color: #333;
+}
+
+.review-location::before {
+  content: "·";
+  margin-right: 0.5rem;
+}
+
+.review-location {
+  font-size: 0.82rem;
+  color: #888;
+}
+
 .lodge-amenities-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
