@@ -137,11 +137,19 @@ div.tr-component.tr-unit-calendar {
 
 /* ========== Lodge Hero ========== */
 .lodge-hero {
-  background-size: cover;
-  background-position: center;
   min-height: 380px;
   position: relative;
   margin-top: -2rem;
+  overflow: hidden;
+}
+
+.lodge-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
 }
 
 .lodge-hero-overlay {
@@ -150,6 +158,8 @@ div.tr-component.tr-unit-calendar {
   display: flex;
   align-items: flex-end;
   padding-bottom: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .lodge-hero-title {
@@ -478,6 +488,8 @@ div.tr-component.tr-unit-calendar {
 
 .lodge-showcase-img {
   overflow: hidden;
+  display: block;
+  cursor: pointer;
 }
 
 .lodge-showcase-img img {

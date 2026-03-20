@@ -80,16 +80,19 @@ const sectionKeys = Object.keys(sections).sort((a, b) => {
 const heroRaw = sectionKeys.length > 0 ? sections[sectionKeys[0]][0] : null;
 const heroSrc = heroRaw ? heroRaw.full : null;
 
-// Also generate a specific hero-sized image from the original source
-const heroSourceEntries = filteredEntries.filter(([path]) => {
+// Use cover.jpg as the hero image
+const coverEntry = filteredEntries.find(([path]) => {
   const afterLodge = path.split(`/images/${imageFolder}/`)[1];
-  return afterLodge.split('/').length > 1;
+  return afterLodge === 'cover.jpg' || afterLodge === 'cover.jpeg' || afterLodge === 'cover.png';
 });
 let heroOptimizedSrc: string | null = null;
-if (heroSourceEntries.length > 0) {
-  const heroMod = await heroSourceEntries[0][1]();
-  const heroOpt = await getImage({ src: heroMod.default, width: 1600, format: 'webp', quality: 80 });
+if (coverEntry) {
+  const coverMod = await coverEntry[1]();
+  const heroOpt = await getImage({ src: coverMod.default, width: 1600, format: 'webp', quality: 80 });
   heroOptimizedSrc = heroOpt.src;
+} else if (sectionKeys.length > 0) {
+  // Fallback to first gallery image if no cover exists
+  heroOptimizedSrc = sections[sectionKeys[0]][0]?.full ?? null;
 }
 ---
 
@@ -115,9 +118,14 @@ if (heroSourceEntries.length > 0) {
       "addressCountry": "US"
     }
   })} />
+  <!-- Preload hero image for fastest LCP -->
+  {heroOptimizedSrc && (
+    <link rel="preload" as="image" href={heroOptimizedSrc} type="image/webp" />
+  )}
   <!-- Hero section -->
   {heroOptimizedSrc && (
-    <div class="lodge-hero" style={`background-image: url('${heroOptimizedSrc}')`}>
+    <div class="lodge-hero">
+      <img src={heroOptimizedSrc} alt={title} class="lodge-hero-bg" width="1600" height="1067" fetchpriority="high" decoding="async" />
       <div class="lodge-hero-overlay">
         <div class="container">
           <h1 class="lodge-hero-title">{title}</h1>

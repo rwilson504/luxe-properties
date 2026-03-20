@@ -9,7 +9,7 @@ import luxehausCover from '../assets/images/luxehauslodge/cover.jpg';
 // Get all lodge content
 const lodgeFiles = import.meta.glob<{ frontmatter: Record<string, any>; default: any }>('../content/lodges/*.md', { eager: true });
 const lodges = Object.values(lodgeFiles).sort((a, b) =>
-  a.frontmatter.title.localeCompare(b.frontmatter.title)
+  b.frontmatter.title.localeCompare(a.frontmatter.title)
 );
 
 // Map imageFolder to cover images
@@ -68,11 +68,11 @@ const coverImages: Record<string, ImageMetadata> = {
         const cover = coverImages[folder];
         return (
           <div class="lodge-showcase">
-            <div class="lodge-showcase-img">
+            <a href={fm.slug} class="lodge-showcase-img" aria-label={`View ${fm.title} details`}>
               {cover && (
                 <Image src={cover} alt={fm.title} width={800} height={500} format="webp" quality={80} loading="eager" fetchpriority="high" decoding="async" />
               )}
-            </div>
+            </a>
             <div class="lodge-showcase-content">
               <h3 class="lodge-showcase-name">{fm.title}</h3>
               <div class="lodge-showcase-stats">
