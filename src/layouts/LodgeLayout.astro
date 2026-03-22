@@ -4,6 +4,7 @@ import { getImage } from 'astro:assets';
 
 export interface Props {
   title: string;
+  title_es?: string;
   unitId?: string;
   imageFolder?: string;
   airbnbUrl?: string;
@@ -15,17 +16,21 @@ export interface Props {
   beds?: number;
   bathrooms?: number | string;
   sleeping?: string[];
-  amenities?: { icon: string; title: string; items: string[] }[];
+  sleeping_es?: string[];
+  amenities?: { icon: string; title: string; title_es?: string; items: string[]; items_es?: string[] }[];
   goodToKnow?: string[];
+  goodToKnow_es?: string[];
   reviews?: { quote: string; author: string; location?: string }[];
+  description_es?: string;
 }
 
 const {
-  title, unitId, imageFolder = 'luxehauslodge',
+  title, title_es, unitId, imageFolder = 'luxehauslodge',
   airbnbUrl, vrboUrl, petFriendly, youtubeId,
   guests, bedrooms, beds, bathrooms,
-  sleeping = [], amenities = [], goodToKnow = [],
-  reviews = [],
+  sleeping = [], sleeping_es = [], amenities = [],
+  goodToKnow = [], goodToKnow_es = [],
+  reviews = [], description_es,
 } = Astro.props;
 
 // Import all lodge images, filter to current lodge
@@ -128,17 +133,20 @@ if (coverEntry) {
   {heroOptimizedSrc && (
     <div class="lodge-hero">
       <img src={heroOptimizedSrc} alt={title} class="lodge-hero-bg" width="1600" height="1067" fetchpriority="high" decoding="async" />
-      <a href="/#lodges" class="lodge-back-link"><i class="fa-solid fa-arrow-left"></i> All Lodges</a>
+      <a href="/#lodges" class="lodge-back-link"><i class="fa-solid fa-arrow-left"></i> <span data-i18n="lodge.backLink">All Lodges</span></a>
       <div class="lodge-hero-overlay">
         <div class="container">
-          <h1 class="lodge-hero-title">{title}</h1>
+          <h1 class="lodge-hero-title">
+            <span data-lang="en">{title}</span>
+            {title_es && <span data-lang="es" style="display:none;">{title_es}</span>}
+          </h1>
           {(guests || bedrooms || bathrooms) && (
             <div class="lodge-hero-stats">
-              {guests && <span><i class="fa-solid fa-users"></i> Up to {guests} guests</span>}
-              {bedrooms && <span><i class="fa-solid fa-bed"></i> {bedrooms} bedrooms</span>}
-              {beds && <span><i class="fa-solid fa-bed"></i> {beds} beds</span>}
-              {bathrooms && <span><i class="fa-solid fa-bath"></i> {bathrooms} baths</span>}
-              {petFriendly && <span class="pet-friendly-badge"><i class="fa-solid fa-paw"></i> Pet Friendly</span>}
+              {guests && <span><i class="fa-solid fa-users"></i> <span data-i18n="lodge.upTo">Up to</span> {guests} <span data-i18n="lodge.guests">guests</span></span>}
+              {bedrooms && <span><i class="fa-solid fa-bed"></i> {bedrooms} <span data-i18n="lodge.bedrooms">bedrooms</span></span>}
+              {beds && <span><i class="fa-solid fa-bed"></i> {beds} <span data-i18n="lodge.beds">beds</span></span>}
+              {bathrooms && <span><i class="fa-solid fa-bath"></i> {bathrooms} <span data-i18n="lodge.baths">baths</span></span>}
+              {petFriendly && <span class="pet-friendly-badge"><i class="fa-solid fa-paw"></i> <span data-i18n="lodge.petFriendly">Pet Friendly</span></span>}
             </div>
           )}
           {(airbnbUrl || vrboUrl) && (
@@ -166,15 +174,16 @@ if (coverEntry) {
       <!-- Left column: description + video -->
       <div class="col-lg-7">
         <div class="lodge-card">
-          <h5 class="lodge-card-header"><i class="fa-solid fa-house"></i> About this space</h5>
+          <h5 class="lodge-card-header"><i class="fa-solid fa-house"></i> <span data-i18n="lodge.aboutThisSpace">About this space</span></h5>
           <div class="lodge-card-body">
-            <slot />
+            <div data-lang="en"><slot /></div>
+            {description_es && <div data-lang="es" style="display:none;">{description_es}</div>}
           </div>
         </div>
 
         {youtubeId && (
           <div class="lodge-card mt-4">
-            <h5 class="lodge-card-header"><i class="fa-solid fa-video"></i> Video Tour</h5>
+            <h5 class="lodge-card-header"><i class="fa-solid fa-video"></i> <span data-i18n="lodge.videoTour">Video Tour</span></h5>
             <div class="lodge-card-body p-0">
               <div class="ratio ratio-16x9">
                 <iframe
@@ -191,20 +200,27 @@ if (coverEntry) {
 
         {goodToKnow.length > 0 && (
           <div class="lodge-card mt-4">
-            <h5 class="lodge-card-header"><i class="fa-solid fa-circle-info"></i> Good to Know</h5>
+            <h5 class="lodge-card-header"><i class="fa-solid fa-circle-info"></i> <span data-i18n="lodge.goodToKnow">Good to Know</span></h5>
             <div class="lodge-card-body">
-              <ul class="lodge-list">
+              <ul class="lodge-list" data-lang="en">
                 {goodToKnow.map((note) => (
                   <li set:html={note.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')} />
                 ))}
               </ul>
+              {goodToKnow_es.length > 0 && (
+                <ul class="lodge-list" data-lang="es" style="display:none;">
+                  {goodToKnow_es.map((note) => (
+                    <li set:html={note.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')} />
+                  ))}
+                </ul>
+              )}
             </div>
           </div>
         )}
 
         {reviews.length > 0 && (
           <div class="lodge-card mt-4">
-            <h5 class="lodge-card-header"><i class="fa-solid fa-star"></i> What Guests Are Saying</h5>
+            <h5 class="lodge-card-header"><i class="fa-solid fa-star"></i> <span data-i18n="lodge.guestsSaying">What Guests Are Saying</span></h5>
             <div class="lodge-card-body">
               <div class="reviews-grid">
                 {reviews.map((review) => (
@@ -226,27 +242,39 @@ if (coverEntry) {
       <div class="col-lg-5">
         {sleeping.length > 0 && (
           <div class="lodge-card">
-            <h5 class="lodge-card-header"><i class="fa-solid fa-bed"></i> Sleeping & Bathrooms</h5>
+            <h5 class="lodge-card-header"><i class="fa-solid fa-bed"></i> <span data-i18n="lodge.sleepingBathrooms">Sleeping & Bathrooms</span></h5>
             <div class="lodge-card-body">
-              <ul class="lodge-list">
+              <ul class="lodge-list" data-lang="en">
                 {sleeping.map((item) => <li>{item}</li>)}
               </ul>
+              {sleeping_es.length > 0 && (
+                <ul class="lodge-list" data-lang="es" style="display:none;">
+                  {sleeping_es.map((item) => <li>{item}</li>)}
+                </ul>
+              )}
             </div>
           </div>
         )}
 
         {amenities.length > 0 && (
           <div class="lodge-card mt-4">
-            <h5 class="lodge-card-header"><i class="fa-solid fa-star"></i> Amenities</h5>
+            <h5 class="lodge-card-header"><i class="fa-solid fa-star"></i> <span data-i18n="lodge.amenities">Amenities</span></h5>
             <div class="lodge-card-body lodge-amenities-grid">
               {amenities.map((group) => (
                 <div class="amenity-group">
                   <h6 class="amenity-group-title">
-                    <i class={group.icon}></i> {group.title}
+                    <i class={group.icon}></i>
+                    <span data-lang="en">{group.title}</span>
+                    {group.title_es && <span data-lang="es" style="display:none;">{group.title_es}</span>}
                   </h6>
-                  <ul class="amenity-items">
+                  <ul class="amenity-items" data-lang="en">
                     {group.items.map((item) => <li>{item}</li>)}
                   </ul>
+                  {group.items_es && (
+                    <ul class="amenity-items" data-lang="es" style="display:none;">
+                      {group.items_es.map((item) => <li>{item}</li>)}
+                    </ul>
+                  )}
                 </div>
               ))}
             </div>
@@ -259,10 +287,10 @@ if (coverEntry) {
   <!-- Photo gallery -->
   {sectionKeys.length > 0 && (
     <div class="container mt-5">
-      <h3 class="mb-4">{title} Photos</h3>
+      <h3 class="mb-4">{title} <span data-i18n="lodge.photos">Photos</span></h3>
       <div class="gallery-tabs">
-        <button class="gallery-tab active" data-tab="by-room">By Room</button>
-        <button class="gallery-tab" data-tab="all-photos">All Photos</button>
+        <button class="gallery-tab active" data-tab="by-room" data-i18n="lodge.byRoom">By Room</button>
+        <button class="gallery-tab" data-tab="all-photos" data-i18n="lodge.allPhotos">All Photos</button>
       </div>
 
       <!-- By Room view -->
@@ -410,7 +438,7 @@ if (coverEntry) {
 
   {(airbnbUrl || vrboUrl) && (
     <div class="floating-book-bar" id="floatingBookBar">
-      <span class="floating-book-label">Book Now</span>
+      <span class="floating-book-label" data-i18n="lodge.bookNow">Book Now</span>
       <div class="floating-book-buttons">
         {airbnbUrl && (
           <a href={airbnbUrl} target="_blank" rel="noopener noreferrer" class="btn btn-outline-booking btn-airbnb">

@@ -1,0 +1,64 @@
+---
+// LanguageSwitcher.astro
+// Renders a flag dropdown that lets users toggle between English and Spanish.
+// The selected language is stored in sessionStorage under the key "siteLanguage".
+---
+
+<div class="lang-switcher dropdown">
+  <button
+    class="lang-switcher-btn btn dropdown-toggle"
+    type="button"
+    id="langDropdown"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+    aria-label="Select language"
+  >
+    <span id="lang-flag">🇺🇸</span>
+    <span id="lang-label" class="lang-label">EN</span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
+    <li>
+      <button class="dropdown-item lang-option" data-lang-switch="en">
+        🇺🇸 English
+      </button>
+    </li>
+    <li>
+      <button class="dropdown-item lang-option" data-lang-switch="es">
+        🇪🇸 Español
+      </button>
+    </li>
+  </ul>
+</div>
+
+<style>
+  .lang-switcher-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+    padding: 4px 10px;
+    font-size: 0.875rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .lang-switcher-btn:hover,
+  .lang-switcher-btn:focus {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.8);
+  }
+  .lang-switcher-btn::after {
+    margin-left: 4px;
+  }
+  .lang-label {
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .dropdown-menu {
+    min-width: 130px;
+  }
+  .dropdown-item {
+    cursor: pointer;
+  }
+</style>
