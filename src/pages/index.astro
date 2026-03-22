@@ -46,12 +46,12 @@ const coverImages: Record<string, ImageMetadata> = {
   <section class="home-hero">
     <div class="home-hero-overlay">
       <div class="container">
-        <h1 class="home-hero-heading">Luxury Lodging in<br/>Hocking Hills</h1>
-        <p class="home-hero-sub">
+        <h1 class="home-hero-heading" data-i18n="home.heroHeading" data-i18n-html>Luxury Lodging in<br/>Hocking Hills</h1>
+        <p class="home-hero-sub" data-i18n="home.heroSub">
           Contemporary retreats nestled on private wooded acres &mdash; hot tubs, arcades, stunning views, and everything you need for an unforgettable getaway.
         </p>
         <a href="#lodges" class="btn btn-outline-light btn-lg home-hero-cta">
-          Explore Our Lodges <i class="fa-solid fa-arrow-down ms-2"></i>
+          <span data-i18n="home.heroCta">Explore Our Lodges</span> <i class="fa-solid fa-arrow-down ms-2"></i>
         </a>
       </div>
     </div>
@@ -60,7 +60,7 @@ const coverImages: Record<string, ImageMetadata> = {
   <!-- Lodge Cards -->
   <section id="lodges" class="home-lodges">
     <div class="container">
-      <h2 class="home-section-title">Our Lodges</h2>
+      <h2 class="home-section-title" data-i18n="home.sectionLodges">Our Lodges</h2>
 
       {lodges.map((lodge) => {
         const fm = lodge.frontmatter;
@@ -74,18 +74,24 @@ const coverImages: Record<string, ImageMetadata> = {
               )}
             </a>
             <div class="lodge-showcase-content">
-              <h3 class="lodge-showcase-name">{fm.title}</h3>
+              <h3 class="lodge-showcase-name">
+                <span data-lang="en">{fm.title}</span>
+                {fm.title_es && <span data-lang="es" style="display:none;">{fm.title_es}</span>}
+              </h3>
               <div class="lodge-showcase-stats">
-                <span><i class="fa-solid fa-users"></i> {fm.guests} guests</span>
-                <span><i class="fa-solid fa-bed"></i> {fm.bedrooms} bedrooms</span>
-                {fm.beds && <span><i class="fa-solid fa-bed"></i> {fm.beds} beds</span>}
-                <span><i class="fa-solid fa-bath"></i> {fm.bathrooms} baths</span>
-                {fm.petFriendly && <span class="pet-friendly-badge"><i class="fa-solid fa-paw"></i> Pet Friendly</span>}
+                <span><i class="fa-solid fa-users"></i> {fm.guests} <span data-i18n="home.guests">guests</span></span>
+                <span><i class="fa-solid fa-bed"></i> {fm.bedrooms} <span data-i18n="home.bedrooms">bedrooms</span></span>
+                {fm.beds && <span><i class="fa-solid fa-bed"></i> {fm.beds} <span data-i18n="home.beds">beds</span></span>}
+                <span><i class="fa-solid fa-bath"></i> {fm.bathrooms} <span data-i18n="home.baths">baths</span></span>
+                {fm.petFriendly && <span class="pet-friendly-badge"><i class="fa-solid fa-paw"></i> <span data-i18n="home.petFriendly">Pet Friendly</span></span>}
               </div>
-              <p class="lodge-showcase-desc">{fm.excerpt}</p>
+              <p class="lodge-showcase-desc">
+                <span data-lang="en">{fm.excerpt}</span>
+                {fm.excerpt_es && <span data-lang="es" style="display:none;">{fm.excerpt_es}</span>}
+              </p>
               <div class="lodge-showcase-actions">
                 <a href={fm.slug} class="btn btn-primary">
-                  View Details <i class="fa-solid fa-arrow-right ms-1"></i>
+                  <span data-i18n="home.viewDetails">View Details</span> <i class="fa-solid fa-arrow-right ms-1"></i>
                 </a>
                 {fm.airbnbUrl && (
                   <a href={fm.airbnbUrl} target="_blank" rel="noopener noreferrer" class="btn btn-outline-booking btn-airbnb">
@@ -108,37 +114,37 @@ const coverImages: Record<string, ImageMetadata> = {
   <!-- Why Stay Section -->
   <section class="home-features">
     <div class="container">
-      <h2 class="home-section-title">Why Hocking Luxury Lodges?</h2>
+      <h2 class="home-section-title" data-i18n="home.sectionWhy">Why Hocking Luxury Lodges?</h2>
       <div class="home-features-grid">
         <div class="home-feature">
           <div class="home-feature-icon"><i class="fa-solid fa-tree"></i></div>
-          <h4>Private & Secluded</h4>
-          <p>Nestled on wooded acres with no neighbors in sight &mdash; your own private retreat.</p>
+          <h4 data-i18n="home.feature1Title">Private & Secluded</h4>
+          <p data-i18n="home.feature1Desc">Nestled on wooded acres with no neighbors in sight &mdash; your own private retreat.</p>
         </div>
         <div class="home-feature">
           <div class="home-feature-icon"><i class="fa-solid fa-hot-tub-person"></i></div>
-          <h4>Premium Amenities</h4>
-          <p>Hot tubs, fire pits, arcade games, and fully equipped kitchens at every lodge.</p>
+          <h4 data-i18n="home.feature2Title">Premium Amenities</h4>
+          <p data-i18n="home.feature2Desc">Hot tubs, fire pits, arcade games, and fully equipped kitchens at every lodge.</p>
         </div>
         <div class="home-feature">
           <div class="home-feature-icon"><i class="fa-solid fa-mountain-sun"></i></div>
-          <h4>Hocking Hills Location</h4>
-          <p>Minutes from Old Man's Cave, Ash Cave, and the best trails in Ohio.</p>
+          <h4 data-i18n="home.feature3Title">Hocking Hills Location</h4>
+          <p data-i18n="home.feature3Desc">Minutes from Old Man's Cave, Ash Cave, and the best trails in Ohio.</p>
         </div>
         <div class="home-feature">
           <div class="home-feature-icon"><i class="fa-solid fa-people-group"></i></div>
-          <h4>Perfect for Groups</h4>
-          <p>Each lodge sleeps up to 10 guests &mdash; ideal for families, friends, and celebrations.</p>
+          <h4 data-i18n="home.feature4Title">Perfect for Groups</h4>
+          <p data-i18n="home.feature4Desc">Each lodge sleeps up to 10 guests &mdash; ideal for families, friends, and celebrations.</p>
         </div>
         <div class="home-feature">
           <div class="home-feature-icon"><i class="fa-solid fa-paw"></i></div>
-          <h4>Pet Friendly</h4>
-          <p>Why pay for boarding? Bring your furry family members along &mdash; all lodges welcome pets.</p>
+          <h4 data-i18n="home.feature5Title">Pet Friendly</h4>
+          <p data-i18n="home.feature5Desc">Why pay for boarding? Bring your furry family members along &mdash; all lodges welcome pets.</p>
         </div>
         <div class="home-feature">
           <div class="home-feature-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
-          <h4>Large Parties</h4>
-          <p>Planning a big gathering? Our lodges are close enough to rent both &mdash; host up to 20 guests across two properties.</p>
+          <h4 data-i18n="home.feature6Title">Large Parties</h4>
+          <p data-i18n="home.feature6Desc">Planning a big gathering? Our lodges are close enough to rent both &mdash; host up to 20 guests across two properties.</p>
         </div>
       </div>
     </div>

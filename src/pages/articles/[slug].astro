@@ -24,8 +24,8 @@ const dateStr = article.data.date.toLocaleDateString('en-US', {
   <div class="container py-4">
     <nav aria-label="breadcrumb" class="mb-3">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item"><a href="/articles">Articles</a></li>
+        <li class="breadcrumb-item"><a href="/" data-i18n="article.home">Home</a></li>
+        <li class="breadcrumb-item"><a href="/articles" data-i18n="article.articles">Articles</a></li>
         <li class="breadcrumb-item active" aria-current="page">{article.data.title}</li>
       </ol>
     </nav>
@@ -53,6 +53,6 @@ const dateStr = article.data.date.toLocaleDateString('en-US', {
     </article>
 
     <hr class="my-5" />
-    <a href="/articles" class="btn btn-outline-primary">&larr; Back to Articles</a>
+    <a href="/articles" class="btn btn-outline-primary" data-i18n="article.backToArticles">&larr; Back to Articles</a>
   </div>
 </Layout>

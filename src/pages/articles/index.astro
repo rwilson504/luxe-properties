@@ -8,7 +8,7 @@ const sortedArticles = articles.sort((a, b) => b.data.date.getTime() - a.data.da
 
 <Layout title="News & Articles - Hocking Luxury Lodges" description="Explore guides, tips, and local insights for your Hocking Hills getaway — hiking trails, boating, fishing, and more.">
   <div class="container py-4">
-    <h1 class="mb-4">News & Articles</h1>
+    <h1 class="mb-4" data-i18n="articles.title">News & Articles</h1>
     <div class="row">
       {sortedArticles.map((article) => {
         const dateStr = article.data.date.toLocaleDateString('en-US', {
@@ -26,7 +26,7 @@ const sortedArticles = articles.sort((a, b) => b.data.date.getTime() - a.data.da
                 <small class="text-muted mb-1">{dateStr}</small>
                 <h5 class="card-title">{article.data.title}</h5>
                 <p class="card-text">{article.data.excerpt}</p>
-                <a href={`/articles/${article.id}`} class="btn btn-primary mt-auto">Read More</a>
+                <a href={`/articles/${article.id}`} class="btn btn-primary mt-auto" data-i18n="articles.readMore">Read More</a>
               </div>
               {article.data.tags && (
                 <div class="card-footer">
@@ -43,7 +43,7 @@ const sortedArticles = articles.sort((a, b) => b.data.date.getTime() - a.data.da
 
     {sortedArticles.length === 0 && (
       <div class="text-center py-5">
-        <p class="text-muted">No articles yet. Check back soon!</p>
+        <p class="text-muted" data-i18n="articles.noArticles">No articles yet. Check back soon!</p>
       </div>
     )}
   </div>

@@ -1,4 +1,8 @@
 ---
+import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+import en from '../i18n/en';
+import es from '../i18n/es';
+
 interface Props {
   title?: string;
   description?: string;
@@ -14,6 +18,9 @@ const {
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+// Serialize translation dictionaries for inline use by the client-side i18n script
+const translationsJson = JSON.stringify({ en, es });
 
 import '../styles/custom.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -67,8 +74,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
           <img src="/assets/images/HockingLuxuryLodgesLogoWithText.svg" alt="Hocking Luxury Lodges" class="logo-img" />
         </a>
         <nav class="d-flex gap-3 align-items-center">
-          <a href="/articles">Articles</a>
+          <a href="/articles" data-i18n="nav.articles">Articles</a>
           <a href="/" aria-label="Home"><i class="fa-solid fa-house"></i></a>
+          <LanguageSwitcher />
         </nav>
       </div>
     </div>
@@ -98,46 +106,132 @@ import 'bootstrap/dist/css/bootstrap.min.css';
   (function() {
     var badge = document.getElementById('weather-badge');
     if (!badge) return;
-    var WMO = {
-      0: ['Clear sky', 'fa-solid fa-sun'],
-      1: ['Mostly clear', 'fa-solid fa-sun'],
-      2: ['Partly cloudy', 'fa-solid fa-cloud-sun'],
-      3: ['Overcast', 'fa-solid fa-cloud'],
-      45: ['Foggy', 'fa-solid fa-smog'], 48: ['Foggy', 'fa-solid fa-smog'],
-      51: ['Light drizzle', 'fa-solid fa-cloud-rain'],
-      53: ['Drizzle', 'fa-solid fa-cloud-rain'],
-      55: ['Heavy drizzle', 'fa-solid fa-cloud-rain'],
-      61: ['Light rain', 'fa-solid fa-cloud-showers-heavy'],
-      63: ['Rain', 'fa-solid fa-cloud-showers-heavy'],
-      65: ['Heavy rain', 'fa-solid fa-cloud-showers-heavy'],
-      71: ['Light snow', 'fa-solid fa-snowflake'],
-      73: ['Snow', 'fa-solid fa-snowflake'],
-      75: ['Heavy snow', 'fa-solid fa-snowflake'],
-      77: ['Snow grains', 'fa-solid fa-snowflake'],
-      80: ['Rain showers', 'fa-solid fa-cloud-showers-heavy'],
-      81: ['Rain showers', 'fa-solid fa-cloud-showers-heavy'],
-      82: ['Heavy showers', 'fa-solid fa-cloud-showers-heavy'],
-      85: ['Snow showers', 'fa-solid fa-snowflake'],
-      86: ['Heavy snow showers', 'fa-solid fa-snowflake'],
-      95: ['Thunderstorm', 'fa-solid fa-cloud-bolt'],
-      96: ['Thunderstorm w/ hail', 'fa-solid fa-cloud-bolt'],
-      99: ['Thunderstorm w/ hail', 'fa-solid fa-cloud-bolt']
+    var WMO_ICONS = {
+      0: 'fa-solid fa-sun',
+      1: 'fa-solid fa-sun',
+      2: 'fa-solid fa-cloud-sun',
+      3: 'fa-solid fa-cloud',
+      45: 'fa-solid fa-smog', 48: 'fa-solid fa-smog',
+      51: 'fa-solid fa-cloud-rain',
+      53: 'fa-solid fa-cloud-rain',
+      55: 'fa-solid fa-cloud-rain',
+      61: 'fa-solid fa-cloud-showers-heavy',
+      63: 'fa-solid fa-cloud-showers-heavy',
+      65: 'fa-solid fa-cloud-showers-heavy',
+      71: 'fa-solid fa-snowflake',
+      73: 'fa-solid fa-snowflake',
+      75: 'fa-solid fa-snowflake',
+      77: 'fa-solid fa-snowflake',
+      80: 'fa-solid fa-cloud-showers-heavy',
+      81: 'fa-solid fa-cloud-showers-heavy',
+      82: 'fa-solid fa-cloud-showers-heavy',
+      85: 'fa-solid fa-snowflake',
+      86: 'fa-solid fa-snowflake',
+      95: 'fa-solid fa-cloud-bolt',
+      96: 'fa-solid fa-cloud-bolt',
+      99: 'fa-solid fa-cloud-bolt'
     };
     fetch('https://api.open-meteo.com/v1/forecast?latitude=39.44&longitude=-82.54&current=temperature_2m,weather_code&temperature_unit=fahrenheit&timezone=America%2FNew_York')
       .then(function(r) { return r.json(); })
       .then(function(data) {
         var temp = Math.round(data.current.temperature_2m);
         var code = data.current.weather_code;
-        var info = WMO[code] || ['--', 'fa-solid fa-cloud'];
+        var icon = WMO_ICONS[code] || 'fa-solid fa-cloud';
+        var lang = 'en';
+        try { lang = sessionStorage.getItem('siteLanguage') || 'en'; } catch(e) {}
+        var descEl = document.getElementById('weather-desc');
+        descEl.setAttribute('data-weather-code', code);
         document.getElementById('weather-temp').textContent = temp + '\u00B0F';
-        document.getElementById('weather-desc').textContent = info[0];
-        document.getElementById('weather-icon').className = info[1];
+        document.getElementById('weather-icon').className = icon;
         badge.style.display = 'inline-flex';
+        // Description is updated by i18n script via data-i18n or direct lookup
+        if (window.__i18n) {
+          var desc = window.__i18n.t('footer.weather.' + code) || '--';
+          descEl.textContent = desc;
+        }
       })
       .catch(function() {});
   })();
   </script>
 
+  <script is:inline define:vars={{ translationsJson }}>
+  // ── i18n core ────────────────────────────────────────────────────────────────
+  (function () {
+    var TRANSLATIONS = JSON.parse(translationsJson);
+    var SESSION_KEY = 'siteLanguage';
+
+    /** Resolve a dot-path key like "nav.articles" from the translations object */
+    function resolve(obj, path) {
+      return path.split('.').reduce(function (o, k) { return o && o[k]; }, obj);
+    }
+
+    /** Apply the given language to the whole page */
+    function applyLang(lang) {
+      var t = TRANSLATIONS[lang] || TRANSLATIONS['en'];
+
+      // 1. Update all [data-i18n] elements
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var key = el.getAttribute('data-i18n');
+        var val = resolve(t, key);
+        if (val !== undefined && val !== null) {
+          if (el.hasAttribute('data-i18n-html')) {
+            el.innerHTML = val;
+          } else {
+            el.textContent = val;
+          }
+        }
+      });
+
+      // 2. Show/hide [data-lang] blocks
+      document.querySelectorAll('[data-lang]').forEach(function (el) {
+        el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
+      });
+
+      // 3. Update switcher button
+      var flagEl = document.getElementById('lang-flag');
+      var labelEl = document.getElementById('lang-label');
+      if (flagEl) flagEl.textContent = lang === 'es' ? '🇪🇸' : '🇺🇸';
+      if (labelEl) labelEl.textContent = lang === 'es' ? 'ES' : 'EN';
+
+      // 4. Update <html lang>
+      document.documentElement.lang = lang;
+
+      // 5. Update weather description if already loaded
+      var descEl = document.getElementById('weather-desc');
+      if (descEl && descEl.hasAttribute('data-weather-code')) {
+        var code = descEl.getAttribute('data-weather-code');
+        var weatherDesc = resolve(t, 'footer.weather.' + code);
+        if (weatherDesc) descEl.textContent = weatherDesc;
+      }
+    }
+
+    /** Read stored preference or default to 'en' */
+    function getLang() {
+      try { return sessionStorage.getItem(SESSION_KEY) || 'en'; } catch (e) { return 'en'; }
+    }
+
+    /** Store and apply a new language */
+    function setLang(lang) {
+      try { sessionStorage.setItem(SESSION_KEY, lang); } catch (e) { /* ignore */ }
+      applyLang(lang);
+    }
+
+    // Wire up the switcher buttons
+    document.querySelectorAll('.lang-option').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        setLang(btn.getAttribute('data-lang-switch'));
+      });
+    });
+
+    // Apply on first load
+    applyLang(getLang());
+
+    // Expose globally so per-page scripts can call window.i18nT(key)
+    window.__i18n = { getLang: getLang, setLang: setLang, t: function (key) {
+      return resolve(TRANSLATIONS[getLang()] || TRANSLATIONS['en'], key);
+    }};
+  })();
+  </script>
   <script is:inline src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script is:inline src="https://d1eneklj7lmhjs.cloudfront.net/20160304085750/thinkreservations-widgets.js"></script>
   <script is:inline src="https://assets.pinterest.com/js/pinit.js"></script>
