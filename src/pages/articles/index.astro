@@ -24,8 +24,14 @@ const sortedArticles = articles.sort((a, b) => b.data.date.getTime() - a.data.da
               )}
               <div class="card-body d-flex flex-column">
                 <small class="text-muted mb-1">{dateStr}</small>
-                <h5 class="card-title">{article.data.title}</h5>
-                <p class="card-text">{article.data.excerpt}</p>
+                <h5 class="card-title">
+                  <span data-lang="en">{article.data.title}</span>
+                  {article.data.title_es && <span data-lang="es">{article.data.title_es}</span>}
+                </h5>
+                <p class="card-text">
+                  <span data-lang="en">{article.data.excerpt}</span>
+                  {article.data.excerpt_es && <span data-lang="es">{article.data.excerpt_es}</span>}
+                </p>
                 <a href={`/articles/${article.id}`} class="btn btn-primary mt-auto" data-i18n="articles.readMore">Read More</a>
               </div>
               {article.data.tags && (

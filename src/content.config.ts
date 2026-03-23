@@ -19,9 +19,11 @@ const articles = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/articles' }),
   schema: z.object({
     title: z.string(),
+    title_es: z.string().optional(),
     date: z.date(),
     author: z.string().optional(),
     excerpt: z.string(),
+    excerpt_es: z.string().optional(),
     coverImage: z.string().optional(),
     tags: z.array(z.string()).optional(),
   }),

@@ -34,7 +34,10 @@ const dateStr = article.data.date.toLocaleDateString('en-US', {
       <img src={article.data.coverImage} class="img-fluid mb-4 w-100" alt={article.data.title} style="max-height: 400px; object-fit: cover;" />
     )}
 
-    <h1>{article.data.title}</h1>
+    <h1>
+      <span data-lang="en">{article.data.title}</span>
+      {article.data.title_es && <span data-lang="es">{article.data.title_es}</span>}
+    </h1>
     <p class="text-muted">
       {dateStr}
       {article.data.author && <span> &bull; {article.data.author}</span>}
