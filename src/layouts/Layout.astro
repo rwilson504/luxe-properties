@@ -190,7 +190,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
       // 3. Update switcher button
       var flagEl = document.getElementById('lang-flag');
       var labelEl = document.getElementById('lang-label');
-      if (flagEl) flagEl.textContent = lang === 'es' ? '🇪🇸' : '🇺🇸';
+      if (flagEl) flagEl.innerHTML = lang === 'es'
+        ? '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 500"><rect width="750" height="500" fill="#c60b1e"/><rect width="750" height="250" y="125" fill="#ffc400"/></svg>'
+        : '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7410 3900"><path fill="#b22234" d="M0 0h7410v3900H0"/><path d="M0 450h7410m0 600H0m0 600h7410m0 600H0m0 600h7410m0 600H0" stroke="#fff" stroke-width="300"/><path fill="#3c3b6e" d="M0 0h2964v2100H0"/><g fill="#fff"><g id="s18c"><g id="s9c"><g id="s5c"><g id="s4c"><path id="sc" d="M247 90l70.534 217.082-184.66-134.164h228.253L176.466 307.082z"/><use href="#sc" y="420"/><use href="#sc" y="840"/><use href="#sc" y="1260"/></g><use href="#sc" y="1680"/></g><use href="#s4c" x="247" y="210"/></g><use href="#s9c" x="494"/></g><use href="#s18c" x="988"/><use href="#s9c" x="1976"/><use href="#s5c" x="2470"/></g></svg>';
       if (labelEl) labelEl.textContent = lang === 'es' ? 'ES' : 'EN';
 
       // 4. Update <html lang>
