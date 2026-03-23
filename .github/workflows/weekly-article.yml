@@ -27,11 +27,7 @@ jobs:
       - name: Generate bilingual article
         id: generate
         env:
-          # Set OPENAI_API_KEY in repo Settings → Secrets to use OpenAI.
-          # If not set, the workflow falls back to the GitHub Models API
-          # using the built-in GITHUB_TOKEN (no extra setup required).
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: node .github/scripts/generate-article.mjs
 
       # ── Commit & push the new file to a fresh branch ───────────────────────
