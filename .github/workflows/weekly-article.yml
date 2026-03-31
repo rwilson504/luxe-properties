@@ -53,7 +53,10 @@ jobs:
           git checkout -b "$BRANCH"
           git add src/content/articles/
           git commit -m "content: add weekly Hocking Hills article (${DATE})"
-          git push origin "$BRANCH"
+          # Fetch the remote branch if it already exists, so --force-with-lease
+          # has accurate tracking data and won't overwrite unrelated changes.
+          git fetch origin "$BRANCH" || true
+          git push --force-with-lease origin "$BRANCH"
 
           echo "has_changes=true"  >> "$GITHUB_OUTPUT"
           echo "branch=${BRANCH}"  >> "$GITHUB_OUTPUT"
@@ -65,6 +68,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          BRANCH="${{ steps.commit.outputs.branch }}"
+
+          # Skip if a PR already exists for this branch
+          if gh pr view --head "$BRANCH" --json number --jq '.number' 2>/dev/null | grep -q '^[0-9]'; then
+            echo "A pull request already exists for branch $BRANCH — skipping creation."
+            exit 0
+          fi
+
           gh pr create \
             --title "🌳 Weekly Article: Hocking Hills (${{ steps.commit.outputs.date }})" \
             --body "$(cat <<'PREOF'
@@ -88,4 +99,4 @@ jobs:
           PREOF
           )" \
             --base main \
-            --head "${{ steps.commit.outputs.branch }}"
+            --head "$BRANCH"
