@@ -62,6 +62,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          BRANCH="${{ steps.commit.outputs.branch }}"
+
+          # Skip if a PR already exists for this branch
+          if gh pr view --head "$BRANCH" --json number --jq '.number' 2>/dev/null | grep -q '^[0-9]'; then
+            echo "A pull request already exists for branch $BRANCH — skipping creation."
+            exit 0
+          fi
+
           gh pr create \
             --title "🌳 Weekly Local Guide Entry: Hocking Hills (${{ steps.commit.outputs.date }})" \
             --body "$(cat <<'PREOF'
@@ -85,4 +93,4 @@ jobs:
           PREOF
           )" \
             --base main \
-            --head "${{ steps.commit.outputs.branch }}"
+            --head "$BRANCH"
