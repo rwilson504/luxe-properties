@@ -15,8 +15,8 @@ const lodges = defineCollection({
   }),
 });
 
-const articles = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/articles' }),
+const guide = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/guide' }),
   schema: z.object({
     title: z.string(),
     title_es: z.string().optional(),
@@ -29,4 +29,4 @@ const articles = defineCollection({
   }),
 });
 
-export const collections = { lodges, articles };
+export const collections = { lodges, guide };

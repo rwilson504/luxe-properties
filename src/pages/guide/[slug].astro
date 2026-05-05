@@ -3,49 +3,49 @@ import Layout from '../../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
-  const articles = await getCollection('articles');
-  return articles.map((article) => ({
-    params: { slug: article.id },
-    props: { article },
+  const entries = await getCollection('guide');
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
   }));
 }
 
-const { article } = Astro.props;
-const { Content } = await render(article);
+const { entry } = Astro.props;
+const { Content } = await render(entry);
 
-const dateStr = article.data.date.toLocaleDateString('en-US', {
+const dateStr = entry.data.date.toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
 });
 ---
 
-<Layout title={`${article.data.title} - Hocking Luxury Lodges`} description={article.data.excerpt} ogType="article">
+<Layout title={`${entry.data.title} - Hocking Luxury Lodges`} description={entry.data.excerpt} ogType="article">
   <div class="container py-4">
     <nav aria-label="breadcrumb" class="mb-3">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/" data-i18n="article.home">Home</a></li>
-        <li class="breadcrumb-item"><a href="/articles" data-i18n="article.articles">Articles</a></li>
-        <li class="breadcrumb-item active" aria-current="page">{article.data.title}</li>
+        <li class="breadcrumb-item"><a href="/" data-i18n="guide.home">Home</a></li>
+        <li class="breadcrumb-item"><a href="/guide" data-i18n="guide.breadcrumb">Local Guide</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{entry.data.title}</li>
       </ol>
     </nav>
 
-    {article.data.coverImage && (
-      <img src={article.data.coverImage} class="img-fluid mb-4 w-100" alt={article.data.title} style="max-height: 400px; object-fit: cover;" />
+    {entry.data.coverImage && (
+      <img src={entry.data.coverImage} class="img-fluid mb-4 w-100" alt={entry.data.title} style="max-height: 400px; object-fit: cover;" />
     )}
 
     <h1>
-      <span data-lang="en">{article.data.title}</span>
-      {article.data.title_es && <span data-lang="es">{article.data.title_es}</span>}
+      <span data-lang="en">{entry.data.title}</span>
+      {entry.data.title_es && <span data-lang="es">{entry.data.title_es}</span>}
     </h1>
     <p class="text-muted">
       {dateStr}
-      {article.data.author && <span> &bull; {article.data.author}</span>}
+      {entry.data.author && <span> &bull; {entry.data.author}</span>}
     </p>
 
-    {article.data.tags && (
+    {entry.data.tags && (
       <div class="mb-4">
-        {article.data.tags.map((tag) => (
+        {entry.data.tags.map((tag) => (
           <span class="badge bg-secondary me-1">{tag}</span>
         ))}
       </div>
@@ -56,6 +56,6 @@ const dateStr = article.data.date.toLocaleDateString('en-US', {
     </article>
 
     <hr class="my-5" />
-    <a href="/articles" class="btn btn-outline-primary" data-i18n="article.backToArticles">&larr; Back to Articles</a>
+    <a href="/guide" class="btn btn-outline-primary" data-i18n="guide.backToGuide">&larr; Back to Local Guide</a>
   </div>
 </Layout>

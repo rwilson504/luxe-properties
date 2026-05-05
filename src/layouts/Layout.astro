@@ -74,7 +74,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
           <img src="/assets/images/HockingLuxuryLodgesLogoWithText.svg" alt="Hocking Luxury Lodges" class="logo-img" />
         </a>
         <nav class="d-flex gap-3 align-items-center">
-          <a href="/articles" data-i18n="nav.articles">Articles</a>
+          <a href="/guide" data-i18n="nav.guide">Local Guide</a>
           <a href="/" aria-label="Home"><i class="fa-solid fa-house"></i></a>
           <LanguageSwitcher />
         </nav>
@@ -160,7 +160,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
     var TRANSLATIONS = JSON.parse(translationsJson);
     var SESSION_KEY = 'siteLanguage';
 
-    /** Resolve a dot-path key like "nav.articles" from the translations object */
+    /** Resolve a dot-path key like "nav.guide" from the translations object */
     function resolve(obj, path) {
       return path.split('.').reduce(function (o, k) { return o && o[k]; }, obj);
     }

@@ -1,6 +1,6 @@
 const en = {
   nav: {
-    articles: 'Articles',
+    guide: 'Local Guide',
     home: 'Home',
   },
   footer: {
@@ -76,15 +76,14 @@ const en = {
     allPhotos: 'All Photos',
     bookNow: 'Book Now',
   },
-  articles: {
-    title: 'News & Articles',
+  guide: {
+    title: 'Local Guide',
+    intro: 'Curated tips, things to do, and seasonal inspiration for your Hocking Hills getaway.',
     readMore: 'Read More',
-    noArticles: 'No articles yet. Check back soon!',
-  },
-  article: {
+    noEntries: 'No guide entries yet. Check back soon!',
     home: 'Home',
-    articles: 'Articles',
-    backToArticles: '← Back to Articles',
+    breadcrumb: 'Local Guide',
+    backToGuide: '← Back to Local Guide',
   },
   about: {
     title: 'About',

@@ -1,6 +1,6 @@
 const es = {
   nav: {
-    articles: 'Artículos',
+    guide: 'Guía Local',
     home: 'Inicio',
   },
   footer: {
@@ -76,15 +76,14 @@ const es = {
     allPhotos: 'Todas las Fotos',
     bookNow: 'Reservar Ahora',
   },
-  articles: {
-    title: 'Noticias y Artículos',
+  guide: {
+    title: 'Guía Local',
+    intro: 'Consejos seleccionados, actividades e inspiración estacional para tu escapada a Hocking Hills.',
     readMore: 'Leer Más',
-    noArticles: 'Aún no hay artículos. ¡Vuelve pronto!',
-  },
-  article: {
+    noEntries: 'Aún no hay entradas en la guía. ¡Vuelve pronto!',
     home: 'Inicio',
-    articles: 'Artículos',
-    backToArticles: '← Volver a Artículos',
+    breadcrumb: 'Guía Local',
+    backToGuide: '← Volver a la Guía Local',
   },
   about: {
     title: 'Acerca de',

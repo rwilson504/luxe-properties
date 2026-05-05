@@ -1,4 +1,4 @@
-name: Weekly Hocking Hills Article Generator
+name: Weekly Hocking Hills Local Guide Entry Generator
 
 # Runs every Monday at 9:00 AM UTC and can also be triggered manually.
 on:
@@ -11,7 +11,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  generate-article:
+  generate-guide-entry:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,33 +23,33 @@ jobs:
         with:
           node-version: 22
 
-      # ── Generate the article ────────────────────────────────────────────────
-      - name: Generate bilingual article
+      # ── Generate the guide entry ────────────────────────────────────────────
+      - name: Generate bilingual guide entry
         id: generate
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-        run: node .github/scripts/generate-article.mjs
+        run: node .github/scripts/generate-guide-entry.mjs
 
       # ── Commit & push the new file to a fresh branch ───────────────────────
-      - name: Commit article and push branch
+      - name: Commit guide entry and push branch
         id: commit
         run: |
           DATE=$(date +%Y-%m-%d)
-          BRANCH="articles/weekly-${DATE}"
+          BRANCH="guide/weekly-${DATE}"
 
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           # Check whether a new file was actually created (new files are untracked)
-          if [ -z "$(git status --porcelain -- src/content/articles/)" ]; then
-            echo "No new article was generated — nothing to commit."
+          if [ -z "$(git status --porcelain -- src/content/guide/)" ]; then
+            echo "No new guide entry was generated — nothing to commit."
             echo "has_changes=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
           git checkout -b "$BRANCH"
-          git add src/content/articles/
-          git commit -m "content: add weekly Hocking Hills article (${DATE})"
+          git add src/content/guide/
+          git commit -m "content: add weekly Hocking Hills local guide entry (${DATE})"
           git push origin "$BRANCH"
 
           echo "has_changes=true"  >> "$GITHUB_OUTPUT"
@@ -63,15 +63,15 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh pr create \
-            --title "🌳 Weekly Article: Hocking Hills (${{ steps.commit.outputs.date }})" \
+            --title "🌳 Weekly Local Guide Entry: Hocking Hills (${{ steps.commit.outputs.date }})" \
             --body "$(cat <<'PREOF'
-          ## Weekly Auto-Generated Article
+          ## Weekly Auto-Generated Local Guide Entry
 
-          A new bilingual (English + Spanish) article about Hocking Hills has been generated and is ready for your review.
+          A new bilingual (English + Spanish) local guide entry about Hocking Hills has been generated and is ready for your review.
 
           ### Review checklist
 
-          - [ ] Article topic is unique — not a duplicate of existing content
+          - [ ] Topic is unique — not a duplicate of existing content
           - [ ] English content is accurate, well-written, and family-friendly
           - [ ] Spanish translation reads naturally (not a literal word-for-word translation)
           - [ ] Tags are relevant and appropriate
@@ -79,9 +79,9 @@ jobs:
 
           ### Publishing
 
-          Merge this PR to publish the article on the website. The deploy workflow will build and push the updated site automatically.
+          Merge this PR to publish the entry on the website. The deploy workflow will build and push the updated site automatically.
 
-          > **Note:** This PR was created automatically by the weekly article workflow. Please review carefully before merging.
+          > **Note:** This PR was created automatically by the weekly local guide workflow. Please review carefully before merging.
           PREOF
           )" \
             --base main \

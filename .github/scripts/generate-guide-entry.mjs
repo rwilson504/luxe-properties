@@ -1,14 +1,14 @@
 /**
- * generate-article.mjs
+ * generate-guide-entry.mjs
  *
- * Reads existing Hocking Hills articles from src/content/articles/,
- * calls an AI API to produce a new bilingual (English + Spanish) article,
- * and writes the resulting Markdown file back into the articles directory.
+ * Reads existing Hocking Hills local-guide entries from src/content/guide/,
+ * calls an AI API to produce a new bilingual (English + Spanish) entry,
+ * and writes the resulting Markdown file back into the guide directory.
  *
  * Environment variables:
  *   OPENROUTER_API_KEY         – OpenRouter API key (required)
  *   OPENROUTER_MODEL           – Web-grounded model for research (default: perplexity/sonar-pro)
- *   OPENROUTER_WRITER_MODEL    – Model for article writing (default: openai/gpt-4.1)
+ *   OPENROUTER_WRITER_MODEL    – Model for entry writing (default: openai/gpt-4.1)
  *   OPENROUTER_WRITER_PROVIDER – Provider to route writer model through (default: Azure,
  *                                forces BYOK routing instead of OpenAI direct)
  */
@@ -29,25 +29,25 @@ function extractFrontmatterField(frontmatter, key) {
   return match ? match[1].trim() : '';
 }
 
-/** Read all existing articles and return a summary list. */
-async function getExistingArticles(articlesDir) {
-  const files = await readdir(articlesDir);
-  const articles = [];
+/** Read all existing guide entries and return a summary list. */
+async function getExistingEntries(guideDir) {
+  const files = await readdir(guideDir);
+  const entries = [];
 
   for (const file of files) {
     if (!file.endsWith('.md')) continue;
-    const raw = await readFile(join(articlesDir, file), 'utf-8');
+    const raw = await readFile(join(guideDir, file), 'utf-8');
     const match = raw.match(/^---\r?\n([\s\S]+?)\r?\n---/);
     if (!match) continue;
     const fm = match[1];
     // Only extract the title — that is all we need to detect duplicate topics.
-    articles.push({
+    entries.push({
       file,
       title: extractFrontmatterField(fm, 'title'),
     });
   }
 
-  return articles;
+  return entries;
 }
 
 // ---------------------------------------------------------------------------
@@ -91,51 +91,53 @@ async function callOpenRouter(messages, apiKey, model, maxTokens = 3500, provide
 // Prompt builder
 // ---------------------------------------------------------------------------
 
-function buildResearchPrompt(existingArticles, dateStr) {
+function buildResearchPrompt(existingEntries, dateStr) {
   const month = new Date(dateStr).toLocaleString('en-US', { month: 'long' });
   const year = new Date(dateStr).getFullYear();
 
-  const existingTopicsList = existingArticles
+  const existingTopicsList = existingEntries
     .map((a) => `  - ${a.title}`)
     .join('\n');
 
   return `You are a research assistant for a luxury lodge website in Hocking Hills, Ohio.
 Today's date is ${dateStr} (${month} ${year}).
 
-Search the web and compile a research brief for a NEW article topic about Hocking Hills.
+Search the web and compile a research brief for a NEW local-guide entry topic about Hocking Hills.
+The website's "Local Guide" features things to do, seasonal tips, and travel inspiration — not news.
 
-Existing articles — the new topic must NOT overlap with any of these:
+Existing guide entries — the new topic must NOT overlap with any of these:
 ${existingTopicsList}
 
 Your research brief should include:
-1. A suggested article topic (genuinely different from those above)
+1. A suggested topic (genuinely different from those above)
 2. Seasonal relevance for ${month}
 3. Current, factual details: attraction names, hours, admission prices, addresses, upcoming events
 4. Practical visitor tips
-5. Any notable recent news or changes (closures, new openings, trail conditions)
+5. Any notable recent changes (closures, new openings, trail conditions)
 
 Respond in plain text (not JSON). Be thorough and cite specific details.`;
 }
 
-function buildWriterPrompt(researchBrief, existingArticles, dateStr) {
+function buildWriterPrompt(researchBrief, existingEntries, dateStr) {
   const month = new Date(dateStr).toLocaleString('en-US', { month: 'long' });
   const year = new Date(dateStr).getFullYear();
 
-  const existingTopicsList = existingArticles
+  const existingTopicsList = existingEntries
     .map((a) => `  - ${a.title}`)
     .join('\n');
 
-  return `Write a new bilingual article for a luxury lodge website in Hocking Hills, Ohio.
+  return `Write a new bilingual local-guide entry for a luxury lodge website in Hocking Hills, Ohio.
+This is for the site's "Local Guide" — think things to do, seasonal tips, and travel inspiration, not news.
 
 Current date: ${dateStr} (${month} ${year})
 
-Here is a research brief with current, web-sourced information to base the article on:
+Here is a research brief with current, web-sourced information to base the entry on:
 
 ---
 ${researchBrief}
 ---
 
-Existing articles — DO NOT duplicate any of these topics:
+Existing guide entries — DO NOT duplicate any of these topics:
 ${existingTopicsList}
 
 Requirements:
@@ -148,8 +150,8 @@ Requirements:
 
 Respond with ONLY a valid JSON object (no markdown code fences, no extra text) matching this exact shape:
 {
-  "title": "English article title",
-  "title_es": "Spanish article title",
+  "title": "English entry title",
+  "title_es": "Spanish entry title",
   "excerpt": "Compelling English excerpt in 1–2 sentences",
   "excerpt_es": "Spanish excerpt in 1–2 sentences",
   "tags": ["tag1", "tag2", "tag3"],
@@ -166,28 +168,28 @@ function escapeYamlString(str) {
   return str.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
 }
 
-function buildMarkdown(article, dateStr) {
-  const tagsYaml = article.tags.map((t) => `"${escapeYamlString(t)}"`).join(', ');
+function buildMarkdown(entry, dateStr) {
+  const tagsYaml = entry.tags.map((t) => `"${escapeYamlString(t)}"`).join(', ');
 
   return `---
-title: "${escapeYamlString(article.title)}"
-title_es: "${escapeYamlString(article.title_es)}"
+title: "${escapeYamlString(entry.title)}"
+title_es: "${escapeYamlString(entry.title_es)}"
 date: ${dateStr}
 author: "Hocking Luxury Lodges"
-excerpt: "${escapeYamlString(article.excerpt)}"
-excerpt_es: "${escapeYamlString(article.excerpt_es)}"
+excerpt: "${escapeYamlString(entry.excerpt)}"
+excerpt_es: "${escapeYamlString(entry.excerpt_es)}"
 tags: [${tagsYaml}]
 ---
 
 <div data-lang="en">
 
-${article.content_en.trim()}
+${entry.content_en.trim()}
 
 </div>
 
 <div data-lang="es">
 
-${article.content_es.trim()}
+${entry.content_es.trim()}
 
 </div>
 `;
@@ -208,11 +210,11 @@ async function main() {
     process.exit(1);
   }
 
-  const articlesDir = join(process.cwd(), 'src/content/articles');
+  const guideDir = join(process.cwd(), 'src/content/guide');
 
-  console.log('Reading existing articles…');
-  const existing = await getExistingArticles(articlesDir);
-  console.log(`Found ${existing.length} existing article(s).`);
+  console.log('Reading existing guide entries…');
+  const existing = await getExistingEntries(guideDir);
+  console.log(`Found ${existing.length} existing guide entry(s).`);
   existing.forEach((a) => console.log(`  · ${a.title}`));
   const today = new Date();
   const dateStr = today.toISOString().split('T')[0];
@@ -237,8 +239,8 @@ async function main() {
     process.exit(1);
   }
 
-  // Phase 2: Article writing via Azure Foundry GPT-4.1 (BYOK)
-  console.log(`\n✍️  Phase 2: Writing article via ${writerModel} (provider: ${writerProvider})…`);
+  // Phase 2: Entry writing via Azure Foundry GPT-4.1 (BYOK)
+  console.log(`\n✍️  Phase 2: Writing guide entry via ${writerModel} (provider: ${writerProvider})…`);
   let rawJson;
   try {
     const writerPrompt = buildWriterPrompt(researchBrief, existing, dateStr);
@@ -246,7 +248,7 @@ async function main() {
       [
         {
           role: 'system',
-          content: 'You are a travel writer specializing in Hocking Hills, Ohio. You write family-friendly, informative articles for a luxury lodge website. Always respond with valid JSON only — no markdown fences, no extra commentary.',
+          content: 'You are a travel writer specializing in Hocking Hills, Ohio. You write family-friendly, informative local-guide entries (things to do, seasonal tips, travel inspiration) for a luxury lodge website. Always respond with valid JSON only — no markdown fences, no extra commentary.',
         },
         { role: 'user', content: writerPrompt },
       ],
@@ -266,9 +268,9 @@ async function main() {
     .replace(/\s*```\s*$/i, '')
     .trim();
 
-  let article;
+  let entry;
   try {
-    article = JSON.parse(cleaned);
+    entry = JSON.parse(cleaned);
   } catch (parseErr) {
     console.error('Failed to parse AI response as JSON.');
     console.error('Raw response:', rawJson);
@@ -278,14 +280,14 @@ async function main() {
   // Validate required fields
   const required = ['title', 'title_es', 'excerpt', 'excerpt_es', 'tags', 'content_en', 'content_es'];
   for (const field of required) {
-    if (!article[field]) {
+    if (!entry[field]) {
       console.error(`AI response is missing required field: "${field}"`);
       process.exit(1);
     }
   }
 
   // Build a URL-safe slug from the English title
-  const slug = article.title
+  const slug = entry.title
     .toLowerCase()
     .replace(/[^a-z0-9\s-]/g, '')
     .trim()
@@ -295,20 +297,20 @@ async function main() {
     .replace(/-$/, '');
 
   const filename = `${dateStr}-${slug}.md`;
-  const filepath = join(articlesDir, filename);
+  const filepath = join(guideDir, filename);
 
   if (existsSync(filepath)) {
     console.log(`\nFile already exists: ${filename} — nothing to do.`);
     process.exit(0);
   }
 
-  const markdown = buildMarkdown(article, dateStr);
+  const markdown = buildMarkdown(entry, dateStr);
   await writeFile(filepath, markdown, 'utf-8');
 
-  console.log(`\n✅ Article written: ${filename}`);
-  console.log(`   Title (EN): ${article.title}`);
-  console.log(`   Title (ES): ${article.title_es}`);
-  console.log(`   Tags: ${article.tags.join(', ')}`);
+  console.log(`\n✅ Guide entry written: ${filename}`);
+  console.log(`   Title (EN): ${entry.title}`);
+  console.log(`   Title (ES): ${entry.title_es}`);
+  console.log(`   Tags: ${entry.tags.join(', ')}`);
 }
 
 main().catch((err) => {
