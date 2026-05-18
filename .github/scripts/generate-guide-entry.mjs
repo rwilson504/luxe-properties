@@ -13,7 +13,14 @@
  *                                forces BYOK routing instead of OpenAI direct)
  */
 
-import 'dotenv/config';
+// Load .env for local runs. In CI (GitHub Actions) env vars are provided by the
+// workflow's `env:` block and dotenv is not installed, so we import it
+// dynamically and ignore a missing module.
+try {
+  await import('dotenv/config');
+} catch (err) {
+  if (err?.code !== 'ERR_MODULE_NOT_FOUND') throw err;
+}
 import { readdir, readFile, writeFile } from 'fs/promises';
 import { existsSync } from 'fs';
 import { join } from 'path';
