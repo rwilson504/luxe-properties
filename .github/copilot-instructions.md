@@ -20,7 +20,7 @@ Collections. Don't introduce new frameworks or refactor unrelated code.
 - **Bootstrap 5.3** (CSS + JS bundle) for layout and components
 - **Font Awesome 6** (free) — CSS files served from `public/assets/fontawesome/`
 - **gray-matter** for parsing frontmatter in the llms-txt integration and
-  the weekly guide-entry generator script
+  the monthly guide-entry generator script
 - **TypeScript** in strict mode (extends `astro/tsconfigs/strict`)
 - **Node 22** (set by the GitHub Actions workflows)
 
@@ -65,10 +65,10 @@ Collections. Don't introduce new frameworks or refactor unrelated code.
   custom styling. Brand source of truth is also mirrored in
   [`branding.json`](../branding.json).
 - [`.github/workflows/`](../.github/workflows/) — `deploy.yml` (Pages) and
-  `weekly-guide-entry.yml` (auto-generates a new bilingual guide entry
-  every Monday via OpenRouter).
+  `monthly-guide-entry.yml` (auto-generates a new bilingual guide entry
+  on the first of each month via OpenRouter).
 - [`.github/scripts/generate-guide-entry.mjs`](../.github/scripts/generate-guide-entry.mjs) —
-  the OpenRouter script the weekly workflow runs. Two-phase: research
+  the OpenRouter script the monthly workflow runs. Two-phase: research
   with `perplexity/sonar-pro`, write with `openai/gpt-4.1` routed
   through Azure (BYOK). Reads existing entries from `src/content/guide/`
   and writes a new dated Markdown file with EN + ES content.
@@ -177,7 +177,7 @@ When you rename a content collection or move pages, also:
 5. Update [`src/integrations/llms-txt.mjs`](../src/integrations/llms-txt.mjs)
    (collection name, section heading, and emitted URLs).
 6. Update any GitHub workflow / script under `.github/` that reads or
-   writes that path (e.g. `weekly-guide-entry.yml`,
+   writes that path (e.g. `monthly-guide-entry.yml`,
    `generate-guide-entry.mjs`).
 7. Run `npm run build` and confirm both the new pages **and** the
    `dist/<old-path>/index.html` redirect files are produced.

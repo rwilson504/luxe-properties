@@ -1,9 +1,9 @@
-name: Weekly Hocking Hills Local Guide Entry Generator
+name: Monthly Hocking Hills Local Guide Entry Generator
 
-# Runs every Monday at 9:00 AM UTC and can also be triggered manually.
+# Runs at 9:00 AM UTC on the first day of each month and can also be triggered manually.
 on:
   schedule:
-    - cron: '0 9 * * 1'
+    - cron: '0 9 1 * *'
   workflow_dispatch:
 
 permissions:
@@ -35,7 +35,7 @@ jobs:
         id: commit
         run: |
           DATE=$(date +%Y-%m-%d)
-          BRANCH="guide/weekly-${DATE}"
+          BRANCH="guide/monthly-${DATE}"
 
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -49,7 +49,7 @@ jobs:
 
           git checkout -b "$BRANCH"
           git add src/content/guide/
-          git commit -m "content: add weekly Hocking Hills local guide entry (${DATE})"
+          git commit -m "content: add monthly Hocking Hills local guide entry (${DATE})"
           git push origin "$BRANCH"
 
           echo "has_changes=true"  >> "$GITHUB_OUTPUT"
@@ -71,9 +71,9 @@ jobs:
           fi
 
           gh pr create \
-            --title "🌳 Weekly Local Guide Entry: Hocking Hills (${{ steps.commit.outputs.date }})" \
+            --title "🌳 Monthly Local Guide Entry: Hocking Hills (${{ steps.commit.outputs.date }})" \
             --body "$(cat <<'PREOF'
-          ## Weekly Auto-Generated Local Guide Entry
+          ## Monthly Auto-Generated Local Guide Entry
 
           A new bilingual (English + Spanish) local guide entry about Hocking Hills has been generated and is ready for your review.
 
@@ -89,7 +89,7 @@ jobs:
 
           Merge this PR to publish the entry on the website. The deploy workflow will build and push the updated site automatically.
 
-          > **Note:** This PR was created automatically by the weekly local guide workflow. Please review carefully before merging.
+          > **Note:** This PR was created automatically by the monthly local guide workflow. Please review carefully before merging.
           PREOF
           )" \
             --base main \
