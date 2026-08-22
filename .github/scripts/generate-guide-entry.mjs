@@ -118,7 +118,7 @@ ${existingTopicsList}
 Your research brief should include:
 1. A suggested topic (genuinely different from those above)
 2. Seasonal relevance for ${month}
-3. Current, factual details: attraction names, hours, admission prices, addresses, upcoming events
+3. Current, factual details: attraction names, hours, admission prices, addresses with Google Maps URLs, upcoming events
 4. Practical visitor tips
 5. Any notable recent changes (closures, new openings, trail conditions)
 
@@ -152,6 +152,8 @@ Requirements:
 - Content must be family-friendly
 - Incorporate seasonal relevance for ${month}
 - Include practical visitor information: hours, tips, nearby attractions, local events if relevant
+- Whenever an address or exact venue location appears in either language, format it as a Markdown link to a Google Maps page
+- Use Google Maps search URLs in this format: https://www.google.com/maps/search/?api=1&query=URL_ENCODED_ADDRESS_OR_VENUE
 - Naturally mention our luxury lodges — Speakeasy Lodge and Luxe Haus Lodge — where appropriate
 - Do not describe or imply any lodge amenities or services; only mention the lodges as places to stay
 - Both English and Spanish versions required; Spanish must be a natural, idiomatic translation
@@ -201,6 +203,19 @@ ${entry.content_es.trim()}
 
 </div>
 `;
+}
+
+function findUnlinkedAddressReferences(content) {
+  return content
+    .split('\n')
+    .map((line, index) => ({ line, lineNumber: index + 1 }))
+    .filter(({ line }) => {
+      const lineWithoutGoogleMapLinks = line.replace(/\[[^\]]+\]\([^)]*google\.com\/maps[^)]*\)/gi, '');
+      const hasAddressLikeText =
+        /\b\d{2,5}\s+[\w.'’ -]+(?:Road|Rd\.?|Street|St\.?|Avenue|Ave\.?|Drive|Dr\.?|Lane|Ln\.?|Pike|Route|State Route|OH-|SR-|CR|County Road)\b/i.test(lineWithoutGoogleMapLinks) ||
+        (/\b(?:Address|Dirección|Location|Ubicación):/i.test(line) && !/google\.com\/maps/i.test(line));
+      return hasAddressLikeText;
+    });
 }
 
 // ---------------------------------------------------------------------------
@@ -292,6 +307,19 @@ async function main() {
       console.error(`AI response is missing required field: "${field}"`);
       process.exit(1);
     }
+  }
+
+  const unlinkedAddresses = [
+    ...findUnlinkedAddressReferences(entry.content_en).map((item) => ({ ...item, language: 'English' })),
+    ...findUnlinkedAddressReferences(entry.content_es).map((item) => ({ ...item, language: 'Spanish' })),
+  ];
+
+  if (unlinkedAddresses.length > 0) {
+    console.error('AI response contains address or location references without Google Maps links:');
+    for (const item of unlinkedAddresses) {
+      console.error(`  ${item.language} line ${item.lineNumber}: ${item.line}`);
+    }
+    process.exit(1);
   }
 
   // Build a URL-safe slug from the English title

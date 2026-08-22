@@ -17,15 +17,15 @@ August marks the height of summer in Hocking Hills, drawing families and travele
 ### Featured Cool-Down Spots
 
 #### 1. Lake Logan State Park Swimming Beach
-Just a short drive from Logan, Lake Logan State Park offers a sandy swimming beach that’s perfect for families. The designated swim area provides calm waters and plenty of space for sunbathing or building sandcastles. Restrooms and picnic tables are available nearby, and you’ll find generous parking, though arriving early is recommended on weekends. **Address:** 30443 Lake Logan Rd, Logan, OH.
+Just a short drive from Logan, Lake Logan State Park offers a sandy swimming beach that’s perfect for families. The designated swim area provides calm waters and plenty of space for sunbathing or building sandcastles. Restrooms and picnic tables are available nearby, and you’ll find generous parking, though arriving early is recommended on weekends. **Address:** [30443 Lake Logan Rd, Logan, OH](https://www.google.com/maps/search/?api=1&query=30443%20Lake%20Logan%20Rd%2C%20Logan%2C%20OH).
 
 #### 2. City of Logan Municipal Pool & Splash Pad
 For those craving a classic pool experience, the Logan Municipal Pool features a large outdoor pool and a kid-friendly splash pad. It’s a local favorite for families, with shaded areas and concessions on site. Check the City of Logan’s official website for current hours and day rates.
 
 #### 3. Hocking Hills Visitor Center — Shaded Rest Stop
 Beat the midday heat by stopping at the Hocking Hills Visitor Center in Logan or Laurelville. Both locations offer air-conditioned respite, clean restrooms, shaded picnic tables, and helpful local information. It’s the perfect place to regroup before heading out for more exploration. 
-- Logan: 13178 State Route 664 S, Logan (740-385-9706)
-- Laurelville: 16197 Pike Street, Laurelville (740-332-0516)
+- Logan: [13178 State Route 664 S, Logan](https://www.google.com/maps/search/?api=1&query=13178%20State%20Route%20664%20S%2C%20Logan) (740-385-9706)
+- Laurelville: [16197 Pike Street, Laurelville](https://www.google.com/maps/search/?api=1&query=16197%20Pike%20Street%2C%20Laurelville) (740-332-0516)
 
 #### 4. Ice Cream Stops Near the Parks
 Nothing says summer like an ice cream break! Local favorites near Logan and along State Route 664 offer hand-dipped cones and shaded outdoor seating—ideal for a sweet, cooling treat after a hot morning outdoors.
@@ -59,15 +59,15 @@ Agosto es el mes por excelencia para disfrutar del verano en Hocking Hills. Fami
 ### Lugares Destacados para Refrescarse
 
 #### 1. Playa para Nadar en Lake Logan State Park
-A pocos minutos de Logan, Lake Logan State Park cuenta con una playa de arena perfecta para familias. El área de baño designada ofrece aguas tranquilas y mucho espacio para tomar el sol o construir castillos de arena. Hay baños y mesas de picnic cerca, así como estacionamiento amplio, aunque se recomienda llegar temprano los fines de semana. **Dirección:** 30443 Lake Logan Rd, Logan, OH.
+A pocos minutos de Logan, Lake Logan State Park cuenta con una playa de arena perfecta para familias. El área de baño designada ofrece aguas tranquilas y mucho espacio para tomar el sol o construir castillos de arena. Hay baños y mesas de picnic cerca, así como estacionamiento amplio, aunque se recomienda llegar temprano los fines de semana. **Dirección:** [30443 Lake Logan Rd, Logan, OH](https://www.google.com/maps/search/?api=1&query=30443%20Lake%20Logan%20Rd%2C%20Logan%2C%20OH).
 
 #### 2. Piscina Municipal y Zona de Juegos de Agua de Logan
 Si prefieres una experiencia clásica de piscina, la Piscina Municipal de Logan ofrece una gran piscina al aire libre y una zona de juegos de agua para niños. Es un favorito local para familias, con áreas de sombra y puestos de comida. Consulta el sitio web oficial de la Ciudad de Logan para ver los horarios y tarifas actuales.
 
 #### 3. Centro de Visitantes de Hocking Hills — Parada Sombreada
 Evita el calor del mediodía pasando por el Centro de Visitantes de Hocking Hills en Logan o Laurelville. Ambos centros ofrecen un respiro con aire acondicionado, baños limpios, mesas de picnic en la sombra e información local útil. Es el lugar perfecto para reagruparse antes de seguir explorando. 
-- Logan: 13178 State Route 664 S, Logan (740-385-9706)
-- Laurelville: 16197 Pike Street, Laurelville (740-332-0516)
+- Logan: [13178 State Route 664 S, Logan](https://www.google.com/maps/search/?api=1&query=13178%20State%20Route%20664%20S%2C%20Logan) (740-385-9706)
+- Laurelville: [16197 Pike Street, Laurelville](https://www.google.com/maps/search/?api=1&query=16197%20Pike%20Street%2C%20Laurelville) (740-332-0516)
 
 #### 4. Heladerías Cercanas a los Parques
 ¡Nada mejor que un helado en verano! Los establecimientos cerca de Logan y a lo largo de la Ruta 664 ofrecen helados artesanales y áreas exteriores sombreadas, ideales para refrescarse después de una mañana calurosa al aire libre.

@@ -33,10 +33,10 @@ Uncover the region’s glassmaking legacy at the Ohio Glass Museum in Lancaster 
 Unleash your inner craftsman with a blacksmithing class at Lockhart Ironworks. Suitable for beginners (ages 12+), these 2–3 hour indoor sessions ($60–$100) let you forge a hook or knife with expert guidance. Safety gear is provided, but bring gloves if you have them!
 
 ### Hocking Hills State Park Visitor Center
-Start your journey with the region’s story at the Visitor Center (19852 State Route 664 S, Logan; open daily 9 AM–5 PM, free). Interactive exhibits trace the area’s geology and settlement—ideal before heading to other sites.
+Start your journey with the region’s story at the Visitor Center ([19852 State Route 664 S, Logan](https://www.google.com/maps/search/?api=1&query=19852%20State%20Route%20664%20S%2C%20Logan); open daily 9 AM–5 PM, free). Interactive exhibits trace the area’s geology and settlement—ideal before heading to other sites.
 
 ### Evening Events: Live Music & Wine
-After a day of discovery, unwind at Hocking Hills Winery (20531 OH-664, Logan). Select March evenings feature live music (e.g., Eric Allen, 6–9 PM), wine tastings ($10–$20 cover), and cozy pizzas or charcuterie boards. Check [hockinghills.com](https://www.hockinghills.com/) for up-to-date schedules.
+After a day of discovery, unwind at Hocking Hills Winery ([30402 Freeman Rd, Logan, OH 43138](https://www.google.com/maps/search/?api=1&query=30402%20Freeman%20Rd%2C%20Logan%2C%20OH%2043138)). Select March evenings feature live music (e.g., Eric Allen, 6–9 PM), wine tastings ($10–$20 cover), and cozy pizzas or charcuterie boards. Check [hockinghills.com](https://www.hockinghills.com/) for up-to-date schedules.
 
 ### Planning Your Visit
 - **Timing:** Arrive mid-morning to avoid school groups; March weekdays are quietest.
@@ -76,10 +76,10 @@ Descubre la herencia vidriera de la región en el Ohio Glass Museum, en Lancaste
 Saca tu lado artesanal con una clase de herrería en Lockhart Ironworks. Para principiantes (desde 12 años), sesiones de 2–3 horas bajo techo ($60–$100) donde forjarás un gancho o cuchillo guiado por expertos. Se provee equipo de seguridad; lleva tus propios guantes si lo prefieres.
 
 ### Hocking Hills State Park Visitor Center
-Comienza tu día en el Visitor Center (19852 State Route 664 S, Logan; todos los días 9 AM–5 PM, entrada gratuita). Sus exhibiciones interactivas cuentan la historia geológica y humana de la región—ideal antes de visitar otros sitios.
+Comienza tu día en el Visitor Center ([19852 State Route 664 S, Logan](https://www.google.com/maps/search/?api=1&query=19852%20State%20Route%20664%20S%2C%20Logan); todos los días 9 AM–5 PM, entrada gratuita). Sus exhibiciones interactivas cuentan la historia geológica y humana de la región—ideal antes de visitar otros sitios.
 
 ### Eventos Nocturnos: Música en Vivo y Vino
-Al caer la tarde, relájate en Hocking Hills Winery (20531 OH-664, Logan). Algunas noches de marzo hay música en vivo (por ejemplo, Eric Allen, 6–9 PM), catas de vino ($10–$20 de entrada) y pizzas o tablas de quesos. Consulta [hockinghills.com](https://www.hockinghills.com/) para el calendario actualizado.
+Al caer la tarde, relájate en Hocking Hills Winery ([30402 Freeman Rd, Logan, OH 43138](https://www.google.com/maps/search/?api=1&query=30402%20Freeman%20Rd%2C%20Logan%2C%20OH%2043138)). Algunas noches de marzo hay música en vivo (por ejemplo, Eric Allen, 6–9 PM), catas de vino ($10–$20 de entrada) y pizzas o tablas de quesos. Consulta [hockinghills.com](https://www.hockinghills.com/) para el calendario actualizado.
 
 ### Consejos para tu Visita
 - **Horario:** Llega a media mañana para evitar grupos escolares; los días de semana en marzo son los más tranquilos.
