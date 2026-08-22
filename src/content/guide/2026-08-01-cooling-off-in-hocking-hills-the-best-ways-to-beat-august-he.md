@@ -37,11 +37,11 @@ For a brief nature break without a strenuous hike, visit Cedar Falls. The trail 
 - **Arrive Early:** Morning hours mean cooler temperatures and easier parking.
 - **Pack Smart:** Bring sunscreen, refillable water bottles, bug spray, hats, and sturdy water shoes.
 - **Stay Informed:** Check the official [Hocking Hills Activities page](https://www.explorehockinghills.com/things-to-do/) or call the visitor centers for up-to-date info on swimming conditions and weather advisories.
-- **Plan Your Breaks:** Enjoy the hottest part of the day back at Speakeasy Lodge or Luxe Haus Lodge—relax with a cold drink, nap, or spa treatment before returning out for sunset views or a leisurely dinner.
+- **Plan Your Breaks:** Enjoy the hottest part of the day back at Speakeasy Lodge or Luxe Haus Lodge—relax with a cold drink or nap before returning out for sunset views or a leisurely dinner.
 - **Family Focus:** With little ones, choose one main cool-down destination and allow plenty of time for snacks, shade, and unhurried fun.
 
 ### Luxury Touch: Pairing Your Day with the Lodge
-After a refreshing swim or splash, return to your luxury lodge for a restful afternoon. Both Speakeasy Lodge and Luxe Haus Lodge offer air-conditioned comfort, private decks, and serene woodland settings—ideal for unwinding before an evening in. Book a late dinner, enjoy sunset from your patio, or ask your concierge about in-lodge spa treatments to complete your perfect summer escape.
+After a refreshing swim or splash, return to your luxury lodge for a restful afternoon. Both Speakeasy Lodge and Luxe Haus Lodge offer air-conditioned comfort, private decks, and serene woodland settings—ideal for unwinding before an evening in. Book a late dinner or enjoy sunset from your patio to complete your perfect summer escape.
 
 ### Recent Changes & Visitor Information
 Visitor centers and swim amenities occasionally update hours or access rules—especially during peak season. For the latest updates, confirm details on the [official Hocking Hills Visitor Center page](https://www.explorehockinghills.com/visitor-centers/) or call ahead before you go.
@@ -79,11 +79,11 @@ Para una pausa natural sin una caminata exigente, visita Cedar Falls. El sendero
 - **Llega Temprano:** Las mañanas ofrecen temperaturas más frescas y estacionamiento más disponible.
 - **Empaca Inteligente:** Lleva protector solar, botellas de agua reutilizables, repelente de insectos, sombreros y sandalias acuáticas resistentes.
 - **Mantente Informado:** Consulta la [página de actividades de Hocking Hills](https://www.explorehockinghills.com/things-to-do/) o llama a los centros de visitantes para información actualizada sobre condiciones de baño y alertas meteorológicas.
-- **Planea Tus Descansos:** Aprovecha las horas más calurosas para regresar a Speakeasy Lodge o Luxe Haus Lodge—relájate con una bebida fría, toma una siesta o disfruta de un tratamiento de spa antes de salir de nuevo para ver el atardecer o cenar tranquilamente.
+- **Planea Tus Descansos:** Aprovecha las horas más calurosas para regresar a Speakeasy Lodge o Luxe Haus Lodge—relájate con una bebida fría o toma una siesta antes de salir de nuevo para ver el atardecer o cenar tranquilamente.
 - **En Familia:** Si viajas con niños, elige un solo destino principal para refrescarse y deja tiempos amplios para meriendas, sombra y diversión sin prisas.
 
 ### Toque de Lujo: Combina tu Día con el Lodge
-Después de nadar o chapotear, vuelve a tu lodge de lujo para una tarde de descanso. Tanto Speakeasy Lodge como Luxe Haus Lodge ofrecen confort con aire acondicionado, terrazas privadas y entornos boscosos ideales para relajarse antes de la noche. Reserva una cena tardía, disfruta del atardecer desde tu patio o consulta por tratamientos de spa en el lodge para completar tu escapada veraniega perfecta.
+Después de nadar o chapotear, vuelve a tu lodge de lujo para una tarde de descanso. Tanto Speakeasy Lodge como Luxe Haus Lodge ofrecen confort con aire acondicionado, terrazas privadas y entornos boscosos ideales para relajarse antes de la noche. Reserva una cena tardía o disfruta del atardecer desde tu patio para completar tu escapada veraniega perfecta.
 
 ### Cambios Recientes e Información para Visitantes
 Los horarios y reglas de acceso en los centros de visitantes y áreas de baño pueden cambiar en temporada alta. Para información actualizada, consulta la [página oficial de los Centros de Visitantes de Hocking Hills](https://www.explorehockinghills.com/visitor-centers/) o llama antes de ir.

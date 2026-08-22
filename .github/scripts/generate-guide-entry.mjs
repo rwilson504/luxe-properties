@@ -153,6 +153,7 @@ Requirements:
 - Incorporate seasonal relevance for ${month}
 - Include practical visitor information: hours, tips, nearby attractions, local events if relevant
 - Naturally mention our luxury lodges — Speakeasy Lodge and Luxe Haus Lodge — where appropriate
+- Do not describe or imply any lodge amenities or services; only mention the lodges as places to stay
 - Both English and Spanish versions required; Spanish must be a natural, idiomatic translation
 
 Respond with ONLY a valid JSON object (no markdown code fences, no extra text) matching this exact shape:
