@@ -212,7 +212,7 @@ function findUnlinkedAddressReferences(content) {
     .filter(({ line }) => {
       const lineWithoutGoogleMapLinks = line.replace(/\[[^\]]+\]\([^)]*google\.com\/maps[^)]*\)/gi, '');
       const hasAddressLikeText =
-        /\b\d{2,5}\s+(?:(?:OH|SR)-\d+\s*[NSEW]?|[\w.'’ -]+(?:Road|Rd\.?|Street|St\.?|Avenue|Ave\.?|Drive|Dr\.?|Lane|Ln\.?|Pike|Route|State Route|CR|County Road)\b)/i.test(lineWithoutGoogleMapLinks);
+        /\b(?:\d{2,5}\s+(?:(?:OH|SR)-\d+\s*[NSEW]?|[\w.'’ -]+(?:Road|Rd\.?|Street|St\.?|Avenue|Ave\.?|Drive|Dr\.?|Lane|Ln\.?|Pike|Route|State Route|CR|County Road)\b)|(?:OH|SR|US)-\d+\s*[NSEW]?,\s*[\w.'’ -]+,\s*[A-Z]{2}\b)/i.test(lineWithoutGoogleMapLinks);
       return hasAddressLikeText;
     });
 }
