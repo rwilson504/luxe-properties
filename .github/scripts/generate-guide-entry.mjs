@@ -210,10 +210,11 @@ function findUnlinkedAddressReferences(content) {
     .split('\n')
     .map((line, index) => ({ line, lineNumber: index + 1 }))
     .filter(({ line }) => {
+      const hasGoogleMapsLink = /google\.com\/maps/i.test(line);
       const lineWithoutGoogleMapLinks = line.replace(/\[[^\]]+\]\([^)]*google\.com\/maps[^)]*\)/gi, '');
       const hasAddressLikeText =
         /\b\d{2,5}\s+(?:(?:OH|SR)-\d+\s*[NSEW]?|[\w.'’ -]+(?:Road|Rd\.?|Street|St\.?|Avenue|Ave\.?|Drive|Dr\.?|Lane|Ln\.?|Pike|Route|State Route|CR|County Road)\b)/i.test(lineWithoutGoogleMapLinks) ||
-        (/\b(?:Address|Dirección|Location|Ubicación):/i.test(line) && !/google\.com\/maps/i.test(line));
+        (/\b(?:Address|Dirección|Location|Ubicación):/i.test(line) && !hasGoogleMapsLink);
       return hasAddressLikeText;
     });
 }
