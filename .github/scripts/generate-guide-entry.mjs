@@ -121,7 +121,7 @@ Prioritize checking these sources for current attractions, locations, and events
 - https://www.hockinghillsparklodge.com/about/events
 - https://ohiodnr.gov/go-and-do/plan-a-visit/events-calendar?keyword=Hocking%20Hills
 - https://registration.jgap.org/
-- https://www.explorehockinghills.com/festivals-events/?day=${day}&month=${String(date.getMonth() + 1).padStart(2, '0')}&year=${year}
+- https://www.explorehockinghills.com/festivals-events/?day=${String(day).padStart(2, '0')}&month=${String(date.getMonth() + 1).padStart(2, '0')}&year=${year}
 - https://www.hockinghillswinery.com/events
 - https://www.facebook.com/groups/443909735745109/
 - https://logantheater.org/
