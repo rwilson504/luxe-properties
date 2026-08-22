@@ -133,8 +133,9 @@ Your research brief should include:
 1. A suggested topic (genuinely different from those above)
 2. Seasonal relevance for ${month}
 3. Current, factual details: attraction names, hours, admission prices, addresses, upcoming events
-4. Practical visitor tips
-5. Any notable recent changes (closures, new openings, trail conditions)
+4. For every event venue or recommended place, find its official website, full street address, and phone number when publicly available; prefer details from the venue's official website
+5. Practical visitor tips
+6. Any notable recent changes (closures, new openings, trail conditions)
 
 Respond in plain text (not JSON). Be thorough and cite specific details.`;
 }
@@ -166,6 +167,8 @@ Requirements:
 - Content must be family-friendly
 - Incorporate seasonal relevance for ${month}
 - Include practical visitor information: hours, tips, nearby attractions, local events if relevant
+- For every event venue or recommended place, include its official website, full street address, and phone number when the research provides them
+- Link venue or place names to their official websites rather than third-party listings
 - Link any street address to its corresponding Google Maps page
 - Naturally mention our luxury lodges — Speakeasy Lodge and Luxe Haus Lodge — where appropriate
 - Do not describe or imply any lodge amenities or services; only mention the lodges as places to stay
