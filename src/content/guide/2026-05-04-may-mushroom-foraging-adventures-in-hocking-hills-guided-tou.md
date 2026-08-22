@@ -18,7 +18,7 @@ May signals the peak of morel mushroom season in Ohio’s Hocking Hills—a time
 
 **Hocking Hills State Park (Old Man’s Cave area)**
 - Prime foraging along trails near Ash Cave (Trail O, Ash Cave parking lot, accessible via SR-664).
-- Address: 19852 State Route 278, Logan, OH 43138
+- Address: [19852 State Route 664 S, Logan, OH 43138](https://www.google.com/maps/search/?api=1&query=19852%20State%20Route%20664%20S%2C%20Logan%2C%20OH%2043138)
 - Open daily dawn to dusk; admission free.
 
 **Ash Cave**
@@ -28,7 +28,7 @@ May signals the peak of morel mushroom season in Ohio’s Hocking Hills—a time
 
 **Hocking Hills State Park Lodge**
 - Nature programs often feature mushroom education.
-- Address: 9776 SR-664 N, Logan, OH 43138
+- Address: [9776 SR-664 N, Logan, OH 43138](https://www.google.com/maps/search/?api=1&query=9776%20SR-664%20N%2C%20Logan%2C%20OH%2043138)
 - Visitor Center: 10:00 AM – 4:00 PM daily in spring.
 
 ### Guided Foraging Tours & Family Events
@@ -38,7 +38,7 @@ Book a guided mushroom foraging tour with local outfitters like High Rock Advent
 - **Spring Creature Sessions at the Lodge**: Nature programs (10:00–11:00 AM) often expand to fungi education.
 
 Evenings bring more fun:
-- **Live Music at Hocking Hills Winery**: Local acts (6:00–9:00 PM), craft add-ons ($10–$20). Address: Near 9776 SR-664 N, Logan, OH.
+- **Live Music at Hocking Hills Winery**: Local acts (6:00–9:00 PM), craft add-ons ($10–$20). Address: [30402 Freeman Rd, Logan, OH 43138](https://www.google.com/maps/search/?api=1&query=30402%20Freeman%20Rd%2C%20Logan%2C%20OH%2043138).
 - **Craft Events (e.g., gnome making, mushroom themes)**: 4:00–7:00 PM, $20 for three crafts, BYOB.
 
 ### Practical Visitor Tips
@@ -80,7 +80,7 @@ Mayo marca el apogeo de la temporada de colmenillas en Hocking Hills, Ohio — c
 
 **Hocking Hills State Park (Área de Old Man’s Cave)**
 - Recolección ideal en senderos cerca de Ash Cave (Trail O, estacionamiento de Ash Cave, acceso por SR-664).
-- Dirección: 19852 State Route 278, Logan, OH 43138
+- Dirección: [19852 State Route 664 S, Logan, OH 43138](https://www.google.com/maps/search/?api=1&query=19852%20State%20Route%20664%20S%2C%20Logan%2C%20OH%2043138)
 - Abierto todos los días desde el amanecer hasta el anochecer; entrada gratuita.
 
 **Ash Cave**
@@ -90,7 +90,7 @@ Mayo marca el apogeo de la temporada de colmenillas en Hocking Hills, Ohio — c
 
 **Hocking Hills State Park Lodge**
 - Programas de naturaleza con educación sobre hongos.
-- Dirección: 9776 SR-664 N, Logan, OH 43138
+- Dirección: [9776 SR-664 N, Logan, OH 43138](https://www.google.com/maps/search/?api=1&query=9776%20SR-664%20N%2C%20Logan%2C%20OH%2043138)
 - Centro de visitantes: 10:00 AM – 4:00 PM diariamente en primavera.
 
 ### Tours Guiados y Eventos Familiares
@@ -100,7 +100,7 @@ Reserva un tour guiado de recolección de hongos con operadores locales como Hig
 - **Sesiones de Criaturas de Primavera en el Lodge**: Programas de naturaleza (10:00–11:00 AM) que incluyen educación sobre hongos.
 
 Por las tardes hay más diversión:
-- **Música en Vivo en Hocking Hills Winery**: Artistas locales (6:00–9:00 PM), actividades de manualidades ($10–$20). Dirección: cerca de 9776 SR-664 N, Logan, OH.
+- **Música en Vivo en Hocking Hills Winery**: Artistas locales (6:00–9:00 PM), actividades de manualidades ($10–$20). Dirección: [30402 Freeman Rd, Logan, OH 43138](https://www.google.com/maps/search/?api=1&query=30402%20Freeman%20Rd%2C%20Logan%2C%20OH%2043138).
 - **Eventos de Manualidades (por ejemplo, gnomos, temas de hongos)**: 4:00–7:00 PM, $20 por tres manualidades, BYOB.
 
 ### Consejos Prácticos para Visitantes

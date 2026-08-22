@@ -15,7 +15,7 @@ tags: ["luxury", "local flavors", "wine", "beer", "farm-to-table", "summer", "ev
 June in Hocking Hills is patio season at its finest—lush vineyards, warm afternoons, and sunset tastings await just minutes from Speakeasy Lodge and Luxe Haus Lodge. Whether you’re celebrating after a hike or seeking a leisurely evening, this guide spotlights the area’s best wineries, breweries, cider makers, and farm-to-table dining.
 
 ### Hocking Hills Winery (Logan)
-- **Address:** 30402 Freeman Rd, Logan, OH 43138
+- **Address:** [30402 Freeman Rd, Logan, OH 43138](https://www.google.com/maps/search/?api=1&query=30402%20Freeman%20Rd%2C%20Logan%2C%20OH%2043138)
 - **Hours:** Mon–Thu 1–8pm; Fri–Sat 12–9/10pm; Sun afternoons (summer hours may extend—check before visiting)
 - **Features:** Outdoor patio, tasting flights ($10–15), wine by glass/bottle, light fare, food trucks on weekends, live music select nights, dog-friendly outdoor areas
 - **Distance:** 12–15 minutes from Speakeasy Lodge; 15–20 minutes from Old Man’s Cave
@@ -26,7 +26,7 @@ June in Hocking Hills is patio season at its finest—lush vineyards, warm after
 - Designate a driver or arrange local transportation for safety.
 
 ### Le Petit Chevalier Vineyards & Farm Winery (Near Lake Hope)
-- **Address:** 26390 Chieftain Dr, Logan, OH 43138
+- **Address:** [26390 Chieftain Dr, Logan, OH 43138](https://www.google.com/maps/search/?api=1&query=26390%20Chieftain%20Dr%2C%20Logan%2C%20OH%2043138)
 - **Hours:** Open weekends and select days; summer hours expand (confirm before visiting)
 - **Features:** Estate-grown wine, tasting flights, rural hilltop views, tranquil agricultural setting
 
@@ -35,7 +35,7 @@ June in Hocking Hills is patio season at its finest—lush vineyards, warm after
 - Download directions ahead of time—cell service can be spotty.
 
 ### Hocking Hills Moonshine (Logan)
-- **Address:** 55 S Spring St, Logan, OH 43138
+- **Address:** [55 S Spring St, Logan, OH 43138](https://www.google.com/maps/search/?api=1&query=55%20S%20Spring%20St%2C%20Logan%2C%20OH%2043138)
 - **Hours:** Daily into early evening; extended hours Fri–Sat (check current schedule)
 - **Features:** Tasting room, flavored moonshines, distillery tours, bottle sales
 
@@ -45,14 +45,14 @@ June in Hocking Hills is patio season at its finest—lush vineyards, warm after
 - Combine with a meal or stroll in downtown Logan.
 
 ### Craft Beer & Cider: Regional Pairings
-- **Jackie O’s Brewery (Athens):** 25 Campbell St, Athens, OH 45701; 45–55 minutes from Logan. Renowned Ohio craft beers and food options.
+- **Jackie O’s Brewery (Athens):** [25 Campbell St, Athens, OH 45701](https://www.google.com/maps/search/?api=1&query=25%20Campbell%20St%2C%20Athens%2C%20OH%2045701); 45–55 minutes from Logan. Renowned Ohio craft beers and food options.
 - **Local Taprooms:** Logan and Hocking Hills restaurants feature Ohio craft beers and ciders—perfect for patio sipping after outdoor adventures.
 
 **June Tips:**
 - Athens is a great half-day trip for beer enthusiasts; always plan safe transport.
 
 ### Farm-to-Table & Elevated Dining
-- **Kindred Spirits Restaurant (Inn & Spa at Cedar Falls):** 21190 OH-374, Logan, OH 43138
+- **Kindred Spirits Restaurant (Inn & Spa at Cedar Falls):** [21190 OH-374, Logan, OH 43138](https://www.google.com/maps/search/?api=1&query=21190%20OH-374%2C%20Logan%2C%20OH%2043138)
 - **Hours:** Breakfast & dinner daily; lunch select days. Dinner reservations highly encouraged for June weekends.
 - **Features:** Locally sourced ingredients, seasonal menus, rustic-luxury ambiance
 
@@ -84,7 +84,7 @@ Speakeasy Lodge and Luxe Haus Lodge offer ideal bases for exploring these local 
 Junio en Hocking Hills es la temporada ideal para patios—viñedos verdes, tardes cálidas y degustaciones al atardecer te esperan a minutos de Speakeasy Lodge y Luxe Haus Lodge. Ya sea después de una caminata o para una noche tranquila, esta guía destaca las mejores bodegas, cervecerías, sidrerías y restaurantes farm-to-table de la zona.
 
 ### Hocking Hills Winery (Logan)
-- **Dirección:** 30402 Freeman Rd, Logan, OH 43138
+- **Dirección:** [30402 Freeman Rd, Logan, OH 43138](https://www.google.com/maps/search/?api=1&query=30402%20Freeman%20Rd%2C%20Logan%2C%20OH%2043138)
 - **Horario:** Lun–Jue 1–8pm; Vie–Sáb 12–9/10pm; Dom por la tarde (horario ampliado en verano—verificar antes de ir)
 - **Características:** Patio exterior, vuelos de degustación ($10–15), vino por copa/botella, bocados ligeros, food trucks los fines de semana, música en vivo algunas noches, áreas exteriores dog-friendly
 - **Distancia:** 12–15 minutos desde Speakeasy Lodge; 15–20 minutos desde Old Man’s Cave
@@ -95,7 +95,7 @@ Junio en Hocking Hills es la temporada ideal para patios—viñedos verdes, tard
 - Designa un conductor o usa transporte local para seguridad.
 
 ### Le Petit Chevalier Vineyards & Farm Winery (Cerca de Lake Hope)
-- **Dirección:** 26390 Chieftain Dr, Logan, OH 43138
+- **Dirección:** [26390 Chieftain Dr, Logan, OH 43138](https://www.google.com/maps/search/?api=1&query=26390%20Chieftain%20Dr%2C%20Logan%2C%20OH%2043138)
 - **Horario:** Abierto fines de semana y algunos días adicionales; horario ampliado en verano (confirma antes de visitar)
 - **Características:** Vinos de la finca, vuelos de degustación, vistas rurales en lo alto, ambiente agrícola relajado
 
@@ -104,7 +104,7 @@ Junio en Hocking Hills es la temporada ideal para patios—viñedos verdes, tard
 - Descarga las direcciones antes de salir—la señal de celular puede ser limitada.
 
 ### Hocking Hills Moonshine (Logan)
-- **Dirección:** 55 S Spring St, Logan, OH 43138
+- **Dirección:** [55 S Spring St, Logan, OH 43138](https://www.google.com/maps/search/?api=1&query=55%20S%20Spring%20St%2C%20Logan%2C%20OH%2043138)
 - **Horario:** Diario hasta temprano en la tarde; horario ampliado Vie–Sáb (verifica el horario actual)
 - **Características:** Sala de degustación, moonshine con sabores, tours de destilería, venta de botellas
 
@@ -114,14 +114,14 @@ Junio en Hocking Hills es la temporada ideal para patios—viñedos verdes, tard
 - Combínalo con una comida o paseo por el centro de Logan.
 
 ### Cerveza Artesanal y Sidra: Opciones Regionales
-- **Jackie O’s Brewery (Athens):** 25 Campbell St, Athens, OH 45701; 45–55 minutos desde Logan. Cervezas artesanales reconocidas y opciones de comida.
+- **Jackie O’s Brewery (Athens):** [25 Campbell St, Athens, OH 45701](https://www.google.com/maps/search/?api=1&query=25%20Campbell%20St%2C%20Athens%2C%20OH%2045701); 45–55 minutos desde Logan. Cervezas artesanales reconocidas y opciones de comida.
 - **Taprooms Locales:** Restaurantes en Logan y Hocking Hills ofrecen cervezas y sidras de Ohio—perfectas para disfrutar en el patio tras aventuras al aire libre.
 
 **Consejos de junio:**
 - Athens es ideal para una excursión de medio día si eres amante de la cerveza; planea siempre transporte seguro.
 
 ### Farm-to-Table y Alta Cocina
-- **Kindred Spirits Restaurant (Inn & Spa at Cedar Falls):** 21190 OH-374, Logan, OH 43138
+- **Kindred Spirits Restaurant (Inn & Spa at Cedar Falls):** [21190 OH-374, Logan, OH 43138](https://www.google.com/maps/search/?api=1&query=21190%20OH-374%2C%20Logan%2C%20OH%2043138)
 - **Horario:** Desayuno y cena todos los días; almuerzo algunos días. Reserva la cena con anticipación, especialmente los fines de semana de junio.
 - **Características:** Ingredientes locales, menús de temporada, ambiente rústico y elegante
 
