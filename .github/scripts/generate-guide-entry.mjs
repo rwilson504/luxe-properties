@@ -99,8 +99,10 @@ async function callOpenRouter(messages, apiKey, model, maxTokens = 3500, provide
 // ---------------------------------------------------------------------------
 
 function buildResearchPrompt(existingEntries, dateStr) {
-  const month = new Date(dateStr).toLocaleString('en-US', { month: 'long' });
-  const year = new Date(dateStr).getFullYear();
+  const date = new Date(dateStr);
+  const month = date.toLocaleString('en-US', { month: 'long' });
+  const year = date.getFullYear();
+  const day = date.getDate();
 
   const existingTopicsList = existingEntries
     .map((a) => `  - ${a.title}`)
@@ -111,6 +113,18 @@ Today's date is ${dateStr} (${month} ${year}).
 
 Search the web and compile a research brief for a NEW local-guide entry topic about Hocking Hills.
 The website's "Local Guide" features things to do, seasonal tips, and travel inspiration — not news.
+
+Prioritize checking these sources for current attractions, locations, and events, while also using other reliable sources as needed:
+- https://www.hockinghills.com/activities.html
+- https://www.hockinghills.com/calendar_of_events.html
+- https://www.tripadvisor.com/Attractions-g2424170-Activities-oa90-Hocking_Hills_Ohio.html
+- https://www.hockinghillsparklodge.com/about/events
+- https://ohiodnr.gov/go-and-do/plan-a-visit/events-calendar?keyword=Hocking%20Hills
+- https://registration.jgap.org/
+- https://www.explorehockinghills.com/festivals-events/?day=${day}&month=${String(date.getMonth() + 1).padStart(2, '0')}&year=${year}
+- https://www.hockinghillswinery.com/events
+- https://www.facebook.com/groups/443909735745109/
+- https://logantheater.org/
 
 Existing guide entries — the new topic must NOT overlap with any of these:
 ${existingTopicsList}
@@ -152,6 +166,7 @@ Requirements:
 - Content must be family-friendly
 - Incorporate seasonal relevance for ${month}
 - Include practical visitor information: hours, tips, nearby attractions, local events if relevant
+- Link any street address to its corresponding Google Maps page
 - Naturally mention our luxury lodges — Speakeasy Lodge and Luxe Haus Lodge — where appropriate
 - Do not describe or imply any lodge amenities or services; only mention the lodges as places to stay
 - Both English and Spanish versions required; Spanish must be a natural, idiomatic translation
