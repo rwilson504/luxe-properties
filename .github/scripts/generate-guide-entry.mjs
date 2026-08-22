@@ -211,8 +211,8 @@ function findUnlinkedAddressReferences(content) {
     .map((line, index) => ({ line, lineNumber: index + 1 }))
     .filter(({ line }) => {
       const lineWithoutGoogleMapLinks = line.replace(/\[[^\]]+\]\([^)]*google\.com\/maps[^)]*\)/gi, '');
-      const streetAddressPattern = /\b\d{2,5}\s+(?:(?:OH|SR)-\d+\s*[NSEW]?|[\w.'’ -]+(?:Road|road|Rd\.?|rd\.?|Street|street|St\.?|st\.?|Avenue|avenue|Ave\.?|ave\.?|Drive|drive|Dr\.?|dr\.?|Lane|lane|Ln\.?|ln\.?|Pike|pike|Route|route|State Route|state route|CR|County Road|county road)\b)/;
-      const routeAddressPattern = /\b(?:OH|SR|US)-\d+\s*[NSEW]?,\s*[\w.'’ -]+,\s*[A-Z]{2}\b/;
+      const streetAddressPattern = /\b\d{2,5}\s+(?:(?:OH|SR)-\d+\s*[NSEW]?|[\w.'’ \-]+(?:Road|road|Rd\.?|rd\.?|Street|street|St\.?|st\.?|Avenue|avenue|Ave\.?|ave\.?|Drive|drive|Dr\.?|dr\.?|Lane|lane|Ln\.?|ln\.?|Pike|pike|Route|route|State Route|state route|CR|County Road|county road)\b)/;
+      const routeAddressPattern = /\b(?:OH|SR|US)-\d+\s*[NSEW]?,\s*[\w.'’ \-]+,\s*[A-Z]{2}\b/;
       const hasAddressLikeText =
         streetAddressPattern.test(lineWithoutGoogleMapLinks) ||
         routeAddressPattern.test(lineWithoutGoogleMapLinks);
