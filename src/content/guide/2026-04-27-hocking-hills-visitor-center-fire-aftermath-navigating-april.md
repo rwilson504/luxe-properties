@@ -16,7 +16,7 @@ Spring in Hocking Hills is a time of renewal—milder weather, fresh greenery, a
 
 ### What’s Closed & What’s Open
 
-As of April 27, the Old Man’s Cave Visitor Center (main entrance off OH-664, Logan, OH) is closed due to smoke and water damage. The fire was quickly contained, sparing the main gallery and critical infrastructure, and—most importantly—no one was hurt. While officials investigate and clean up, there’s no set reopening date yet. But good news: all hiking trails and park access remain fully open, and Lower Falls is easily accessible.
+As of April 27, the Old Man’s Cave Visitor Center ([main entrance off OH-664, Logan, OH](https://www.google.com/maps/search/?api=1&query=Old%20Man%E2%80%99s%20Cave%20Visitor%20Center%2C%20OH-664%2C%20Logan%2C%20OH)) is closed due to smoke and water damage. The fire was quickly contained, sparing the main gallery and critical infrastructure, and—most importantly—no one was hurt. While officials investigate and clean up, there’s no set reopening date yet. But good news: all hiking trails and park access remain fully open, and Lower Falls is easily accessible.
 
 **Restroom access:** Portable toilets are available at the Visitor Center site. For more comfort, guests at Speakeasy Lodge and Luxe Haus Lodge can use in-lodge amenities or stop at Cantwell Cliffs or Conkle’s Hollow lots (confirm open facilities via park signage).
 
@@ -50,7 +50,7 @@ Staying at Speakeasy Lodge or Luxe Haus Lodge means your adventure begins and en
 ### Events & What’s Next
 
 There are no major events in April 2026, but the spring calendar is lively:
-- **Spring Hocking Hills Craft Show:** Plan ahead for June 13–14, 2026, at 20374 Clay Lick Road, Logan, OH. Artisans, live music, and family fun—book your stay early if you want to attend!
+- **Spring Hocking Hills Craft Show:** Plan ahead for June 13–14, 2026, at [20374 Clay Lick Road, Logan, OH](https://www.google.com/maps/search/?api=1&query=20374%20Clay%20Lick%20Road%2C%20Logan%2C%20OH). Artisans, live music, and family fun—book your stay early if you want to attend!
 - **Monthly Open Mic:** First Tuesday of each month, join local musicians and poets at the grand lobby—next up, May 6, 7–9 PM.
 
 ### A Spring Getaway, Reimagined
@@ -69,7 +69,7 @@ La primavera en Hocking Hills es sinónimo de renovación: clima templado, veget
 
 ### ¿Qué está cerrado y qué permanece abierto?
 
-Desde el 27 de abril, el Centro de Visitantes de Old Man’s Cave (entrada principal vía OH-664, Logan, OH) permanece cerrado por daños de humo y agua. El incendio fue controlado rápidamente, sin afectar la galería principal ni infraestructura crítica, y, lo más importante, sin heridos. Mientras las autoridades investigan y limpian, aún no hay fecha de reapertura. Pero hay buenas noticias: todos los senderos y accesos al parque siguen abiertos, y Lower Falls está disponible para visitantes.
+Desde el 27 de abril, el Centro de Visitantes de Old Man’s Cave ([entrada principal vía OH-664, Logan, OH](https://www.google.com/maps/search/?api=1&query=Old%20Man%E2%80%99s%20Cave%20Visitor%20Center%2C%20OH-664%2C%20Logan%2C%20OH)) permanece cerrado por daños de humo y agua. El incendio fue controlado rápidamente, sin afectar la galería principal ni infraestructura crítica, y, lo más importante, sin heridos. Mientras las autoridades investigan y limpian, aún no hay fecha de reapertura. Pero hay buenas noticias: todos los senderos y accesos al parque siguen abiertos, y Lower Falls está disponible para visitantes.
 
 **Baños públicos:** Hay baños portátiles en el sitio del Centro de Visitantes. Para mayor comodidad, quienes se hospedan en Speakeasy Lodge o Luxe Haus Lodge pueden usar los baños de la propiedad o detenerse en Cantwell Cliffs o Conkle’s Hollow (verifica en la señalización del parque).
 
@@ -103,7 +103,7 @@ Alojarte en Speakeasy Lodge o Luxe Haus Lodge te permite disfrutar la aventura c
 ### Eventos y próximos planes
 
 No hay eventos importantes en abril de 2026, pero la agenda primaveral se anima:
-- **Spring Hocking Hills Craft Show:** Planea tu visita para el 13–14 de junio de 2026, en 20374 Clay Lick Road, Logan, OH. Artesanos, música y diversión familiar—reserva tu lodge con antelación si deseas asistir.
+- **Spring Hocking Hills Craft Show:** Planea tu visita para el 13–14 de junio de 2026, en [20374 Clay Lick Road, Logan, OH](https://www.google.com/maps/search/?api=1&query=20374%20Clay%20Lick%20Road%2C%20Logan%2C%20OH). Artesanos, música y diversión familiar—reserva tu lodge con antelación si deseas asistir.
 - **Micrófono abierto mensual:** El primer martes de cada mes, únete a músicos y poetas en la recepción principal—próxima fecha, 6 de mayo, 7–9 PM.
 
 ### Una escapada de primavera, reinventada
