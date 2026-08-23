@@ -99,8 +99,10 @@ async function callOpenRouter(messages, apiKey, model, maxTokens = 3500, provide
 // ---------------------------------------------------------------------------
 
 function buildResearchPrompt(existingEntries, dateStr) {
-  const month = new Date(dateStr).toLocaleString('en-US', { month: 'long' });
-  const year = new Date(dateStr).getFullYear();
+  const date = new Date(dateStr);
+  const month = date.toLocaleString('en-US', { month: 'long' });
+  const year = date.getFullYear();
+  const day = date.getDate();
 
   const existingTopicsList = existingEntries
     .map((a) => `  - ${a.title}`)
@@ -112,6 +114,18 @@ Today's date is ${dateStr} (${month} ${year}).
 Search the web and compile a research brief for a NEW local-guide entry topic about Hocking Hills.
 The website's "Local Guide" features things to do, seasonal tips, and travel inspiration — not news.
 
+Prioritize checking these sources for current attractions, locations, and events, while also using other reliable sources as needed:
+- https://www.hockinghills.com/activities.html
+- https://www.hockinghills.com/calendar_of_events.html
+- https://www.tripadvisor.com/Attractions-g2424170-Activities-oa90-Hocking_Hills_Ohio.html
+- https://www.hockinghillsparklodge.com/about/events
+- https://ohiodnr.gov/go-and-do/plan-a-visit/events-calendar?keyword=Hocking%20Hills
+- https://registration.jgap.org/
+- https://www.explorehockinghills.com/festivals-events/?day=${String(day).padStart(2, '0')}&month=${String(date.getMonth() + 1).padStart(2, '0')}&year=${year}
+- https://www.hockinghillswinery.com/events
+- https://www.facebook.com/groups/443909735745109/
+- https://logantheater.org/
+
 Existing guide entries — the new topic must NOT overlap with any of these:
 ${existingTopicsList}
 
@@ -119,8 +133,9 @@ Your research brief should include:
 1. A suggested topic (genuinely different from those above)
 2. Seasonal relevance for ${month}
 3. Current, factual details: attraction names, hours, admission prices, addresses with Google Maps URLs, upcoming events
-4. Practical visitor tips
-5. Any notable recent changes (closures, new openings, trail conditions)
+4. For every event venue or recommended place, find its official website, full street address, and phone number when publicly available; prefer details from the venue's official website
+5. Practical visitor tips
+6. Any notable recent changes (closures, new openings, trail conditions)
 
 Respond in plain text (not JSON). Be thorough and cite specific details.`;
 }
@@ -152,6 +167,8 @@ Requirements:
 - Content must be family-friendly
 - Incorporate seasonal relevance for ${month}
 - Include practical visitor information: hours, tips, nearby attractions, local events if relevant
+- For every event venue or recommended place, include its official website, full street address, and phone number when the research provides them
+- Link venue or place names to their official websites rather than third-party listings
 - Whenever an address or exact venue location appears in either language, format it as a Markdown link to a Google Maps page
 - Use Google Maps search URLs in this format: https://www.google.com/maps/search/?api=1&query=URL_ENCODED_ADDRESS_OR_VENUE
 - Naturally mention our luxury lodges — Speakeasy Lodge and Luxe Haus Lodge — where appropriate
