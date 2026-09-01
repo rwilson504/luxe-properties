@@ -1,0 +1,69 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="BOWSWC QuickBooks Integration - Hocking Luxury Lodges" description="Information about the BOWSWC internal QuickBooks Online integration." noindex={true}>
+  <div class="container py-4">
+    <h1>BOWSWC QuickBooks Integration</h1>
+
+    <p>BOWSWC is a private, internal accounting tool operated by Because Our Wives Said
+    We Could LLC. It connects to our own QuickBooks Online company through Intuit's
+    official API to help maintain our bookkeeping records.</p>
+
+    <h2>There is no web application to sign in to</h2>
+
+    <p>This integration is a command line utility that runs on infrastructure we
+    control. It has no hosted dashboard, no customer login, and no public user
+    interface. If you followed a link here expecting an application to launch, that
+    is why there is nothing to sign in to.</p>
+
+    <p>The tool is not offered to the public. It is not sold, licensed, or distributed,
+    and it has no users outside our own company.</p>
+
+    <h2>Connecting or reconnecting</h2>
+
+    <p>Authorization is performed directly by an administrator of our QuickBooks
+    company, using Intuit's standard OAuth 2.0 flow, initiated from the machine
+    where the tool runs. There is no web-based connect button, because there is no
+    web application.</p>
+
+    <p>If the connection lapses, an administrator repeats that authorization from the
+    same machine.</p>
+
+    <h2>Disconnecting</h2>
+
+    <p>Access can be revoked at any time, and revocation takes effect immediately.
+    Either method works:</p>
+
+    <ul>
+      <li>In <strong>QuickBooks Online</strong>, open the connected apps settings and disconnect
+        BOWSWC.</li>
+      <li>In the <strong>Intuit developer console</strong>, revoke the app's authorization.</li>
+    </ul>
+
+    <p>No action on this website is required to disconnect, and nothing on this page
+    can grant or remove access.</p>
+
+    <h2>Data handling</h2>
+
+    <p>The tool reads and records accounting data within our own QuickBooks company
+    only. It does not access any other Intuit account. Data is not sold, rented,
+    shared, or transferred to third parties.</p>
+
+    <p>Full details:</p>
+
+    <ul>
+      <li><a href="/legal/quickbooks-integration-eula/">End User License Agreement</a></li>
+      <li><a href="/legal/quickbooks-integration-privacy/">Privacy Policy</a></li>
+    </ul>
+
+    <h2>Relationship to Intuit</h2>
+
+    <p>BOWSWC is not produced, endorsed, or supported by Intuit Inc. QuickBooks and
+    QuickBooks Online are trademarks of Intuit Inc.</p>
+
+    <h2>Contact</h2>
+
+    <p><strong>luxehauslodge@gmail.com</strong></p>
+  </div>
+</Layout>
