@@ -8,6 +8,9 @@ dist/
 .env
 .env.production
 
+# local agent session records
+SESSION_LOG.md
+
 # generated types
 .astro/
 
