@@ -1,0 +1,92 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Privacy Policy - Hocking Luxury Lodges" description="Privacy policy for the BOWSWC QuickBooks Online integration." noindex={true}>
+  <div class="container py-4">
+    <h1>Privacy Policy</h1>
+    <p><strong>Software:</strong> BOWSWC<br />
+    <strong>Operator:</strong> Because Our Wives Said We Could LLC ("we", "us")<br />
+    <strong>Last updated:</strong> September 1, 2026</p>
+
+    <h2>1. Scope</h2>
+    <p>This policy describes how BOWSWC ("the Software") handles data
+    obtained through the QuickBooks Online API.</p>
+    <p>The Software is a private, internal accounting tool operated by
+    Because Our Wives Said We Could LLC for its own business records. It has no customers and no
+    public users. It collects no information from visitors to this page.</p>
+
+    <h2>2. What data the Software accesses</h2>
+    <p>The Software connects to a single QuickBooks Online company owned by
+    Because Our Wives Said We Could LLC. Within that company, it may access:</p>
+    <ul>
+      <li>Financial transactions, including invoices, expenses, bills, and deposits</li>
+      <li>Chart of accounts, classes, and other accounting structures</li>
+      <li>Customer and vendor records, including names and contact details stored in
+        QuickBooks by us</li>
+      <li>Standard financial reports, such as profit and loss and balance sheet</li>
+    </ul>
+    <p>It accesses only the QuickBooks company that authorized it. It does not access
+    any other Intuit account, and it cannot access data belonging to any other
+    business or individual.</p>
+
+    <h2>3. What the Software writes</h2>
+    <p>The Software is capable of recording and modifying accounting transactions in
+    the connected QuickBooks company, including creating expenses, allocating
+    amounts across accounting classes, and creating supporting records such as
+    vendors and classes.</p>
+    <p>All such changes occur only within Because Our Wives Said We Could LLC's own QuickBooks company
+    and only at our direction.</p>
+
+    <h2>4. How data is stored</h2>
+    <p>Data retrieved from QuickBooks is processed on infrastructure controlled by
+    Because Our Wives Said We Could LLC. It is not uploaded to any third-party service, not stored
+    in any cloud database operated by us, and not transmitted anywhere other than
+    between our own systems and Intuit's API.</p>
+    <p>OAuth access and refresh tokens are stored on our own systems in files
+    restricted to the operating system account running the Software.</p>
+
+    <h2>5. Data sharing</h2>
+    <p><strong>We do not sell, rent, share, or transfer QuickBooks data to any third party.</strong></p>
+    <p>There is no advertising, no analytics, no tracking, and no data brokerage
+    associated with the Software. Data may be disclosed only where required by law,
+    or to our own accountant or tax preparer in the ordinary course of preparing our
+    financial statements and filings.</p>
+
+    <h2>6. Data retention</h2>
+    <p>Locally stored accounting data is retained only as long as needed for our
+    bookkeeping and recordkeeping obligations, and may be deleted at any time
+    without affecting the records held in QuickBooks Online.</p>
+    <p>Authorization tokens are deleted when the connection is revoked.</p>
+
+    <h2>7. Security</h2>
+    <p>Access to the Software and its stored credentials is limited to authorized
+    representatives of Because Our Wives Said We Could LLC. Credentials are stored with
+    filesystem-level access restrictions and are excluded from source control.
+    Connections to Intuit are made over HTTPS using Intuit's official OAuth 2.0
+    implementation.</p>
+    <p>No system is perfectly secure, and we make no guarantee of absolute security.</p>
+
+    <h2>8. Revoking access</h2>
+    <p>Authorization can be revoked at any time from within QuickBooks Online, under
+    the connected apps settings, or through the Intuit developer console. Revocation
+    immediately ends the Software's ability to read or write data.</p>
+
+    <h2>9. Children's privacy</h2>
+    <p>The Software is a business accounting tool. It is not directed at children and
+    does not knowingly process any personal information relating to children.</p>
+
+    <h2>10. Relationship to Intuit</h2>
+    <p>The Software is not produced, endorsed, or supported by Intuit Inc. Data held
+    within QuickBooks Online is additionally governed by Intuit's own privacy
+    policy, which is not modified by this document.</p>
+
+    <h2>11. Changes</h2>
+    <p>This policy may be updated to reflect changes in the Software's behavior. The
+    "last updated" date above indicates the most recent revision.</p>
+
+    <h2>12. Contact</h2>
+    <p>Questions regarding this policy may be sent to:</p>
+    <p><strong>luxehauslodge@gmail.com</strong></p>
+  </div>
+</Layout>
